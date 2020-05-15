@@ -1,0 +1,146 @@
+body {
+  background: #fafafa;
+  touch-action: none;
+}
+body .container {
+  bottom: 0;
+}
+body .container .weui-panel__bd {
+  padding: 20px 15px 0 15px;
+  margin-top: 10px;
+  background: #fff;
+}
+body .container .weui-panel__bd .weui-media-box .weui-cells .weui-cell {
+  padding: 0;
+}
+body .container .weui-panel__bd .weui-media-box .weui-cells .weui-cell .weui-cell__bd {
+  display: flex;
+  align-items: center;
+}
+body .container .weui-panel__bd .weui-media-box .weui-cells .weui-cell .weui-cell__bd img {
+  width: 22px;
+  height: 22px;
+}
+body .container .weui-panel__bd .weui-media-box .weui-cells .weui-cell a {
+  display: flex;
+  align-items: center;
+}
+body .container .weui-panel__bd .weui-media-box .weui-cells .weui-cell a p {
+  color: #333;
+}
+body .container .weui-panel__bd .weui-media-box .weui-cells .weui-cell a .r-icon {
+  width: 22px;
+  height: 22px;
+  margin-left: 5px;
+}
+body .container .weui-panel__bd .weui-media-box .weui-grids .line {
+  width: 1px;
+  height: 30px;
+  background: #ccc;
+  display: inline-block;
+  vertical-align: middle;
+}
+body .container .weui-panel__bd .weui-media-box .weui-grids .width-line {
+  height: 1px;
+  background: #ededed;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+}
+body .container .weui-panel__bd .weui-media-box .weui-grids .weui-grid-half {
+  width: 49%;
+}
+body .container .weui-panel__bd .weui-media-box .weui-grids .weui-grid-half .total {
+  color: #fcb058;
+  font-size: 13px;
+}
+body .container .weui-panel__bd .weui-media-box .weui-grids .weui-grid-half .text {
+  color: #666666;
+  font-size: 13px;
+}
+body .container .weui-panel__bd .weui-media-box .weui-flex .weui-flex__item {
+  text-align: center;
+  font-size: 13px;
+  padding: 15px 0;
+}
+body .container .weui-panel__bd .weui-media-box .weui-flex .weui-flex__item .num {
+  color: #fcb058;
+  font-size: 16px;
+}
+body .container .weui-panel__bd .weui-media-box .weui-flex .weui-flex__item .num p {
+  display: inline;
+  margin-right: 4px;
+}
+body .container .weui-panel__bd .weui-media-box .weui-flex .weui-flex__item p {
+  color: #fcb058;
+  font-size: 16px;
+}
+body .container .weui-panel__bd .weui-media-box .weui-flex .weui-flex__item .text {
+  color: #666666;
+}
+body .container .weui-panel__bd .weui-media-box .weui-flex .line {
+  width: 1px;
+  height: 30px;
+  position: relative;
+  top: 20px;
+  background: #ededed;
+  display: flex;
+  align-items: center;
+}
+body .container .weui-panel__bd .weui-media-box .single {
+  width: 50%;
+}
+body .container .weui-panel__bd .weui-media-box .width-line {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  height: 1px;
+  background: #ededed;
+}
+body #mountNode {
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.iconfont {
+  margin-right: 5px;
+  display: block;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.gray {
+  color: #c7c7d1;
+  margin-left: 5px;
+}
+
+.purple {
+  color: #9789B6;
+}
+
+.yellow {
+  color: #FFAC38;
+}
+
+.blue {
+  color: #70C4F4;
+}
+
+.green {
+  color: #88BE77;
+}
+
+.weui-mask {
+  visibility: inherit;
+}
+
+.weui-grids:before, .weui-cells:after {
+  border: none;
+}
+
+.weui-cells:after, .weui-grid:after, .weui-grid:before {
+  border: none;
+}

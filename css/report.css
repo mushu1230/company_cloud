@@ -1,0 +1,17 @@
+.weui-cell__hd {
+  min-width: 84px;
+  margin-right: 20px;
+  font-size: 14px;
+}
+.weui-cell__hd .weui-label {
+  width: auto;
+}
+
+.weui-textarea {
+  overflow: auto;
+  word-break: break-all;
+}
+
+.mark.active {
+  display: none;
+}

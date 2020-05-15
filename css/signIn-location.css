@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fafafa;
+}
+
+#geoPage,
+#markPage {
+  position: relative;
+}
+
+.address {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  font-size: 14px;
+  padding: 0 15px;
+  background-color: #fff;
+}
+.address .iconfont {
+  color: #ffac38;
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 15px;
+  background-color: #fff;
+}
+.user .content {
+  display: flex;
+  align-items: center;
+}
+.user .content .label {
+  font-size: 14px;
+  color: #333333;
+  margin-right: 20px;
+}
+.user .content .input {
+  line-height: 60px;
+}
+.user .content .input:focus {
+  border: none;
+  outline: none;
+}
+.user .iconfont {
+  font-size: 20px;
+  color: #999;
+}
+
+.signIn-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100% - 354px);
+}
+.signIn-box .signIn-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(#ffb957, #ffac38);
+  box-shadow: 0px 3px 6px rgba(255, 187, 92, 0.75);
+  margin: auto;
+}
+.signIn-box .signIn-btn.active {
+  background: linear-gradient(#70c4f4, #63a2e4);
+  box-shadow: 0px 3px 6px rgba(99, 162, 228, 0.75);
+}

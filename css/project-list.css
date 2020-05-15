@@ -1,0 +1,150 @@
+html,
+body {
+  height: 100%;
+  background-color: #fafafa;
+  overflow: hidden;
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.content .hd {
+  position: relative;
+  height: 50px;
+  z-index: 99;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #fff;
+  box-sizing: border-box;
+  z-index: 99;
+}
+.content .hd .search-box {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+.content .hd .search-box .search {
+  width: 100%;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 20px;
+  font-size: 12px;
+  text-align: left;
+  margin: auto;
+  background-color: #fafafa;
+}
+.content .hd .search-box .search-btn {
+  position: absolute;
+  right: 30px;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 18px;
+  color: #fcb058;
+  text-align: center;
+}
+.content .bd {
+  flex: 1;
+  overflow-y: scroll;
+}
+.content .bd .weui-cells {
+  background-color: #FAFAFA;
+}
+.content .bd .weui-cells:first-of-type:before {
+  border: none;
+}
+.content .bd .weui-cells:before {
+  border-color: #ededed;
+}
+.content .bd .weui-cell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 12px 15px;
+  overflow: hidden;
+}
+.content .bd .weui-cell:before {
+  right: 15px;
+}
+.content .bd .weui-cell .project {
+  width: 100%;
+}
+.content .bd .weui-cell .project .project-header {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+.content .bd .weui-cell .project .project-header .name {
+  font-size: 15px;
+}
+.content .bd .weui-cell .project .project-header .tip {
+  height: 12px;
+  line-height: 12px;
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 2px;
+  box-sizing: content-box;
+}
+.content .bd .weui-cell .project .project-header .tip.before {
+  color: #fcb058;
+}
+.content .bd .weui-cell .project .project-header .tip.being {
+  color: #88be77;
+}
+.content .bd .weui-cell .project .project-header .tip.after {
+  color: #63a2e4;
+}
+.content .bd .weui-cell .project .project-header .tip.overdue {
+  color: #f27474;
+}
+.content .bd .weui-cell .project .project-date {
+  font-size: 13px;
+  color: #666;
+}
+.content .bd .weui-cell .project > .project-date:nth-of-type(2) {
+  margin-top: 4px;
+}
+.content .bd .weui-cell .project .project-name {
+  display: flex;
+  justify-content: space-between;
+}
+.content .bd .add {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 30px;
+  font-size: 24px;
+  text-align: center;
+  color: #fff;
+  background-color: #fcb058;
+  z-index: 99;
+}
+
+.mark {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 97;
+  transition: .3s;
+}
+.mark.active {
+  display: block;
+}

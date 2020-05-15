@@ -1,0 +1,100 @@
+body {
+  background: #fafafa;
+  touch-action: none;
+}
+body .weui-panel__bd {
+  margin: 0;
+}
+body .weui-panel__bd .weui-media-box .weui-media-box__hd {
+  width: 44px;
+  height: 44px;
+  margin-right: 10px;
+}
+body .weui-panel__bd .weui-media-box .weui-media-box__bd .weui-media-box__title {
+  font-size: 15px;
+}
+body .weui-panel__bd .weui-media-box .weui-media-box__ft {
+  width: 70px;
+  color: #666;
+  font-size: 13px;
+}
+body .weui-panel__bd .weui-media-box .gray {
+  color: #c7c7d1;
+  font-size: 16px;
+  line-height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+}
+body .weui-panel__bd .weui-media-box input {
+  width: 80px;
+  padding: 0;
+  text-align: right;
+}
+body .weui-panel__bd .weui-media-box_small-appmsg {
+  padding: 0 0 15px 0;
+}
+body .weui-panel__bd .line {
+  width: 100%;
+  height: 1px;
+  background: #ededed;
+  display: flex;
+}
+body .top {
+  padding: 0 !important;
+  margin-top: 0 !important;
+}
+body .chart-wrapper {
+  background: #fff;
+  margin-top: -10px;
+}
+body #mountNode {
+  padding-bottom: 0;
+}
+
+#shuju {
+  padding: 0 0 15% 0;
+  width: 100%;
+  margin-top: -8%;
+  padding-bottom: 15px;
+}
+#shuju li {
+  width: 50%;
+  display: inline-block;
+}
+#shuju li:nth-child(1) .subtitle .color {
+  background: #1890FF;
+}
+#shuju li:nth-child(2) .subtitle .color {
+  background: #2FC25B;
+}
+
+.subtitle {
+  display: flex;
+  align-items: center;
+}
+.subtitle .color {
+  display: block;
+  background: #007AFF;
+  width: 12px;
+  height: 12px;
+}
+.subtitle .text {
+  font-size: 14px;
+  color: #666;
+  margin: 0 10px;
+}
+.subtitle .cost {
+  font-size: 14px;
+  color: #333;
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  #shuju {
+    padding: 0 2% 15px 2%;
+  }
+}
+@media (max-width: 320px) {
+  #shuju li {
+    width: 100%;
+  }
+}
