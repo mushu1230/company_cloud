@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>考勤-请假</title>
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/jquery-weui.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/send-add.css" />
+		<link rel="stylesheet" type="text/css" href="css/item.css" />
+		<link rel="stylesheet" type="text/css" href="css/attendance.css" />
+		<script type="text/javascript" src="plugins/weui/js/jquery-2.1.4.js"></script>
+	</head>
+
+	<body id="progressAdd" class="attendance-approve">
+		<div class="weui-tab">
+			<div class="weui-navbar" style="display: block;">
+				<div class="" style="display: flex;">
+					<a class="weui-navbar__item weui-bar__item--on">
+						<div class="weui-navbar__icon"></div>
+						<p class="weui-navbar__label">待处理</p>
+						<span></span>
+					</a>
+					<a class="weui-navbar__item">
+						<div class="weui-navbar__icon"></div>
+						<p class="weui-navbar__label">已处理</p>
+						<span></span>
+					</a>
+					<a class="weui-navbar__item">
+						<div class="weui-navbar__icon"></div>
+						<p class="weui-navbar__label">抄送我</p>
+						<span></span>
+					</a>
+				</div>
+
+				<div class="weui-search-bar" id="searchBar">
+					<form class="weui-search-bar__form">
+						<div class="weui-search-bar__box">
+							<i class="weui-icon-search"></i>
+							<input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+							<a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+						</div>
+						<label class="weui-search-bar__label" id="searchText">
+						    <i class="weui-icon-search"></i>
+						    <span>请输入关键词进行搜索</span>
+						</label>
+					</form>
+					<a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+				</div>
+			</div>
+
+			<div class="weui-tab__bd">
+				<div id="" class="weui-tab__bd-item weui-tab__bd-item--active">
+					<div class="record" id="container">
+						<div id="content" class="weui-cells">
+							<!--列表加载内容-->
+							<div class="weui-cell report-cell">
+								<div class="customer-group">
+									<div class="img">刘</div>
+									<div class="time-info">
+										<div class="info-myAtt">
+											<div class="name-info">
+												<span class="name">刘娜娜</span>的请假申请
+											</div>
+											<div class="report">
+												<div class="describe">
+													开始时间：
+													<p class="timeRecord">2020-3-24 11:12</p>
+												</div>
+												<div class="describe">
+													结束时间：
+													<p class="timeRecord">2020-3-24 11:12</p>
+												</div>
+												<div class="describe">
+													时长：
+													<p class="timeRecord">1小时</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="detail">
+										<div class="date">2019-06-06</div>
+										<div class="state">
+											<div class="record-pass">已通过</div>
+											<div class="record-wait">待审批</div>
+											<div class="record-refuse">已拒绝</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--滚动加载-->
+						<div class="weui-loadmore">
+							<i class="weui-loading"></i>
+							<span class="weui-loadmore__tips">正在加载</span>
+						</div>
+						<!--				<div class="add iconfont icon-add"></div>-->
+					</div>
+				</div>
+
+				<!--记录页面-->
+				<div id="tab2" class="weui-tab__bd-item">
+					<div class="record" id="container">
+						<div id="content" class="weui-cells">
+							<!--列表加载内容-->
+							<div class="weui-cell report-cell">
+								<div class="customer-group">
+									<div class="img">刘</div>
+									<div class="time-info">
+										<div class="info-myAtt">
+											<div class="name-info">
+												<span class="name">刘娜娜</span>的请假申请
+											</div>
+											<div class="report">
+												<div class="describe">
+													开始时间：
+													<p class="timeRecord">2020-3-24 11:12</p>
+												</div>
+												<div class="describe">
+													结束时间：
+													<p class="timeRecord">2020-3-24 11:12</p>
+												</div>
+												<div class="describe">
+													时长：
+													<p class="timeRecord">1小时</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="detail">
+										<div class="date">2019-06-06</div>
+										<div class="state">
+											<div class="record-pass">已通过</div>
+											<div class="record-wait">待审批</div>
+											<div class="record-refuse">已拒绝</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--滚动加载-->
+						<div class="weui-loadmore">
+							<i class="weui-loading"></i>
+							<span class="weui-loadmore__tips">正在加载</span>
+						</div>
+						<!--				<div class="add iconfont icon-add"></div>-->
+					</div>
+				</div>
+				<div id="tab3" class="weui-tab__bd-item">
+					<div class="record" id="container">
+						<div id="content" class="weui-cells">
+							<!--列表加载内容-->
+							<div class="weui-cell report-cell">
+								<div class="customer-group">
+									<div class="img">刘</div>
+									<div class="time-info">
+										<div class="info-myAtt">
+											<div class="name-info">
+												<span class="name">刘娜娜</span>的请假申请
+											</div>
+											<div class="report">
+												<div class="describe">
+													开始时间：
+													<p class="timeRecord">2020-3-24 11:12</p>
+												</div>
+												<div class="describe">
+													结束时间：
+													<p class="timeRecord">2020-3-24 11:12</p>
+												</div>
+												<div class="describe">
+													时长：
+													<p class="timeRecord">1小时</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="detail">
+										<div class="date">2019-06-06</div>
+										<div class="state">
+											<div class="record-pass">已通过</div>
+											<div class="record-wait">待审批</div>
+											<div class="record-refuse">已拒绝</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--滚动加载-->
+						<div class="weui-loadmore">
+							<i class="weui-loading"></i>
+							<span class="weui-loadmore__tips">正在加载</span>
+						</div>
+						<!--				<div class="add iconfont icon-add"></div>-->
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+	<!--<script src="plugins/weui/js/weui.js" type="text/javascript" charset="utf-8"></script>-->
+	<script src="plugins/weui/js/jquery-weui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="plugins/weui/js/jquery-weui.min.js" type="text/javascript" charset="utf-8"></script>
+
+	<!--<script src="plugins/weui/js/fastclick.js" type="text/javascript" charset="utf-8"></script>-->
+
+	<!--<script src="js/baes.js" type="text/javascript" charset="utf-8"></script>-->
+
+	<script type="text/javascript">
+		$(function() {
+			FastClick.attach(document.body);
+		});
+
+		/*--------------记录页面 ----------*/
+		var pages = 3;
+		var sizes = 3;
+		var total = 5;
+		var loading = false;
+		$(function() {
+			loadlist();
+			loading = false; //状态标记
+		})
+		//============================滚动加载
+		$("#container").infinite().on("infinite", function() {
+			if(loading) return;
+			loading = true;
+			pages++; //页数
+			$('.weui-loadmore').show();
+			setTimeout(function() {
+				loadlist();
+				loading = false;
+			}, 1000);
+		});
+		// =======加载数据loadlist();
+		function loadlist() {
+			var html = "";
+			$.ajax({
+				type: "get",
+				url: "shuju.json",
+				data: { 'page': pages, 'limit': sizes, },
+				dataType: "json",
+				error: function(request) {
+					$(".weui-loadmore").hide();
+					html += '<div class=" weui-loadmore_line" style="width:65%;margin:1.5em auto;line-height:1.6em;font-size:14px;text-align:center">\n' +
+						'<span class="weui-loadmore__tips">无更多数据</span>\n' +
+						'</div>';
+					$("#content").append(html);
+				},
+				success: function(data) {
+					console.log(data)
+					var data_length = data.length;
+					if(data.length > 0) {
+						for(var i = 0; i < data.length; i++) {
+							var date = data[i].date;
+							var recent = data[i].recent;
+							var time = data[i].time;
+							var address = data[i].address;
+							//暂时的数据
+							html += '<div class="weui-cell report-cell"><div class="customer-group"><div class="img">刘</div><div class="time-info"><div class="info-myAtt"><div class="name-info"><span class="name">刘娜娜</span>的请假申请 </div><div class="report"><div class="describe">开始时间： <p class="timeRecord">2020-3-24 11:12</p></div><div class="describe">结束时间： <p class="timeRecord">2020-3-24 11:12</p></div><div class="describe">时长： <p class="timeRecord">1小时</p></div></div></div></div><div class="detail"><div class="date">2019-06-06</div><div class="state"><div class="record-pass">已通过</div><div class="record-wait">待审批</div><div class="record-refuse">已拒绝</div></div></div></div></div>';
+						}
+						$("#content").append(html);
+					} else {
+						html += '<div class="weui-loadmore_line" style="width:65%;margin:1.5em auto;line-height:1.6em;font-size:14px;text-align:center">\n' +
+							'<span class="weui-loadmore__tips">无更多数据</span>\n' +
+							'</div>';
+						$("#content").append(html);
+						loading = true;
+					}
+					$(".weui-loadmore").hide();
+					tap();
+				}
+			});
+		}
+	</script>
+
+</html>

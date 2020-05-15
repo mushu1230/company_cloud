@@ -1,0 +1,152 @@
+<!doctype html PUBLIC>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>打卡</title>
+		<meta name="viewport" content="width=device-width user-scalable= 'no'">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weuix.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/clockIn.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/calendar_base.css" />
+
+	</head>
+
+	<body id="monthRecord">
+		<div class="main">
+			<div class="context weui-cells">
+				<div class=" staWrap" id="mySta" style="display: block;">
+					<div class="content">
+						<div class="weui-cell report-cell">
+							<div class="customer-group">
+								<div class="img">刘</div>
+								<div class="time-info">
+									<div class="info-myAtt">
+										<div class="name-info">
+											<div class="">
+												<span class="name">刘垣辰</span>
+											</div>
+											<div class="post">软件研发部-开发</div>
+										</div>
+									</div>
+								</div>
+								<!--<div class="detail">
+									<div class="state">
+										<a class="monthly" href="clockIn-record.html">
+											<img src="img/monthly.png" /> 打卡月历
+										</a>
+									</div>
+								</div>-->
+							</div>
+						</div>
+						<div class="mui-content monthWrap" id="month">
+							<div class="em-journal-title">
+								<div class="em-per-block pre">
+									<span class="mui-icon mui-icon-arrowleft"></span>
+								</div>
+								<div class="em-per-block mid">
+									<span>...</span>
+								</div>
+								<div class="em-per-block next">
+									<span class="mui-icon mui-icon-arrowright"></span>
+								</div>
+							</div>
+							<!--日历容器-->
+							<div id="monthcalendar">
+							</div>
+						</div>
+					</div>
+					<!--分隔-->
+					<div class="partition">
+					</div>
+					<!--打卡状态统计-->
+					<div class="weui-cells sta-info">
+						
+						<div class="weui-cell sta-list">
+							<div class="list-l">
+								出勤天数
+							</div>
+							<div class="list-r">
+								<span>6天</span>
+							</div>
+						</div>
+						<div class="weui-cell sta-list">
+							<div class="list-l">
+								休息天数
+							</div>
+							<div class="list-r">
+								<span>6天</span>
+
+							</div>
+						</div>
+						<div class="weui-cell sta-list">
+							<div class="list-l">
+								迟到
+							</div>
+							<div class="list-r">
+								<span>0分钟</span>
+							</div>
+						</div>
+						<div class="weui-cell sta-list">
+							<div class="list-l">
+								早退
+							</div>
+							<div class="list-r">
+								<span>0分钟</span>
+
+							</div>
+						</div>
+						<div class="weui-cell sta-list">
+							<div class="list-l">
+								缺卡
+							</div>
+							<div class="list-r">
+								<span>0次</span>
+							</div>
+						</div>
+						<div class="weui-cell sta-list">
+							<div class="list-l">
+								旷工
+							</div>
+							<div class="list-r">
+								<span>0</span>天
+							</div>
+						</div>
+						<div class="weui-cell sta-list">
+							<div class="list-l">
+								外勤
+							</div>
+							<div class="list-r">
+								<span>0次</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="plugins/weui/js/jquery-2.1.4.js"></script>
+		<!--图表-->
+		<script src="plugins/weui/js/fastclick.js"></script>
+		
+		<!--月历-->
+		<script src="plugins/weui/js/swiper.min.js"></script>
+		<script src="plugins/mui/js/mui.min.js"></script>
+		<script src="js/mustache.min.js"></script>
+		<script src="js/calendar_base_month.js"></script>
+		<script src="js/calendar_showcase.js"></script>
+		<script type="text/javascript">
+			//点击穿透
+			$(function() {
+				FastClick.attach(document.body);
+			});
+		</script>
+	</body>
+
+</html>

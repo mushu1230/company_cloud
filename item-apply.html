@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>实施费用申请</title>
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/jquery-weui.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/item.css" />
+
+		<script type="text/javascript" src="plugins/weui/js/jquery-2.1.4.js"></script>
+		<script src="plugins/weui/js/jquery-weui.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body id="itemApply">
+		<div class="weui-cells weui-cells_form">
+			<div class="weui-cell  weui-cell_access">
+				<div class="weui-cell__hd">
+					<label for="" class="weui-label">项目</label>
+				</div>
+				<div class="weui-cell__ft">
+					<select class="weui-select" name="select2" id="select">
+						<option value="" style="display: none" class="option-title">请选择项目</option>
+						<option value="1">软件项目</option>
+						<option value="2">工程项目</option>
+						<option value="3">333333</option>
+					</select>
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>合同编号</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="请输入合同编号">
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>合同金额</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="请输入合同金额">
+				</div>
+			</div>
+			<a class="weui-cell weui-cell_access" href="javascript:;">
+				<div class="weui-cell__hd">
+					<label for="time1" class="weui-label">合同工期</label>
+				</div>
+				<div class="weui-cell__ft">
+					<input data-options='{"value":"2015-10-10 10:10","beginYear":2000,"endYear":2020}' class="weui-input btn" id="time1" type="text" placeholder="请选择">
+				</div>
+			</a>
+
+			<a class="weui-cell weui-cell_access" href="javascript:;">
+				<div class="weui-cell__hd">
+					<label for="time2" class="weui-label">进场时间</label>
+				</div>
+				<div class="weui-cell__ft "><input data-options='{"value":"2015-10-10 10:10","beginYear":2000,"endYear":2020}' class="weui-input btn" id="time2" type="text" placeholder="请选择"></div>
+			</a>
+			<a class="weui-cell weui-cell_access" href="javascript:;">
+				<div class="weui-cell__hd">
+					<label for="time3" class="weui-label">预计竣工时间</label>
+				</div>
+				<div class="weui-cell__ft"><input data-options='{"value":"2015-10-10 10:10","beginYear":2000,"endYear":2020}' class="weui-input btn" id="time3" type="text" placeholder="请选择"></div>
+			</a>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>项目经理</label>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="请输入项目经理">
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>实施费用预算</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="请输入实施费用预算">
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>实施参与人员</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="请输入实施参与人员">
+				</div>
+			</div>
+			<div class="weui-cells weui-cells_form">
+				<div class="weui-cell  weui-cell_access">
+					<div class="weui-cell__hd">
+						<label for="" class="weui-label">项目是否外包</label>
+					</div>
+					<div class="weui-cell__ft">
+						<select class="weui-select" name="select2" id="select">
+							<option value="" style="display: none" class="option-title">请选择是否外包</option>
+							<option value="1">是</option>
+							<option value="2">否</option>
+						</select>
+					</div>
+				</div>
+				<div class="weui-cell">
+					<div class="weui-cell__hd">
+						<p>外包费用预算</p>
+					</div>
+					<div class="weui-cell__ft">
+						<input class="weui-input" type="text" placeholder="请输入外包费用预算">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="weui-cells weui-cells_form bottom">
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>交通费用</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="请输入交通费">
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>食宿费用</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="请输入食宿日费用*天数合计">
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>租房费用</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="请输入租房费用">
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>租房其他费用</label>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="请输入租房其他费用">
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>其他费用</label>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="打印、快递、工具等现场费用">
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>预计费用</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="请输入预计费用">
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>借款额度</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="请输入借款额度">
+				</div>
+			</div>
+		</div>
+
+		<div class='submit-btn'>
+			<a href="javascript:;" class="weui-btn weui-btn_submit">保存</a>
+		</div>
+
+	</body>
+	<script src="plugins/weui/js/weui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="plugins/weui/js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/baes.js" type="text/javascript" charset="utf-8"></script>
+
+	<script>
+		$(function() {
+			FastClick.attach(document.body);
+		});
+
+		$("#time1").datetimePicker({
+			times: function() {
+				return [];
+			}
+		});
+		$("#time2").datetimePicker({
+			times: function() {
+				return [];
+			}
+		});
+		$("#time3").datetimePicker({
+			times: function() {
+				return [];
+			}
+		});
+	</script>
+
+</html>

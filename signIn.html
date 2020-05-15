@@ -1,0 +1,535 @@
+<!doctype html PUBLIC>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>签到</title>
+    <meta name="viewport" content="width=device-width user-scalable= 'no'">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css"/>
+    <link rel="stylesheet" type="text/css" href="plugins/weui/css/weuix.css"/>
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="css/sign-record.css"/>
+    <link rel="stylesheet" type="text/css" href="css/calendar.css">
+	<script src="plugins/weui/js/jquery-2.1.4.js"></script>
+	<script src="plugins/weui/js/jquery-weui.min.js"></script>
+	<script src="js/sign.js"></script>	
+	<script src="js/calendar.js"></script> 
+	<script type="text/javascript" src="js/baes.js" ></script>
+	<script type="text/javascript">
+		//点击穿透
+		
+window.addEventListener(function(){   
+    FastClick.attach( document.body );  
+},false );
+	</script>
+	<style type="text/css">
+		textarea::-webkit-input-placeholder{color:#999;}
+	</style>
+</head>
+
+<body onload="startTime()">
+	<div class="weui-tab">
+	  	<div class="weui-tab__bd">
+			<!--签到-->
+			<div id="tab1" class="weui-tab__bd-item  weui-tab__bd-item--active">
+	      		<div class="address" data-full = "trim">
+	      			<div class="address-left">
+	      				<i class="iconfont icon-louyu"></i>
+					<span class="address-info"></span>
+	      			</div>
+					<div class="address-right">
+					<div class="trimBtn"><i class="iconfont icon-youjiantou"></i></div>
+					</div>
+				</div>
+			    <!--  通过 iframe 嵌入前端定位组件，此处没有隐藏定位组件，使用了定位组件的在定位中视觉特效  -->
+			    <iframe id="geoPage" width="100%" height="0" frameborder=0 scrolling="no" src="https://apis.map.qq.com/tools/geolocation?key=6LLBZ-QMLCX-HNA4L-T3ADN-4O3V5-BFFLB&referer=myapp&effect=zoom"></iframe>
+			    <!-- 接收到位置信息后 通过 iframe 嵌入位置标注组件 -->
+			    <div class="" style="height: 180px; overflow: hidden;">
+			    	<iframe id="markPage" width="100%" height="300px"  frameborder=0 scrolling="no" src=""></iframe>
+			    </div>
+			    <div class="user">
+			    	<div class="content">
+			    		<div class="label">拜访客户</div>
+			    		<input class="input" placeholder="选择客户或者输入" value="">
+			    		<!--<i class="iconfont icon-book-user-o"></i>-->
+			    	</div>
+			    </div>
+
+				<div class="weui-cell" style="background: #fff;">
+					<div class="weui-cell__hd" style="min-width: 45px;">
+						<label for="" class="weui-label">备注</label>
+					</div>
+					<div class="weui-cell__ft" style="color: #333;">
+						<textarea class="weui-textarea" placeholder="请输入" rows="1" ></textarea>
+					</div>
+				</div>
+
+			    <!--上传-->
+				<div class="weui-cells weui-cells_form">
+				    <div class="weui-gallery" id="gallery">
+				        <span class="weui-gallery__img" id="galleryImg"></span>
+				        <div class="weui-gallery__opr">
+				            <a href="javascript:" class="weui-gallery__del">
+				                <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+				            </a>
+				        </div>
+				    </div>
+				    <div class="weui-cell" id="uploader">
+				        <div class="weui-cell__bd">
+				            <div class="weui-uploader">
+				                <div class="weui-uploader__hd">
+				                <p class="weui-uploader__title">图片</p>
+				                <div class="weui-uploader__info"><span id="uploadCount">0</span>/6</div>
+				                </div>
+				                <div class="weui-uploader__bd">
+				                    <ul class="weui-uploader__files" id="uploaderFiles">
+				 
+				                    </ul>
+				                    <div class="weui-uploader__input-box ">
+				                        <!--<input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/jpg,image/jpeg,image/png" />-->
+				                        <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" capture="camera" />
+				                    </div>
+				                </div>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+			    <div class="signIn-box">
+			    	<div  id='show-toast' class=" signIn-btn">
+				    	<div class="text">
+				    		签到
+				    	</div>
+				    	<div id="time"></div>
+				    </div>
+			    </div>
+	        </div>
+	      	<!--记录-->
+	    	<div id="tab2" class="weui-tab__bd-item">
+				<div class="container" id="container">	
+					<!--顶部栏-->
+					<div class="weui-panel weui-panel_access">
+					  	<div class="weui-panel__bd">
+					    	<div href="" class="weui-media-box weui-media-box_appmsg">
+						      	<div class="weui-media-box__hd">
+						        	<img class="weui-media-box__thumb" src="img/remind.png">
+						     	</div>
+						      	<div class="weui-media-box__bd">
+						        	<h4 class="weui-media-box__title">刘垣辰</h4>
+						        	<p class="weui-media-box__desc">银河系负责人</p>
+						      	</div>
+						      	<!--<input id="date" type="text"  class="open-popup weui-media-box__ft" data-target="#choosedate" readonly="readonly"/>-->
+            					<input type="text" name="test" id="date" class="calendars weui-media-box__ft backInput" shield="['2019/3/10', '2019/4/10', '2019/5/10']" placeholder="选择日期" >
+								<i id="" class="iconfont icon-xiajiantou calendars gray"></i>	
+					    	</div>
+					  	</div>
+					</div>
+					<!--时间线-->
+					<div class="content" id="content">
+						<div class="timeline clear">
+							<div class="date">
+								<p>2019-4-28</p>
+							</div>
+						    <ul>
+						        <li class="timeline-item">
+						            <div class="timeline-item-color timeline-item-head"></div>
+						            <div class="timeline-item-tail"></div>
+						            <div class="timeline-item-content">
+						            	<h4 class="recent"></h4>
+						                <span class="time">12:00:00</span>
+						                <p class="record-address">广达创远(河南)科技发展有限公司</p>
+						                <ul class="photo_list" id="">
+				                   			<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+				                   		
+						                </ul>
+						            </div>
+						        </li>
+						        <li class="timeline-item">
+						            <div class="timeline-item-color timeline-item-head"></div>
+						            <div class="timeline-item-tail"></div>
+						            <div class="timeline-item-content">
+						            	<h4 class="recent">张三</h4>
+						                <span class="time">12:00:00</span>
+						                <p class="record-address">广达创远(河南)科技发展有限公司</p>
+						            	<ul class="photo_list" id="">
+				                   			<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+					                   		<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+				                   			<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+				                   			<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+				                   			<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+				                   			<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+				                   			<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+				                   			<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+				                   			<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+				                   			<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+						                </ul>
+						            </div>
+						        </li>
+						        <li class="timeline-item">
+						            <div class="timeline-item-color timeline-item-head"></div>
+						            <div class="timeline-item-tail hide"></div>
+						            <div class="timeline-item-content">
+						            	<h4 class="recent">张三</h4>
+						                <span class="time">12:00:00</span>
+						                <p class="record-address">广达创远(河南)科技发展有限公司</p>
+						            	<ul class="photo_list" id="">
+				                   			<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+					                   		<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+				                   			<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+				                   			<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+				                   			<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+				                   			<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+				                   			<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+				                   			<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+				                   			<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+				                   			<li class="photo">  
+				                   				<img src="img/icon-folder.svg"/>
+				                   			</li>
+						                </ul>
+						            </div>
+						        </li>
+						    </ul>
+						</div>
+						
+						<div class="timeline clear">
+							<div class="date">
+								<p>2019-4-27</p>
+							</div>
+						    <ul>
+						        <li class="timeline-item">
+						            <div class="timeline-item-color timeline-item-head"></div>
+						            <div class="timeline-item-tail"></div>
+						            <div class="timeline-item-content">
+						            	<h4 class="recent">张三</h4>
+						                <span class="time">12:00:00</span>
+						                <p class="record-address">广达创远(河南)科技发展有限公司</p>
+						            </div>
+						        </li>
+						        <li class="timeline-item">
+						            <div class="timeline-item-color timeline-item-head"></div>
+						            <div class="timeline-item-tail"></div>
+						            <div class="timeline-item-content">
+						            	<h4 class="recent">张三</h4>
+						                <span class="time">12:00:00</span>
+						                <p class="record-address">广达创远(河南)科技发展有限公司</p>
+						            </div>
+						        </li>
+						        <li class="timeline-item">
+						            <div class="timeline-item-color timeline-item-head"></div>
+						            <div class="timeline-item-tail"></div>
+						            <div class="timeline-item-content">
+						            	<h4 class="recent">张三</h4>
+						                <span class="time">12:00:00</span>
+						                <p class="record-address">广达创远(河南)科技发展有限公司</p>
+						            </div>
+						        </li>
+						        <li class="timeline-item">
+						            <div class="timeline-item-color timeline-item-head"></div>
+						            <div class="timeline-item-tail hide"></div>
+						            <div class="timeline-item-content">
+						            	<h4 class="recent">张三</h4>
+						                <span class="time">12:00:00</span>
+						                <p class="record-address">广达创远(河南)科技发展有限公司</p>
+						            </div>
+						        </li>
+						    </ul>
+						</div>
+						
+						<div class="timeline clear">
+							<div class="date">
+								<p>2019-4-26</p>
+							</div>
+						    <ul>
+						        <li class="timeline-item">
+						            <div class="timeline-item-color timeline-item-head"></div>
+						            <div class="timeline-item-tail"></div>
+						            <div class="timeline-item-content">
+						            	<h4 class="recent">张三</h4>
+						                <span class="time">12:00:00</span>
+						                <p class="record-address">广达创远(河南)科技发展有限公司</p>
+						            </div>
+						        </li>
+						        <li class="timeline-item">
+						            <div class="timeline-item-color timeline-item-head"></div>
+						            <div class="timeline-item-tail"></div>
+						            <div class="timeline-item-content">
+						            	<h4 class="recent">张三</h4>
+						                <span class="time">12:00:00</span>
+						                <p class="record-address">广达创远(河南)科技发展有限公司</p>
+						            </div>
+						        </li>
+						        <li class="timeline-item">
+						            <div class="timeline-item-color timeline-item-head"></div>
+						            <div class="timeline-item-tail"></div>
+						            <div class="timeline-item-content">
+						            	<h4 class="recent">张三</h4>
+						                <span class="time">12:00:00</span>
+						                <p class="record-address">广达创远(河南)科技发展有限公司</p>
+						            </div>
+						        </li>
+						        <li class="timeline-item">
+						            <div class="timeline-item-color timeline-item-head"></div>
+						            <div class="timeline-item-tail hide"></div>
+						            <div class="timeline-item-content">
+						            	<h4 class="recent">张三</h4>
+						                <span class="time">12:00:00</span>
+						                <p class="record-address">广达创远(河南)科技发展有限公司</p>
+						            </div>
+						        </li>
+						    </ul>
+						</div>
+					</div>
+					<!--滚动加载-->	
+					<div class="weui-loadmore">
+					    <i class="weui-loading"></i>
+					    <span class="weui-loadmore__tips">正在加载</span>
+					</div>
+				</div>
+				<!--图片放大显示遮罩-->
+				<div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:1000;width:100%;height:100%;display:none;">
+				  	<div id="innerdiv" style="position:absolute;">
+				    	<img id="bigimg" src="" />
+				  	</div>
+				</div>
+			</div>
+      	</div>
+		<!--底部固定导航-->
+		<div class="weui-tabbar" >
+		    <a href="#tab1" class="weui-tabbar__item weui-bar__item--on">
+			    <div class="weui-tabbar__icon"> 
+			    	<i class="iconfont icon-qiandao"></i>
+			    </div>
+			    <p class="weui-tabbar__label active">签到</p>
+		    </a>
+		    <a href="#tab2" class="weui-tabbar__item  ">
+			    <div class="weui-tabbar__icon">
+			    	<i class="iconfont icon-tongji"></i>
+			    </div>
+			    <p class="weui-tabbar__label">记录</p>
+		    </a>
+		</div>
+		
+		<div class="fullBox" data-full = "trim">
+			<div class="fullModal">
+				<div class="address-trim">
+				</div>
+			</div>
+			<div class="btn-box">
+					<a href="javascript:;" class="weui-btn weui-btn_primary close-full">确定</a>
+				</div>
+		</div>
+	</div>
+	<script src="plugins/weui/js/fastclick.js"></script>
+	<!--图片上传所需JS-->
+	<script src="plugins/weui/js/weui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/uploading.js" type="text/javascript" charset="utf-8"></script>
+	<!--地图定位-->
+	<script type="text/javaScript">
+		//地图
+        var loc;
+        var isMapInit = false ;
+        //监听定位组件的message事件
+        window.addEventListener('message', function(event) {
+            loc = event.data; // 接收位置信息
+//			$(".address span").html(loc. city+loc.district+loc.addr)
+            if(loc  && loc.module == 'geolocation') { //定位成功,防止其他应用也会向该页面post信息，需判断module是否为'geolocation'
+                var markUrl = 'https://apis.map.qq.com/tools/poimarker' +
+                '?marker=coord:' + loc.lat + ',' + loc.lng +
+                ';title:我的位置;addr:' + (loc.addr || loc.city) +
+                '&key=6LLBZ-QMLCX-HNA4L-T3ADN-4O3V5-BFFLB&referer=myapp';
+                //给位置展示组件赋值
+                document.getElementById('markPage').src = markUrl;
+            } else { //定位组件在定位失败后，也会触发message, event.data为null
+				//alert('定位失败');
+            }
+ 
+            //另一个使用方式
+			//if (!isMapInit && !loc) { //首次定位成功，创建地图
+			//   isMapInit = true;
+			//   createMap(event.data);
+			//} else if (event.data) { //地图已经创建，再收到新的位置信息后更新地图中心点
+			//   	updateMapCenter(event.data);
+			//  }
+        }, false);
+        //为防止定位组件在message事件监听前已经触发定位成功事件，在此处显示请求一次位置信息
+        document.getElementById("geoPage").contentWindow.postMessage('getLocation', '*');
+ 
+        //设置6s超时，防止定位组件长时间获取位置信息未响应
+        setTimeout(function() {
+            if(!loc) {
+                //主动与前端定位组件通信（可选），获取粗糙的IP定位结果
+            document.getElementById("geoPage")
+                .contentWindow.postMessage('getLocation.robust', '*');
+            }
+        }, 6000); //6s为推荐值，业务调用方可根据自己的需求设置改时间，不建议太短
+        //定位微调
+        var fullBtn = ".address";//全屏按钮  //全屏插件
+        var fullBox = ".fullBox";//全屏容器
+        var closeBtn = ".close-full";//关闭全屏
+        var trimAdress;//微调定位
+        var trimAdressID; //微调定位id
+        var RecentPosID=localStorage.getItem("RecentPos");
+//      res.result.pois[$(".address-trim-list.active").index()].id
+        full()
+        function aaa(res) {//回调函数
+        	$.each(res.result.pois, function(i) { 
+        		var strHtml;//拼接地址列表
+        		strHtml = `<div class="address-trim-list"> ${res.result.pois[i].title}</div>`;
+        		$(".fullBox[data-full=trim]").find('.address-trim').append(strHtml);
+        		
+        		trimAdressID = res.result.pois[i].id;//自动填充上次定位信息
+        		if(trimAdressID==RecentPosID){
+        			trimAdress = res.result.pois[i].title;
+        			$(".address .address-info").text(trimAdress);
+        			$(".address-trim-list").eq(i).addClass("active");
+        		}
+        	});
+        	if($(".address-trim-list").hasClass('active')){
+        	}
+        	else{
+        		$(".address-trim-list").eq(0).addClass("active");
+        		$(".address .address-info").text(res.result.pois[0].title);
+        	}
+        	
+        	$(".address-trim-list").click(function(){//点击地址列表标记
+				$(this).addClass("active").siblings().removeClass("active");
+				
+			})
+			$(".close-full").click(function(){//点击确定记录地址
+				trimAdress = $(".address-trim-list.active").text();
+				localStorage.setItem("RecentPos",res.result.pois[$(".address-trim-list.active").index()].id);//记忆上次定位信息
+				trimAdress = $(".address .address-info").text(trimAdress);
+			})
+        }
+		$(window).load(function() {//加载微调位置
+			var loclatlng = `${loc.lat},${loc.lng}`;//经纬度
+			//创建script
+			var oHead = document.getElementsByTagName('HEAD').item(0);
+			var oScript = document.createElement("script");
+			var mapsrc = "https://apis.map.qq.com/ws/geocoder/v1/?location=" + loclatlng + "&get_poi=1&output=jsonp&poi_options=address_format=short;radius=100;page_size=50;policy=4&key=PF2BZ-NZS3F-PZFJP-JYRVM-RSWZ7-B2BGL&callback=aaa";
+			oScript.type = "text/javascript";
+			oScript.src = mapsrc;
+			oHead.appendChild(oScript);
+			
+		});
+		
+		//时钟 
+		function startTime(){
+			var today=new Date()
+			var h=today.getHours()
+			var m=today.getMinutes()
+			var s=today.getSeconds()
+			// add a zero in front of numbers<10
+			m=checkTime(m)
+			s=checkTime(s)
+			document.getElementById('time').innerHTML=h+":"+m+":"+s
+			t=setTimeout('startTime()',500)
+		}
+		function checkTime(i){
+			if (i<10){i="0" + i}
+			return i
+		}
+
+        //签到
+    	$(document).on("click", "#show-toast", function() {
+    		trimAdress = $(".address").text();
+    		$("#show-toast").addClass( "active")
+    		.find(".text").html("已签到")
+    		$("#show-toast").removeAttr("id")
+    		//打印地址和时间
+	        $.toast("签到成功", function() {
+        		alert(trimAdress);
+    			alert(loc. city+loc.district+loc.addr+ loc.lat + ',' + loc.lng);
+    			alert($("#time").text());
+	        });
+     	})
+    	
+    	$(function(){ 
+		    $(".photo img").click(function(){ 
+		      	var _this = $(this);//将当前的pimg元素作为_this传入函数 
+		      	imgShow("#outerdiv", "#innerdiv", "#bigimg", _this); 
+		    }); 
+		}); 
+		function imgShow(outerdiv, innerdiv, bigimg, _this){ 
+		    var src = _this.attr("src");//获取当前点击的pimg元素中的src属性 
+		    $(bigimg).attr("src", src);//设置#bigimg元素的src属性 
+		    /*获取当前点击图片的真实大小，并显示弹出层及大图*/
+		    $("<img/>").attr("src", src).load(function(){ 
+		      	var windowW = $(window).width();//获取当前窗口宽度 
+		      	var windowH = $(window).height();//获取当前窗口高度 
+		      	var realWidth = this.width;//获取图片真实宽度 
+		      	var realHeight = this.height;//获取图片真实高度 
+		      	var imgWidth, imgHeight; 
+		      	var scale = 0.8;//缩放尺寸，当图片真实宽度和高度大于窗口宽度和高度时进行缩放 
+		      	if(realHeight>windowH*scale) {//判断图片高度 
+		        	imgHeight = windowH*scale;//如大于窗口高度，图片高度进行缩放 
+		        	imgWidth = imgHeight/realHeight*realWidth;
+		        	//等比例缩放宽度
+		        	if(imgWidth>windowW*scale) {//如宽度扔大于窗口宽度 
+		          	imgWidth = windowW*scale;//再对宽度进行缩放 
+		        	} 
+		      	} else if(realWidth>windowW*scale) {//如图片高度合适，判断图片宽度 
+		        	imgWidth = windowW*scale;//如大于窗口宽度，图片宽度进行缩放 
+		            imgHeight = imgWidth/realWidth*realHeight;
+		            //等比例缩放高度
+		      	} else {//如果图片真实高度和宽度都符合要求，高宽不变 
+		        	imgWidth = realWidth; 
+		        	imgHeight = realHeight; 
+		      	} 
+		        $(bigimg).css("width",imgWidth);//以最终的宽度对图片缩放 
+		      	var w = (windowW-imgWidth)/2;
+		      	//计算图片与窗口左边距
+		     	 var h = (windowH-imgHeight)/2;
+		      	//计算图片与窗口上边距
+		      	$(innerdiv).css({"top":h, "left":w});//设置#innerdiv的top和left属性 
+		      	$(outerdiv).fadeIn("fast");//淡入显示#outerdiv及.pimg 
+		    }); 
+		    $(outerdiv).click(function(){//再次点击淡出消失弹出层 
+		      	$(this).fadeOut("fast"); 
+		    });
+		};   
+    </script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!doctype html PUBLIC>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>打卡</title>
+		<meta name="viewport" content="width=device-width user-scalable= 'no'">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weuix.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/mui/css/mui.min.css" />
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/simple-calendar.css">
+		<link rel="stylesheet" type="text/css" href="css/clockIn.css" />
+	</head>
+
+	<body onload="startTime()">
+		<div class="weui-tab">
+			<div class="weui-tab__bd">
+				<!--打卡-->
+				<div id="tab1" class="weui-tab__bd-item  weui-tab__bd-item--active">
+					<div id='container' style="position: absolute;"></div>
+					<div class="daka-info" style="display: none;">
+						<h4 id='status'></h4>
+						<hr>
+						<p id='result'></p>
+						<hr>
+					</div>
+					<div class="daka-mark" style="">
+						<div class="des">
+							<i class="iconfont icon-louyu" style="color: #FCB058;"></i>
+							<p>您已进入广达创远考勤范围内</p>
+						</div>
+
+					</div>
+					<div id="box" class="">
+						<div class="daka-btn daka-normal" id='show-toast'>
+							<button id='signbtn' class="text layui-btn layui-btn-normal">上班打卡</button>
+							<div id='time'>广达创远</div>
+						</div>
+						<div class="hint">
+							请在8:30前打卡
+						</div>
+						<div id="place" type="button" class="layui-btn-radius">非办公地点</div>
+						<div id='distance'>系统正在定位中</div>
+						<div id='location'>系统正在定位中</div>
+					</div>
+				</div>
+				<!--记录-->
+				<div id="tab2" class="weui-tab__bd-item statistics">
+					<div id="clockIn-record">
+						<div class="bd" id="container">
+							<div id="content" class="weui-cells">
+								<!--头部-->
+								<div class="weui-cell report-cell">
+									<div class="customer-group">
+										<div class="img">刘</div>
+										<div class="time-info">
+											<div class="info-myAtt">
+												<div class="name-info">
+													<div class="">
+														<span class="name">刘垣辰</span>
+													</div>
+													<div class="date">软件研发部</div>
+												</div>
+											</div>
+										</div>
+										<div class="detail">
+											<div class="state">
+												<a class="monthly" href="clockIn-monthRecord.html">月报</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--日历-->
+								<div class="inner">
+									<div id='calendar' class="sc-calendar">
+										<div class="sc-header">
+											<div class="sc-title">
+												<div class="year"><span class="sc-select-year" name=""></span>年</div>
+												<div class="month">
+													<div class="arrow sc-mleft"></div>
+													<div class="monthdiv">
+														<span class="sc-select-month" name=""></span>
+													</div>
+													<div class="arrow sc-mright"></div>
+												</div>
+											</div>
+											<div class="sc-week"></div>
+										</div>
+										<div class="sc-body">
+											<div class="sc-days"></div>
+										</div>
+									</div>
+									<!--<div class="announcement">
+										<ul class="matter">
+										</ul>
+										<ul class="zcmatter">
+										</ul>
+									</div>-->
+								</div>
+							</div>
+							<!--上下班打卡状态-->
+							<div id="content" class="weui-cells weui-form workRecord">
+								<div class="weui-cell">
+									<div class="weui-cell__hd">
+										<div class="des">上下班打卡</div>
+										<div class="workTime">工作时长:<span>8小时</span></div>
+									</div>
+								</div>
+
+								<div class="weui-cell report-cell">
+									<div class="record-info onDuty">
+										<div class="timeBox">
+											09:30
+										</div>
+										<div class="record-state success">
+											<p class="des">上班</p>
+											<p class="text">上班打卡<span class="time">(09:28)</span></p>
+										</div>
+										<div class="record-state failed">
+											<p class="des ">上班</p>
+											<p class="text">未打卡</p>
+										</div>
+									</div>
+									<div class="record-info">
+										<div class="timeBox">
+											09:30
+										</div>
+										<div class="record-state normal">
+											<p class="des">下班</p>
+											<p class="text" style="display: none;">下班打卡<span class="time">(09:28)</span></p>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--底部固定导航-->
+			<div class="weui-tabbar">
+				<a href="#tab1" class="weui-tabbar__item weui-bar__item--on">
+					<div class="weui-tabbar__icon">
+						<i class="iconfont icon-qiandao"></i>
+					</div>
+					<p class="weui-tabbar__label active">打卡</p>
+				</a>
+				<a href="#tab2" class="weui-tabbar__item  ">
+					<div class="weui-tabbar__icon">
+						<i class="iconfont icon-tongji"></i>
+					</div>
+					<p class="weui-tabbar__label">我的记录</p>
+				</a>
+				<!--<a href="#tab3" class="weui-tabbar__item  ">
+					<div class="weui-tabbar__icon">
+						<i class="iconfont icon-tongji"></i>
+					</div>
+					<p class="weui-tabbar__label">设置</p>
+				</a>-->
+			</div>
+		</div>
+
+		<script src="plugins/weui/js/jquery-2.1.4.js"></script>
+		<script src="plugins/weui/js/fastclick.js"></script>
+		<script src="plugins/weui/js/swiper.min.js"></script>
+
+		<script src="plugins/weui/js/jquery-weui.min.js"></script>
+		<script src="plugins/weui/js/jquery-weui.js"></script>
+		<script type="text/javascript" src="js/baes.js"></script>
+		<!--地图-->
+		<!--日历-->
+		<script type="text/javascript" src="js/simple-calendar.js"></script>
+		<script type="text/javascript" src="js/hammer-2.0.8-min.js"></script>
+		<script src="js/clockIn.js"></script>
+		<script type="text/javascript">
+			//点击穿透
+			$(function() {
+				FastClick.attach(document.body);
+			});
+			$(".daka-btn").click(function(){
+				console.log("111")
+				$(".video").fadeIn(1000)
+			})
+		</script>
+	</body>
+
+</html>

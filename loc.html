@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<style> 
+    /*支持IE9及以上*/
+    .circle-bar {font-size: 200px; width:16px; height: 16px; position: relative;  background-color: rgb(251, 84, 84);; }
+    .circle-bar-left,.circle-bar-right { width: 16px; height:16px; background-color: #eee; }
+    /*这里采用clip剪切了圆，实现左右两个半圆，右半圆在后面，因此在更上一层，*/
+    .circle-bar-right { clip:rect(0,auto,auto,8px); }
+    .circle-bar-left { clip:rect(0,8px,auto,0); }
+    
+    .mask { width: 16px; height:16px;text-align: center;line-height: 0.2em; color:rgba(0,0,0,0.5); }
+    .mask :first-child { font-size: 0.3em; height: 0.8em; line-height: 0.8em; display: block;  }
+    .circle-bar * {  position: absolute; top:0; right:0; bottom:0; left:0; margin:auto; }
+    /*自身以及子元素都是圆*/
+    .circle-bar, .circle-bar > * { border-radius: 50%; }
+	.percent{opacity: 0;}
+	.all-read{width: 16px;height: 16px;position: relative;display: none;}
+	.all-read img{width: 16px;height: 16px;}
+</style>
+</head>
+<body>
+
+     
+<div class="circle-bar">
+    <div class="circle-bar-left"></div>
+    <div class="circle-bar-right"></div>
+    <!-- 遮罩层，显示百分比 -->
+    <div class="mask">
+        <span class="percent">100%</span>
+    </div>
+</div>
+<div class="all-read"><img src="img/all-read.png"/></div>
+<script type="text/javascript">
+  $(function(){
+ 
+        var percent = parseInt($('.mask :first-child').text());
+        var baseColor = $('.circle-bar').css('background-color');
+ 
+        if( percent<=50 ){
+            $('.circle-bar-right').css('transform','rotate('+(percent*3.6)+'deg)');
+        }else {
+            $('.circle-bar-right').css({
+                'transform':'rotate(0deg)',
+                'background-color':baseColor
+            });
+            $('.circle-bar-left').css('transform','rotate('+((percent-50)*3.6)+'deg)');
+        };
+        if( percent == 100){
+//      	$('.circle-bar').css("background-image","url(img/all-read.png)");
+        	$('.circle-bar').css("display","none");
+        	$('.all-read').css("display","block");
+        }
+    })
+</script>
+</body>
+
+</html>

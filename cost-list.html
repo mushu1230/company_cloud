@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>费用管理-列表</title>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link href="plugins/mui/css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="plugins/mui/css/mui.picker.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/cost-list.css" />
+	</head>
+
+	<body>
+		<div class="content">
+			<div class="hd">
+				<div class="hd-bar">
+					<div class="slide-btn">
+						排序<i class="iconfont icon-shaixuan"></i>
+					</div>
+					<div class="slide-btn">
+						分类<i class="iconfont icon-paixu"></i>
+					</div>
+					<div class="slide-btn">
+						时间<i class="iconfont icon-paixu"></i>
+					</div>
+				</div>
+
+				<div class="hd-slide">
+					<ul>
+						<li>
+							<a href="#">综合排序</a>
+						</li>
+						<li>
+							<a href="#">从高到低</a>
+						</li>
+						<li>
+							<a href="#">从低到高</a>
+						</li>
+					</ul>
+				</div>
+				<div class="hd-slide">
+					<ul>
+						<li>
+							<a href="#">差旅费</a>
+						</li>
+						<li>
+							<a href="#">招待费</a>
+						</li>
+						<li>
+							<a href="#">投标费</a>
+						</li>
+						<li>
+							<a href="#">技术费</a>
+						</li>
+					</ul>
+				</div>
+				<div class="hd-slide">
+					<ul>
+						<li>
+							<a href="#">显示全部</a>
+						</li>
+						<li>
+							<a href="#">一周内</a>
+						</li>
+						<li>
+							<a href="#">一月内</a>
+						</li>
+						<li>
+							<a href="#">三月内</a>
+						</li>
+						<li>
+							<a href="#">半年内</a>
+						</li>
+						<li>
+							<a href="#">一年内</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="bd" id="container">
+				<div id="content">
+					<div class="weui-cells">
+						<div class="weui-cell">
+							<div class="item">
+								<div class="itemName">
+									商丘智慧银行项目
+								</div>
+								<div class="itemState itemState2">
+									待审批
+								</div>
+							</div>
+							<div class="item">
+								<div class="costInfo">
+									<div class="costName">
+										¥1000
+									</div>
+									<div class="costTip costTip1">
+										差旅费
+									</div>
+								</div>
+								
+							</div>
+							<div class="item describe">
+								去商水农商行档案管理出差，去商水农商行档案管理出差出。去商水农商行档案管理出差，去商水农商行档案管理出差出。去商水农商行档案管理出差，去商水农商行档案管理出差出。
+							</div>
+							<div class="item">
+								<div class="date">
+									2019-04-11
+								</div>
+								<div class="follow">
+									跟进人:李依依
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--滚动加载-->
+				<div class="weui-loadmore">
+					<i class="weui-loading"></i>
+					<span class="weui-loadmore__tips">正在加载</span>
+				</div>
+				<div class="add iconfont icon-add"></div>
+			</div>
+		</div>
+		<script src="plugins/weui/js/jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="plugins/weui/js/jquery-weui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/cost-list.js" type="text/javascript" charset="utf-8"></script>
+		<script src="plugins/mui/js/mui.js"></script>
+		<script src="plugins/mui/js/mui.picker.min.js"></script>
+		<script src="js/baes.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			slide()
+		</script>
+
+	</body>
+
+</html>

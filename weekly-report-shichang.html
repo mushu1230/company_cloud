@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>周报(市场营销)</title>
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weuix.css" />
+		<!--<link rel="stylesheet" type="text/css" href="plugins/weui/css/jquery-weui.css" />-->
+		<link href="plugins/mui/css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="plugins/mui/css/mui.picker.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<!--<link rel="stylesheet" type="text/css" href="css/iconfont.css" />-->
+		<link rel="stylesheet" type="text/css" href="css/send-add.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script type="text/javascript" src="plugins/weui/js/jquery-2.1.4.js"></script>
+		<script type="text/javascript" src="plugins/weui/js/jquery-weui.js"  charset="utf-8"></script>
+		<script type="text/javascript" src="plugins/weui/js/city-picker.min.js"></script>
+		<script type="text/javascript" src="plugins/weui/js/city-picker.js"></script>
+		<!--<script type="text/javascript" src="js/gbin1.js"></script>
+		<script src="js/sisyphus.min.js"></script>-->
+		
+		
+	</head>
+
+	<body onload="init()">
+		<div class="weui-cells weui-cells_form">
+			<div class="weui-cell">
+				<div class="weui-cell__hd"><label for="time2" class="weui-label">月份</label></div>
+				<div class="weui-cell__bd">
+					<input data-options='{"value":"2015-10-10 10:10","beginYear":2000,"endYear":2020}' class="weui-input btn" id="time2" type="text" placeholder="请填写拜访时间">
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd" id="week"><label for="week" class="weui-label">时间</label></div>
+				<div class="weui-cell__bd">
+					<input class="weui-input picker" placeholder="请选择第几周" type="text" id='picker'/>
+				</div>
+			</div>
+			<!--<script type="text/javascript">
+				$("body,.weui-picker-container").height($(window).height()).css({
+				  "overflow-y": "hidden"
+				});
+			</script>-->
+			<div class="weui-cell input input--juro" id="gbin1form">
+				<div class="report-cell">
+					<label class="input__label input__label--juro">
+						<p class="input__label-content no-hint input__label-content--juro">
+							本周工作遗留问题
+						</p>
+					</label>
+				</div>
+				<textarea id="record4 gbcomments" rows="1" class="input__field input__field--juro" type="text" name="gbcomments" cols="35" rows="5">222222222222222222</textarea>
+
+			</div> 
+			<div class="weui-cell input input--juro" id="gbin1form">
+				<div class="report-cell">
+					<label class="input__label input__label--juro">
+						<p class="input__label-content input__label-content--juro">
+							本周销售目标
+							<span class="hint">
+								(计划签订合同**万;计划回款**万)
+							</span>
+						</p>
+					</label>
+				</div>
+				<textarea id="record9 gbcomments" rows="1" class="input__field input__field--juro" type="text" name="gbcomments" cols="35" rows="5">8989898989</textarea>
+			</div>
+			<div class="weui-cell input input--juro">
+				<div class="report-cell">
+					<label class="input__label input__label--juro">
+						<p class="input__label-content input__label-content--juro">
+							本周客户开发目标
+							<span class="hint">
+								(计划签订合同**万;计划回款**万)
+							</span>
+						</p>
+					</label>
+				</div>
+				<textarea id="record" rows="1" class="input__field input__field--juro" type="text" placeholder="">1111111111111111111111111111111111</textarea>
+			</div>
+			<div class="weui-cell input input--juro">
+				<div class="report-cell">
+					<label class="input__label input__label--juro">
+						<p class="input__label-content no-hint input__label-content--juro">
+							其他销售目标
+						</p>
+					</label>
+				</div>
+				<textarea id="record2" autoHeight="true" rows="1" class="input__field input__field--juro" type="text" placeholder="">sss</textarea>
+			</div>
+			<div class="weui-cell input input--juro">
+				<div class="report-cell">
+					<label class="input__label input__label--juro">
+						<p class="input__label-content input__label-content--juro">
+							本周销售目标达成
+							<span class="hint">
+								(实际签订合同**元,实际回款**元)
+							</span>
+						</p>
+					</label>
+				</div>
+				<textarea id="record3" autoHeight="true" rows="1" class="input__field input__field--juro" type="text" placeholder="">ddd</textarea>
+			</div>
+			<div class="weui-cell input input--juro">
+				<div class="report-cell">
+					<label class="input__label input__label--juro">
+						<p class="input__label-content input__label-content--juro">
+							本周开发目标达成
+							<span class="hint">
+								(实际拜访客户**家,确定项目需求**个)
+							</span>
+						</p>
+					</label>
+				</div>
+				<textarea id="rec" autoHeight="true" rows="1" class="input__field input__field--juro" type="text" placeholder="">sssssssssss</textarea>
+			</div>
+			<div class="weui-cell input input--juro">
+				<div class="report-cell">
+					<label class="input__label input__label--juro">
+						<p class="input__label-content no-hint input__label-content--juro">
+							销售目标分析及改进
+						</p>
+					</label>
+				</div>
+				<textarea id="record5" autoHeight="true" rows="1" class="input__field input__field--juro" type="text" placeholder="">1234657489454123123</textarea>
+			</div>
+			<div class="weui-cell input input--juro">
+				<div class="report-cell">
+					<label class="input__label input__label--juro">
+						<p class="input__label-content no-hint input__label-content--juro">
+							备注
+						</p>
+					</label>
+				</div>
+				<textarea id="record6" autoHeight="true" rows="1" class="input__field input__field--juro" type="text" placeholder="">000</textarea>
+			</div>
+		</div>
+			
+		<!--上传-->
+		<div class="weui-cells weui-cells_form">
+		    <div class="weui-gallery" id="gallery">
+		        <span class="weui-gallery__img" id="galleryImg"></span>
+		        <div class="weui-gallery__opr">
+		            <a href="javascript:" class="weui-gallery__del">
+		                <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+		            </a>
+		        </div>
+		    </div>
+		    <div class="weui-cell" id="uploader">
+		        <div class="weui-cell__bd">
+		            <div class="weui-uploader">
+		                <div class="weui-uploader__hd">
+		                <p class="weui-uploader__title">图片上传</p>
+		                <div class="weui-uploader__info"><span id="uploadCount">0</span>/6</div>
+		                </div>
+		                <div class="weui-uploader__bd">
+		                    <ul class="weui-uploader__files" id="uploaderFiles">
+		 
+		                    </ul>
+		                    <div class="weui-uploader__input-box ">
+		                        <!--<input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/jpg,image/jpeg,image/png" />-->
+		                        <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/jpg,image/jpeg,image/png" multiple="multiple"/>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		
+		<!--抄送功能-->
+		<div class="weui-cells weui-cells_form">
+		<div class="weui-cell_access">
+			<div class="weui-cell__hd">
+				<p class="send-text">抄送</p>
+				<div class="to__right">
+					<!--<div class="tso__title">抄送（<span id="selectNum"></span>）人</div>-->
+					<div class="to__content" id="rightCont"></div>
+				</div>
+				<div class="full add-icon " data-full = "cs">
+					<img src="img/send-add.jpg"/>
+				</div>
+			</div>	
+		</div>
+		</div>
+		<!--选择联系人弹出层-->
+		<div class="fullBox " data-full = "cs">
+			<div class="mark"></div>
+			<div class="fullModal">
+				<div class="mui-content">
+					<div id='list' class="mui-indexed-list">
+						<div class="mui-table-view mui-table-view-radio">
+							<div class="weui-cells_form to__block">
+								<div class="to__left">
+									<div class="to__content">
+										<div class="weui-search-bar to__search" id="searchBar">
+										  <form class="weui-search-bar__form">
+										    <div class="weui-search-bar__box">
+										      <i class="weui-icon-search"></i>
+										      <input  type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+										      <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+										    </div>
+										    <label class="weui-search-bar__label" id="searchText">
+										      <i class="weui-icon-search"></i>
+										      <span>搜索</span>
+										    </label>
+										  </form>
+										  <a name="jcropPvew" href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+										</div>
+										<div class="" id="leftCont"></div>
+									</div>
+								</div>
+							</div>					
+						</div>
+					</div>
+				</div>
+				<a id="send-close" href="javascript:;" class="weui-btn weui-btn_send close-full">确定(<span id="selectNum"></span>人)</a>
+			</div>
+		</div>
+		<div class="report-btn">
+			<div class='demos-content-padded lbtn'>
+				<a href="javascript:;" class="weui-btn weui-btn_report">更多</a>
+			</div>
+			<div class='demos-content-padded rbtn'>
+				<a href="javascript:;" class="weui-btn weui-btn_report">提交</a>
+			</div>
+		</div>
+        <!--<div class="container">
+			<form id="gbin1form">
+				<div><input type="input" id="gbname" name="gbname" value="GBin1.com"></div>
+				<div><textarea name="gbcomments" id="gbcomments" cols="35" rows="5">Welcome to GBin1.com, Enjoy!</textarea></div>
+				<div>
+					<input type="button" id="post" value="Post" class="button">
+					<input type="reset" value="Clear" name="reset" class="button">
+					<span id="log"></span>
+				</div>
+			</form>
+       </div>-->
+		<script type="text/javascript" src="js/classie.js"></script>
+		<script type="text/javascript" src="js/baes.js"></script>
+		
+		<script type="text/javascript">
+//			record();
+			if(true){
+				record()
+			}else{}
+			//input输入缩小
+			(function() {
+				if (!String.prototype.trim) {
+					(function() {
+						var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+						String.prototype.trim = function() {
+							return this.replace(rtrim, '');
+						};
+					})();
+				}
+			
+				[].slice.call( document.querySelectorAll( 'textarea.input__field' ) ).forEach( function( inputEl ) {
+					if( inputEl.value.trim() !== '' ) {
+						classie.add( inputEl.parentNode, 'input--filled' );
+					}
+			
+					inputEl.addEventListener( 'focus', onInputFocus );
+					inputEl.addEventListener( 'blur', onInputBlur );
+				} );
+			
+				function onInputFocus( ev ) {
+					classie.add( ev.target.parentNode, 'input--filled' );
+				}
+			
+				function onInputBlur( ev ) {
+					if( ev.target.value.trim() === '' ) {
+						classie.remove( ev.target.parentNode, 'input--filled' );
+					}
+				}
+			})();
+		</script>
+		
+		<script src="plugins/weui/js/weui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/uploading.js"></script>	
+		<script type="text/javascript" src="js/send-add.js"></script>	
+		<script src="plugins/weui/js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+		<script src="plugins/mui/js/mui.js"></script>
+		<script src="plugins/mui/js/mui.picker.min.js"></script>
+
+		<!--周报-->
+		<script type="text/javascript" src="js/weekly-report.js"></script>
+		
+	</body>
+</html>

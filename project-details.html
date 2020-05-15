@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>项目详情</title>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/jquery-weui.css" />
+		<link rel="stylesheet" href="plugins/mui/css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/form.css" />
+		<link rel="stylesheet" type="text/css" href="css/project-details.css" />
+
+		<!--App自定义的css-->
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		<div class="weui-cells">
+			<a class="item-cell clearfix" href="index.html">
+				<div class="item-cell-hd clearfix">
+					<div class="title">
+						商丘农商银行档案管理
+					</div>
+					<i class="iconfont icon-youjiantou "></i>
+				</div>
+				<div class="item-cell-bd">
+					<span class="label">客户名称</span>
+					<span class="content">商丘农商银行</span>
+				</div>
+				<div class="item-cell-bd">
+					<span class="label">销售负责人</span>
+					<span class="content">张三</span>
+				</div>
+				<div class="item-cell-bd">
+					<span class="label">合同金额</span>
+					<span class="content">10000万元</span>
+				</div>
+				<div class="item-cell-bd">
+					<span class="label">实际回款时间</span>
+					<span class="content">2019-04-10</span>
+				</div>
+			</a>
+		</div>
+		<div class="weui-cells">
+			<div class="item-cell clearfix">
+				<div class="item-cell-hd clearfix">
+					<div class="title">
+						合同附件
+					</div>
+				</div>
+				<div class="photo-box clearfix">
+					<div class="photo-preview">
+						<img src="img/费用申请2.jpg" data-preview-src="" data-preview-group="1" />
+					</div>
+					<div class="photo-preview">
+						<img src="img/null-backlog.png" data-preview-src="" data-preview-group="1" />
+					</div>
+					<div class="photo-preview">
+						<img src="img/null-backlog.png" data-preview-src="" data-preview-group="1" />
+					</div>
+					<div class="photo-preview">
+						<img src="img/null-backlog.png" data-preview-src="" data-preview-group="1" />
+					</div>
+					<div class="photo-preview">
+						<img src="img/null-backlog.png" data-preview-src="" data-preview-group="1" />
+					</div>
+					<div class="photo-preview">
+						<img src="img/null-backlog.png" data-preview-src="" data-preview-group="1" />
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="weui-cells">
+			<div class="item-cell clearfix">
+				<div class="item-cell-hd clearfix">
+					<div class="title">
+						回款记录
+					</div>
+				</div>
+				<div class="item-cell-list">
+					<span class="">2019-04-13</span>
+					<span class="">10000元</span>
+					<span class="">负责人 李丽丽</span>
+				</div>
+				<div class="item-cell-list">
+					<span class="">2019-04-13</span>
+					<span class="">5000元</span>
+					<span class="">负责人 李丽丽</span>
+				</div>
+			</div>
+		</div>
+		<div class="weui-cells">
+			<div class="item-cell clearfix">
+				<div class="item-cell-hd clearfix">
+					<div class="title">
+						开票记录
+					</div>
+				</div>
+				<div class="item-cell-list">
+					<span class="">2019-04-13</span>
+					<span class="">10000元</span>
+					<span class="">负责人 李丽丽</span>
+				</div>
+				<div class="item-cell-list">
+					<span class="">2019-04-13</span>
+					<span class="">5000元</span>
+					<span class="">负责人 李丽丽</span>
+				</div>
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="plugins/weui/js/jquery-2.1.4.js"></script>
+	<script src="plugins/weui/js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+	<script src="plugins/mui/js/mui.min.js"></script>
+	<script src="plugins/mui/js/mui.zoom.js"></script>
+	<script src="plugins/mui/js/mui.previewimage.js"></script>
+	<script src="js/baes.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		$(function() {
+			FastClick.attach(document.body);
+		});
+		mui.previewImage();
+		mui('body').on('tap', 'a', function() {
+			document.location.href = this.href;
+		});
+	</script>
+
+</html>

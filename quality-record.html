@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>质量记录</title>
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/jquery-weui.css" />
+		<!--<link type="text/css" href="plugins/mui/css/mui.min.css" rel="stylesheet" />-->
+		<link rel="stylesheet" type="text/css" href="plugins/mui/css/mui.picker.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/send-add.css" />
+		<link rel="stylesheet" type="text/css" href="css/item.css" />
+	</head>
+
+	<body id="quality-record">
+		<div class="main">
+			<div class="weui-cells weui-cells_form">
+				<div class="weui-cell  weui-cell_access">
+					<div class="weui-cell__hd">
+						<label for="" class="weui-label">项目</label>
+					</div>
+					<div class="weui-cell__ft">
+						<select class="weui-select" name="select2" id="select">
+							<option value="" style="display: none" class="option-title">请选择项目</option>
+							<option value="1">软件项目</option>
+							<option value="2">工程项目</option>
+							<option value="3">333333</option>
+						</select>
+					</div>
+				</div>
+			
+			<div class="weui-cell weui-cell_access">
+				<div class="weui-cell__hd"><label for="time2" class="weui-label">记录时间</label></div>
+				<div class="weui-cell__ft">
+					<input data-options='{"value":"2015-10-10 10:10","beginYear":2000,"endYear":2020}' class="weui-input btn" id="time2" type="text" placeholder="请填写拜访时间">
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>申请原因</p>
+				</div>
+				<div class="weui-cell__ft">
+					<textarea class="weui-textarea" placeholder="请填写记录详情(必填)" rows="3"></textarea>
+				</div>
+			</div>
+</div>
+		</div>
+		<!--抄送功能-->
+		<div class="weui-cells weui-cells_form">
+			<div class="weui-cell_access">
+				<div class="weui-cell__hd">
+					<p class="send-text">抄送</p>
+					<div class="to__right">
+						<!--<div class="tso__title">抄送（<span id="selectNum"></span>）人</div>-->
+						<div class="to__content" id="rightCont"></div>
+					</div>
+					<div class="full add-icon " data-full="cs">
+						<img src="img/send-add.jpg" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--选择联系人弹出层-->
+		<div class="fullBox " data-full="cs">
+			<div class="mark"></div>
+			<div class="fullModal">
+				<div class="mui-content">
+					<div id='list' class="mui-indexed-list">
+						<div class="mui-table-view mui-table-view-radio">
+							<div class="weui-cells_form to__block">
+								<div class="to__left">
+									<div class="to__content">
+										<div class="weui-search-bar to__search" id="searchBar">
+											<form class="weui-search-bar__form">
+												<div class="weui-search-bar__box">
+													<i class="weui-icon-search"></i>
+													<input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+													<a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+												</div>
+												<label class="weui-search-bar__label" id="searchText">
+										      <i class="weui-icon-search"></i>
+										      <span>搜索</span>
+										    </label>
+											</form>
+											<a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+										</div>
+										<div class="" id="leftCont"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a href="javascript:;" class="weui-btn weui-btn_primary close-full">确定(<span id="selectNum"></span>人)</a>
+			</div>
+		</div>
+
+		<div class='submit-btn'>
+			<a href="javascript:;" class="weui-btn weui-btn_submit">保存</a>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="plugins/weui/js/jquery-2.1.4.js"></script>
+	<script src="plugins/weui/js/jquery-weui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="plugins/weui/js/weui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="plugins/weui/js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+	<script src="plugins/mui/js/mui.js"></script>
+	<script src="plugins/mui/js/mui.picker.min.js"></script>
+
+	<script src="js/baes.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="js/send-add.js"></script>
+	<script type="text/javascript" src="js/cost-application.js"></script>
+
+	<script type="text/javascript">
+		$(function() {
+			FastClick.attach(document.body);
+		});
+	</script>
+
+</html>

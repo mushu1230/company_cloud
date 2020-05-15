@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>添加项目</title>
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/jquery-weui.css" />
+		<link href="plugins/mui/css/mui.min.css" rel="stylesheet" />
+		<link href="plugins/mui/css/mui.indexedlist.css" rel="stylesheet" />
+		
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/item.css" />
+		<link rel="stylesheet" type="text/css" href="css/customer-list.css" />
+		<script type="text/javascript" src="plugins/weui/js/jquery-2.1.4.js"></script>
+		<script src="plugins/weui/js/jquery-weui.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body {
+				overflow: auto;
+				background-color:#fff;
+			}
+		</style>
+	</head>
+
+	<body id="itemAdd">
+		
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>项目名称</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="输入项目名称(必填)">
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>立项编号</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="输入立项编号">
+				</div>
+			</div>
+			<a class="weui-cell weui-cell_access" href="javascript:;">
+				<div class="weui-cell__hd">
+					<p>客户</p>
+				</div>
+				<div class="weui-cell__ft full" data-full = "kh">请选择客户</div>
+			</a>
+			<div class="weui-cell  weui-cell_access">
+				<div class="weui-cell__hd">
+					<label for="" class="weui-label">项目类别</label>
+				</div>
+				<div class="weui-cell__ft">
+					<select class="weui-select" name="select2" id="select">
+						<option value="" style="display: none" class="option-title">请选择工程项目</option>
+						<option value="1">软件项目</option>
+						<option value="2">工程项目</option>
+						<option value="3">333333</option>
+					</select>
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>接口人</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="输入项目接口人姓名及电话">
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>主管领导</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="输入主管领导姓名及电话">
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>招标预算</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="输入招标预算">
+				</div>
+			</div>
+			<a class="weui-cell weui-cell_access" href="javascript:;">
+				<div class="weui-cell__hd">
+					<label for="time1" class="weui-label">投标时间</label>
+				</div>
+				<div class="weui-cell__ft">
+					<input data-options='{"value":"2015-10-10 10:10","beginYear":2000,"endYear":2020}' class="weui-input btn" id="time1" type="text" placeholder="请选择投标时间">
+				</div>
+			</a>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>进度情况</label>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="输入竞品、竞商及项目进度">
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>支持要求</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="输入支持部门及具体要求">
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>差旅费</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="输入差旅费">
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>招待费</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="输入招待费">
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>投标费</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="输入投标费">
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>技术费</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="输入前期技术费">
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>管理费</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="输入项目管理费">
+				</div>
+			</div>
+			<div class="weui-cell bottom" >
+				<div class="weui-cell__hd">
+					<p>前期业务</p>
+				</div>
+				<div class="weui-cell__ft">
+					<input class="weui-input" type="text" placeholder="输入财务会签前期业务费">
+				</div>
+			</div>
+		</div>
+
+		<div class='submit-btn'>
+			<a href="javascript:;" class="weui-btn weui-btn_submit">保存</a>
+		</div>
+		
+		
+		<div class="fullBox" data-full = "kh">
+			<div class="fullModal">
+				<div class="mui-content single">
+					<div id='list' class="mui-indexed-list">
+
+						<div class="mui-indexed-list-search mui-input-row mui-search iconfont">
+							<input type="search" class="mui-input-clear mui-indexed-list-search-input" placeholder="请输入姓名地址或电话进行搜索">
+						</div>
+
+						<div class="mui-indexed-list-bar" style="display: none;">
+							<a>A</a>
+							<a>B</a>
+							<a>C</a>
+							<a>D</a>
+							<a>E</a>
+							<a>F</a>
+							<a>G</a>
+							<a>H</a>
+							<a>I</a>
+							<a>J</a>
+							<a>K</a>
+							<a>L</a>
+							<a>M</a>
+							<a>N</a>
+							<a>O</a>
+							<a>P</a>
+							<a>Q</a>
+							<a>R</a>
+							<a>S</a>
+							<a>T</a>
+							<a>U</a>
+							<a>V</a>
+							<a>W</a>
+							<a>X</a>
+							<a>Y</a>
+							<a>Z</a>
+						</div>
+						<div class="mui-indexed-list-alert"></div>
+						<div class="mui-indexed-list-inner">
+							<div class="mui-indexed-list-empty-alert">没有数据</div>
+							<ul class="mui-table-view mui-table-view-radio">
+								<style type="text/css">
+									{
+										content: '\e411';
+										font-family: Muiicons;
+										font-size: 28px;
+										font-weight: 400;
+										line-height: 1;
+										text-decoration: none;
+										color: #aaa;
+										border-radius: 0;
+										background: 0 0;
+										-webkit-font-smoothing: antialiased;
+									}
+									
+									.mui-table-view-radio .mui-table-view-cell .mui-navigate-right:after {
+										width: 20px;
+										height: 20px;
+										line-height: 20px;
+										text-align: center;
+										border: 1px solid #ddd;
+										border-radius: 2px;
+										font-size: 24px;
+										font-weight: 800;
+										right: 0px;
+										content: '';
+										color: #007aff;
+									}
+									
+									.mui-navigate-right:after,
+									.mui-push-right:after {
+										left: 15px;
+										content: '\e583';
+									}
+									
+									.mui-navigate-right:after,
+									.mui-push-left:after,
+									.mui-push-right:after {
+										font-family: Muiicons;
+										font-size: inherit;
+										line-height: 1;
+										position: absolute;
+										top: 50%;
+										display: inline-block;
+										-webkit-transform: translateY(-50%);
+										transform: translateY(-50%);
+										text-decoration: none;
+										color: #bbb;
+										-webkit-font-smoothing: antialiased;
+									}
+									
+									.mui-table-view-radio .mui-table-view-cell.mui-selected .mui-navigate-right:after {
+										content: '\e472';
+									}
+									
+									.mui-indexed-list-group,
+									.mui-indexed-list-item,
+									.mui-indexed-list-empty-alert,
+									.mui-table-view-radio .mui-table-view-cell {
+										padding-right: 15px;
+										padding-left: 50px;
+									}
+									
+									.mui-table-view-cell {
+										display: flex;
+										justify-content: space-between;
+										align-items: center;
+									}
+								</style>
+								<li data-group="A" class="mui-table-view-divider mui-indexed-list-group">A</li>
+								<li data-value="AD" data-tags="ADA" class="mui-table-view-cell mui-indexed-list-item">
+									<div class="customer-group mui-navigate-right">
+										<div class="img">阿</div>
+										<div class="content">
+											<div class="">
+												<span class="name">阿大</span>
+												<span class="post">董事长</span>
+											</div>
+											<div class="inline"> <i class="iconfont icon-address"></i>河南省开封市禹王台区开封市禹王台区</div>
+											<div class="inline"> <i class="iconfont icon-phone"></i>18888888888</div>
+										</div>
+									</div>
+									<div class="info-group">
+										<div class="customer-tip potential">意向用户</div>
+									</div>
+								</li>
+								<li data-group="B" class="mui-table-view-divider mui-indexed-list-group">B</li>
+								<li data-value="BA" data-tags="BAOAN" class="mui-table-view-cell mui-indexed-list-item">
+									<div class="customer-group mui-navigate-right">
+										<div class="img">保</div>
+										<div class="content">
+											<div class="">
+												<span class="name">保安</span>
+												<span class="post">局长</span>
+											</div>
+											<div class="inline"> <i class="iconfont icon-address"></i>河南省开封市禹王台区</div>
+											<div class="inline"> <i class="iconfont icon-phone"></i>15596965656</div>
+										</div>
+									</div>
+									<div class="info-group">
+										<div class="customer-tip potential">意向用户</div>
+									</div>
+								</li>
+								<li class="mui-table-view-bottom">到底了~</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+								<!--<a href="javascript:;" class="weui-btn weui-btn_primary close-full">关闭</a>-->
+			</div>
+		</div>
+	</body>
+	<script src="plugins/weui/js/weui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="plugins/weui/js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/baes.js" type="text/javascript" charset="utf-8"></script>
+	<script src="plugins/mui/js/mui.js"></script>
+	<script src="plugins/mui/js/mui.picker.min.js"></script>
+	<script src="plugins/mui/js/mui.indexedlist.js"></script>
+	<script>
+		$(function() {
+			FastClick.attach(document.body);
+		});
+		//投标时间
+		$("#time1").datetimePicker({
+			times: function() {
+				return [];
+			}
+		});
+		
+		mui.init();
+		mui.ready(function() {
+			var list = document.getElementById('list');
+			//calc hieght
+			list.style.height = (document.body.offsetHeight) + 'px';
+			//create
+			window.indexedList = new mui.IndexedList(list);
+			//暂无更多数据
+		});
+
+		//list为空时展示暂无更多数据~
+		partentBox = '.mui-table-view';
+		childTag = 'li';
+		listText = '暂无更多数据~'
+		nolist();
+		
+		//全屏弹窗组件
+		var fullBtn = ".full";
+		var fullBox = ".fullBox";
+		var closeBtn = ".close-full";
+		full()
+		
+		document.querySelector('.mui-table-view.mui-table-view-radio').addEventListener('selected', function(e) {
+			closeFull()
+			$('body').find(".full[data-full='kh']").text($(e.detail.el).find(".name").text()).css("color", "#333")
+
+		});
+	</script>
+
+</html>

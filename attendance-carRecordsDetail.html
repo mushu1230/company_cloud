@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>考勤-回车记录详情页</title>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/jquery-weui.css" />
+		<link rel="stylesheet" type="text/css" href="css/item.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/send-add.css" />
+		<link rel="stylesheet" type="text/css" href="css/attendance.css" />
+	</head>
+
+	<body id="">
+		<div class="attendance-record">
+			<div class="bd" id="container">
+				<div id="content" class="weui-cells">
+					<!--列表加载内容-->
+					<div class="weui-cell report-cell">
+						<div class="customer-group">
+							<div class="img">刘</div>
+							<div class="time-info">
+								<div class="info-myAtt">
+									<div class="name-info">
+										<div class="">
+											<span class="name">刘娜娜</span>的出车申请
+										</div>
+										<div class="date">2019-06-06</div>
+									</div>
+									<div class="report">
+										<div class="describe">
+											<p class="title">出车时间：</p>
+											<p class="timeRecord">2020.04.08</p>
+										</div>
+										<div class="describe">
+											<p class="title">交车时间：</p>
+											<p class="timeRecord">2020.04.09</p>
+										</div>
+										<div class="describe">
+											<p class="title">出车前里程：</p>
+											<p class="timeRecord">123</p>
+										</div>
+										<div class="describe">
+											<p class="title">出车后里程：</p>
+											<p class="timeRecord">168</p>
+										</div>
+										<div class="describe">
+											<p class="title">用车里程数：</p>
+											<p class="timeRecord">45</p>
+										</div>
+										<div class="addList">
+											<div class="node">
+												<div class="">次数<span class="nodeNum">1</span></div>
+											</div>
+											<div class="describe">
+												<p class="title">加油时间：</p>
+												<p class="timeRecord">2020.04.09 10:21</p>
+											</div>
+											<div class="describe">
+												<p class="title">加油金额：</p>
+												<p class="timeRecord">100</p>
+											</div>
+										</div>
+										<div class="addList">
+											<div class="node">
+												<div class="">次数<span class="nodeNum">2</span></div>
+											</div>
+											<div class="describe">
+												<p class="title">加油时间：</p>
+												<p class="timeRecord">2020.04.09 10:21</p>
+											</div>
+											<div class="describe">
+												<p class="title">加油金额：</p>
+												<p class="timeRecord">100</p>
+											</div>
+										</div>
+										<div class="describe balances">
+											<p class="title">加油卡余额：</p>
+											<p class="timeRecord">45</p>
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<div class="detail">
+								<div class="state">
+									<div class="record-pass">已通过</div>
+									<div class="record-wait">待审批</div>
+									<div class="record-refuse">已拒绝</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--审批功能-->
+				<div class="weui-cells weui-cells_form">
+					<div class="weui-cell_access">
+						<div class="weui-cell__hd">
+							<p class="send-text">审批</p>
+							<div class="to__right">
+								<!--<div class="tso__title">抄送（<span id="selectNum"></span>）人</div>-->
+								<div class="to__content" id="rightCont"></div>
+							</div>
+							<div class="full add-icon " data-full="sp">
+								<img src="img/send-add.jpg" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--选择联系人弹出层-->
+				<div class="fullBox " data-full="sp">
+					<div class="mark"></div>
+					<div class="fullModal">
+						<div class="mui-content">
+							<div id='list' class="mui-indexed-list">
+								<div class="mui-table-view mui-table-view-radio">
+									<div class="weui-cells_form to__block">
+										<div class="to__left">
+											<div class="to__content">
+												<div class="weui-search-bar to__search" id="searchBar">
+													<form class="weui-search-bar__form">
+														<div class="weui-search-bar__box">
+															<i class="weui-icon-search"></i>
+															<input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+															<a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+														</div>
+														<label class="weui-search-bar__label" id="searchText">
+										      <i class="weui-icon-search"></i>
+										      <span>搜索</span>
+										    </label>
+													</form>
+													<a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+												</div>
+												<div class="" id="leftCont"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<a href="javascript:;" class="weui-btn weui-btn_primary close-full">确定(<span id="selectNum"></span>人)</a>
+					</div>
+				</div>
+				<!--抄送功能-->
+				<div class="weui-cells weui-cells_form">
+					<div class="weui-cell_access">
+						<div class="weui-cell__hd">
+							<p class="send-text">抄送</p>
+							<div class="to__right">
+								<!--<div class="tso__title">抄送（<span id="selectNum"></span>）人</div>-->
+								<div class="to__content" id="rightCont"></div>
+							</div>
+							<div class="full add-icon " data-full="cs">
+								<img src="img/send-add.jpg" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--选择联系人弹出层-->
+				<div class="fullBox " data-full="cs">
+					<div class="mark"></div>
+					<div class="fullModal">
+						<div class="mui-content">
+							<div id='list' class="mui-indexed-list">
+								<div class="mui-table-view mui-table-view-radio">
+									<div class="weui-cells_form to__block">
+										<div class="to__left">
+											<div class="to__content">
+												<div class="weui-search-bar to__search" id="searchBar">
+													<form class="weui-search-bar__form">
+														<div class="weui-search-bar__box">
+															<i class="weui-icon-search"></i>
+															<input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+															<a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+														</div>
+														<label class="weui-search-bar__label" id="searchText">
+										      <i class="weui-icon-search"></i>
+										      <span>搜索</span>
+										    </label>
+													</form>
+													<a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+												</div>
+												<div class="" id="leftCont"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<a href="javascript:;" class="weui-btn weui-btn_primary close-full">确定(<span id="selectNum"></span>人)</a>
+					</div>
+				</div>
+			</div>
+			<a href="javascript:;" class="backout-btn">
+				<img src="img/backout.png" />
+				<span class="">
+							撤销
+					</span>
+			</a>
+		</div>
+		<script src="plugins/weui/js/jquery-2.1.4.js"></script>
+		<script src="plugins/weui/js/jquery-weui.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="js/baes.js" type="text/javascript" charset="utf-8"></script>
+		<script src="plugins/weui/js/jquery-weui.min.js"></script>
+		<script src="plugins/weui/js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+		<script src="plugins/mui/js/mui.js"></script>
+		<script type="text/javascript" src="js/send-add.js"></script>
+		<script type="text/javascript" src="js/cost-application.js"></script>
+
+		<script type="text/javascript">
+			$(function() {
+				FastClick.attach(document.body);
+			});
+		</script>
+	</body>
+
+</html>

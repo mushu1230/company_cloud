@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>项目进度-添加计划</title>
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/jquery-weui.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<!--<link href="plugins/mui/css/mui.min.css" rel="stylesheet" />-->
+		
+		<link rel="stylesheet" type="text/css" href="css/send-add.css" />
+		<link rel="stylesheet" type="text/css" href="css/item.css" />
+
+		
+		<link rel="stylesheet" type="text/css" href="plugins/mui/css/mui.picker.min.css" />
+		
+		<script type="text/javascript" src="plugins/weui/js/jquery-2.1.4.js"></script>
+		<script src="plugins/weui/js/jquery-weui.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body id="progressAdd">
+		<div class="main">
+			<div class="weui-cells weui-cells_form">
+				<div class="weui-cell  weui-cell_access">
+					<div class="weui-cell__hd">
+						<label for="" class="weui-label">项目</label>
+					</div>
+					<div class="weui-cell__ft">
+						<select class="weui-select" name="select2" id="select">
+							<option value="" style="display: none" class="option-title">请选择项目</option>
+							<option value="1">软件项目</option>
+							<option value="2">工程项目</option>
+							<option value="3">333333</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="addWrap">
+				<div class="weui-cells weui-cells_form addList">
+					<div class="node">
+						<div class="">节点<span class="nodeNum">1</span></div>
+					</div>
+					<a class="weui-cell weui-cell_access" href="javascript:;">
+						<div class="weui-cell__hd">
+							<label for="time1" class="weui-label">开始日期</label>
+						</div>
+						<div class="weui-cell__ft">
+							<input data-options='{"value":"2015-10-10 10:10","beginYear":2000,"endYear":2020}' class="weui-input btn" id="time1" type="text" placeholder="请选择">
+						</div>
+					</a>
+					<a class="weui-cell weui-cell_access" href="javascript:;">
+						<div class="weui-cell__hd">
+							<label for="time1" class="weui-label">结束日期</label>
+						</div>
+						<div class="weui-cell__ft">
+							<input data-options='{"value":"2015-10-10 10:10","beginYear":2000,"endYear":2020}' class="screen-date" id="time2" type="text" placeholder="请选择">
+						</div>
+					</a>
+					<a class="weui-cell weui-cell_access" href="javascript:;">
+						<div class="weui-cell__hd">
+							<label for="time3" class="weui-label">结束日期</label>
+						</div>
+						<div class="weui-cell__ft">
+							<input data-options='{"value":"2015-10-10 10:10","beginYear":2000,"endYear":2020}' class="screen-date" id="time3" type="text" placeholder="请选择">
+						</div>
+					</a>
+					<div class="weui-cell">
+						<div class="weui-cell__hd">
+							<p>计划内容</p>
+						</div>
+						<div class="weui-cell__ft">
+							<textarea class="weui-textarea" placeholder="请填写计划详情" rows="3"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class='add-btn'>
+			<a href="javascript:;">+增加计划</a>
+		</div>
+
+		<!--抄送功能-->
+		<div class="weui-cells weui-cells_form">
+			<div class="weui-cell_access">
+				<div class="weui-cell__hd">
+					<p class="send-text">抄送</p>
+					<div class="to__right">
+						<!--<div class="tso__title">抄送（<span id="selectNum"></span>）人</div>-->
+						<div class="to__content" id="rightCont"></div>
+					</div>
+					<div class="full add-icon " data-full="cs">
+						<img src="img/send-add.jpg" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--选择联系人弹出层-->
+		<div class="fullBox " data-full="cs">
+			<div class="mark"></div>
+			<div class="fullModal">
+				<div class="mui-content">
+					<div id='list' class="mui-indexed-list">
+						<div class="mui-table-view mui-table-view-radio">
+							<div class="weui-cells_form to__block">
+								<div class="to__left">
+									<div class="to__content">
+										<div class="weui-search-bar to__search" id="searchBar">
+											<form class="weui-search-bar__form">
+												<div class="weui-search-bar__box">
+													<i class="weui-icon-search"></i>
+													<input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+													<a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+												</div>
+												<label class="weui-search-bar__label" id="searchText">
+										      <i class="weui-icon-search"></i>
+										      <span>搜索</span>
+										    </label>
+											</form>
+											<a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+										</div>
+										<div class="" id="leftCont"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a href="javascript:;" class="weui-btn weui-btn_primary close-full">确定(<span id="selectNum"></span>人)</a>
+			</div>
+		</div>
+		
+		<div class='submit-btn'>
+			<a href="javascript:;" class="weui-btn weui-btn_submit">保存</a>
+		</div>
+		
+		<input data-options='{}' class="screen-date" id="timeStart" type="text" placeholder="开始时间">
+										<span>-</span>
+										<input data-options='{}' class="screen-date" id="timeEnd" type="text" placeholder="结束时间">
+										<input data-options='{}' class="screen-date" id="time456" type="text" placeholder="结束时间">
+<a class="mui-navigate-right">
+                                    至 <span id='enddate' data-options='{"type":"date"}' class="mui-pull-right"
+                                            style="margin-right: 20px;min-width:160px;text-align: right;">请选择（必填）</span>
+                                </a>
+                                <input type="hidden" name="rideEndTime" id='rideEndTime'/>
+
+
+	</body>
+	<script src="plugins/weui/js/weui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="plugins/weui/js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+	<script src="plugins/mui/js/mui.js"></script>
+			<script src="plugins/mui/js/mui.picker.min.js"></script>
+	<script src="js/baes.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="js/send-add.js"></script>
+	<script type="text/javascript" src="js/cost-application.js"></script>
+
+	<script type="text/javascript">
+		$(function() {
+			FastClick.attach(document.body);
+		});
+
+		$("#time1").datetimePicker({
+			times: function() {
+				return [];
+			}
+		});
+		$("#time2").datetimePicker({
+			times: function() {
+				return [];
+			}
+		});
+		$("#time3").datetimePicker({
+			times: function() {
+				return [];
+			}
+		});
+
+		$(function() {
+			//序号
+			var index = 1;
+			var num;
+			$(".nodeNum").each(function() { //对序号列span 的 name 进行循环
+				num = $(this).html(index++);
+			});
+			//添加
+			$('.add-btn').click(function() {
+				$(".nodeNum").each(function() {
+					var s = $(".nodeNum").length;
+					num = s + 1;
+				});
+				var addList = '<div class="weui-cells weui-cells_form addList"><div class="node"><div>节点 <span class="nodeNum">' + num + '</span> </div><a href="javascript:;" class="del" id="del">删除</a></div><a class="weui-cell weui-cell_access" href="javascript:;"><div class="weui-cell__hd"><label for="time1" class="weui-label">开始日期</label></div><div class="weui-cell__ft"><input data-options="{}" class="screen-date" id="num'+num+'" type="text" placeholder="请选择"></div></a><a class="weui-cell weui-cell_access" href="javascript:;"><div class="weui-cell__hd"><label for="time1" class="weui-label">结束日期</label></div><div class="weui-cell__ft"><input data-options="{"value":"2015-10-10 10:10","beginYear":2000,"endYear":2020}" class="weui-input btn" id="time2" type="text" placeholder="请选择"></div></a><div class="weui-cell"><div class="weui-cell__hd"><p>计划内容</p></div><div class="weui-cell__ft"><textarea class="weui-textarea" placeholder="请填写计划详情" rows="3"></textarea></div> </div></div>';
+				$(".main").append(addList);
+				var btns = $('.screen-date');
+				btns.each(function(i, btn) {
+					btn.addEventListener('tap', function() {
+						var _self = this;
+						if(_self.picker) {
+							_self.picker.show(function(rs) {
+								_self.picker.dispose();
+								_self.picker = null;
+							});
+						} else {
+							var optionsJson = this.getAttribute('data-options') || '{}';
+							var options = JSON.parse(optionsJson);
+							var id = this.getAttribute('id');
+
+							_self.picker = new mui.DtPicker({
+								type: "date", //设置日历初始视图模式 
+								beginDate: new Date(2015, 04, 25), //设置开始日期 
+								endDate: new Date(2016, 04, 25), //设置结束日期 
+							})
+
+							_self.picker.show(function(rs) {
+								_self.style.color = "#333";
+								_self.value = rs.text;
+
+								_self.picker.dispose();
+								_self.picker = null;
+							});
+						}
+
+					}, false);
+				});
+			})
+			//删除
+			$(document).on('click', '.del', (function() {
+				$($(this).parent().parent().nextAll(".addList")).each(function() {
+					var a = $(this).find('span').eq(0).text();
+					$(this).find('span').eq(0).text(a - 1);
+				});
+				$(this).parent().parent().remove();
+			}));
+
+		})
+		
+		mui.init();
+			//时间选择组件
+			(function($) {
+				$.init();
+				var btns = $('.screen-date');
+				btns.each(function(i, btn) {
+					btn.addEventListener('tap', function() {
+						var _self = this;
+						if(_self.picker) {
+							_self.picker.show(function(rs) {
+								_self.picker.dispose();
+								_self.picker = null;
+							});
+						} else {
+							var optionsJson = this.getAttribute('data-options') || '{}';
+							var options = JSON.parse(optionsJson);
+							var id = this.getAttribute('id');
+
+							_self.picker = new mui.DtPicker({
+								type: "date", //设置日历初始视图模式 
+								beginDate: new Date(2015, 04, 25), //设置开始日期 
+								endDate: new Date(2016, 04, 25), //设置结束日期 
+							})
+
+							_self.picker.show(function(rs) {
+								_self.style.color = "#333";
+								_self.value = rs.text;
+
+								_self.picker.dispose();
+								_self.picker = null;
+							});
+						}
+
+					}, false);
+				});
+				//点击确定获取起始时间
+				$('.screen-btn')[0].addEventListener('tap', function() {
+					console.log(btns[0].value) //开始时间
+					console.log(btns[1].value) //结束时间
+				})
+
+			})(mui);
+			//搜索和清除切换
+			$('.screen-btn').click(function() {
+				//点击搜索
+				if(true) {
+					//true 满足搜索条件
+					$(".result").addClass("active")
+					var screenDate1 = $('.screen-date')[0].value
+					var screenDate2 = $('.screen-date')[1].value
+					$(".resultContent").text(screenDate1 + "-" + screenDate2)
+
+				}
+			})
+			$('.resultBtn').click(function() {
+				//点击清除搜索
+				$(".result").removeClass("active")
+			})
+	</script>
+
+</html>

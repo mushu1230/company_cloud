@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的合同</title>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link href="plugins/mui/css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="plugins/mui/css/mui.picker.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/contract-my.css" />
+		<style type="text/css">
+			.content .hd .hd-slide {left: 0;}
+		</style>
+	</head>
+
+	<body>
+		<div class="content">
+			<div class="hd">
+				<div class="hd-bar">
+					<div class="slide-btn">
+						排序<i class="iconfont icon-shaixuan"></i>
+					</div>
+					<div class="slide-btn">
+						分类<i class="iconfont icon-paixu"></i>
+					</div>
+					<div class="slide-btn">
+						时间<i class="iconfont icon-paixu"></i>
+					</div>
+				</div>
+
+				<div class="hd-slide">
+					<ul>
+						<li>
+							<a href="#">综合排序</a>
+						</li>
+						<li>
+							<a href="#">从高到低</a>
+						</li>
+						<li>
+							<a href="#">从低到高</a>
+						</li>
+					</ul>
+				</div>
+				<div class="hd-slide">
+					<ul>
+						<li>
+							<a href="#">待施工</a>
+						</li>
+						<li>
+							<a href="#">施工中</a>
+						</li>
+						<li>
+							<a href="#">质保期</a>
+						</li>
+						<li>
+							<a href="#">已过期</a>
+						</li>
+					</ul>
+				</div>
+				<div class="hd-slide">
+					<ul>
+						<li>
+							<a href="#">显示全部</a>
+						</li>
+						<li>
+							<a href="#">一周内</a>
+						</li>
+						<li>
+							<a href="#">一月内</a>
+						</li>
+						<li>
+							<a href="#">三月内</a>
+						</li>
+						<li>
+							<a href="#">半年内</a>
+						</li>
+						<li>
+							<a href="#">一年内</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="bd" id="container">
+				<div id="content">
+					<!--tip后before|being|after|overdue四个状态css-->
+					<!--<div class="weui-cells">
+						<div class="weui-cell">
+							<div class="project">
+								<div class="project-header">
+									<div class="name">
+										智慧银行项目
+									</div>
+									
+									<div class="tip before">
+										待施工
+									</div>
+								</div>
+								<div class="project-date">
+									签约时间:2019-04-11
+								</div>
+							</div>
+						</div>
+						<div class="weui-cell">
+							<div class="amount">
+								<div class="item">
+									<div class="amount-top">
+										成交金额(元)
+									</div>
+									<div class="amount-bottom">
+										1000
+									</div>
+								</div>
+								<div class="item">
+									<div class="amount-top">
+										回款金额(元)
+									</div>
+									<div class="amount-bottom">
+										1000
+									</div>
+								</div>
+								<div class="item">
+									<div class="amount-top">
+										回款比例(%)
+									</div>
+									<div class="amount-bottom">
+										<div class="progressNumber">
+											80
+										</div>
+										<div class="progressBox">
+											<div class="progressBar" data-progress ="80">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>-->
+				</div>
+				<!--滚动加载-->
+				<div class="weui-loadmore">
+					<i class="weui-loading"></i>
+					<span class="weui-loadmore__tips">正在加载</span>
+				</div>
+				<div class="add iconfont icon-add"></div>
+			</div>
+
+		</div>
+		<div class="mark"></div>
+		<script src="plugins/weui/js/jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="plugins/weui/js/jquery-weui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/contract-list.js" type="text/javascript" charset="utf-8"></script>
+		<script src="plugins/mui/js/mui.js"></script>
+		<script src="plugins/mui/js/mui.picker.min.js"></script>
+		<script src="js/baes.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			slide()
+		</script>
+	</body>
+
+</html>

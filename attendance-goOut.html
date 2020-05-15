@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>考勤-外出</title>
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/jquery-weui.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link href="css/iconfont.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/send-add.css" />
+		<link rel="stylesheet" type="text/css" href="css/item.css" />
+		<link rel="stylesheet" type="text/css" href="css/attendance.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/mui/css/mui.picker.min.css" />
+		<script type="text/javascript" src="plugins/weui/js/jquery-2.1.4.js"></script>
+		<script src="plugins/weui/js/jquery-weui.js" type="text/javascript" charset="utf-8"></script>
+
+	</head>
+
+	<body id="progressAdd" class="attendance">
+		<div class="weui-tab">
+			<div class="weui-tab__bd">
+				<div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+					<div class="main">
+						<div class="addWrap">
+							<div class="weui-cells weui-cells_form addList">
+								<a class="weui-cell weui-cell_access" href="javascript:;">
+									<div class="weui-cell__hd">
+										<label for="begintime" class="weui-label">开始日期</label>
+									</div>
+									<div class="weui-cell__ft">
+										<input data-options='{}' class="datebtn mui-btn" id="timeStart" type="text" placeholder="开始时间">
+									</div>
+								</a>
+								<a class="weui-cell weui-cell_access" href="javascript:;">
+									<div class="weui-cell__hd">
+										<label for="time2" class="weui-label">结束日期</label>
+									</div>
+									<div class="weui-cell__ft">
+										<input data-options='{}' class="datebtn mui-btn" id="timeEnd" type="text" placeholder="结束时间">
+									</div>
+								</a>
+								<a class="weui-cell" href="javascript:;">
+									<div class="weui-cell__hd">
+										<label for="time1" class="weui-label">时长</label>
+									</div>
+									<div class="weui-cell__ft">
+										<input type="text" class="weui-input" name="" id="" value="" placeholder="自动计算" />
+									</div>
+								</a>
+							</div>
+							<div class="weui-cells weui-cells_form">
+								<div class="weui-cell">
+									<div class="weui-cell__hd">
+										<p>外出事由</p>
+									</div>
+									<div class="weui-cell__ft">
+										<textarea class="weui-textarea" placeholder="请输入" rows="3"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!--审批功能-->
+						<div class="weui-cells weui-cells_form approval">
+							<div class="weui-cell_access">
+								<div class="weui-cell__hd">
+									<p class="send-text">审批</p>
+									<div class="to__right">
+										<!--<div class="tso__title">抄送（<span id="selectNum"></span>）人</div>-->
+										<div class="to__content" id="rightCont"></div>
+									</div>
+									<div class="full add-icon " data-full="sp">
+										<img src="img/send-add.jpg" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--选择联系人弹出层-->
+						<div class="fullBox " data-full="sp">
+							<div class="mark"></div>
+							<div class="fullModal">
+								<div class="mui-content">
+									<div id='list' class="mui-indexed-list">
+										<div class="mui-table-view mui-table-view-radio">
+											<div class="weui-cells_form to__block">
+												<div class="to__left">
+													<div class="to__content">
+														<div class="weui-search-bar to__search" id="searchBar">
+															<form class="weui-search-bar__form">
+																<div class="weui-search-bar__box">
+																	<i class="weui-icon-search"></i>
+																	<input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+																	<a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+																</div>
+																<label class="weui-search-bar__label" id="searchText">
+															      	<i class="weui-icon-search"></i>
+															     	<span>搜索</span>
+															    </label>
+															</form>
+															<a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+														</div>
+														<div class="" id="leftCont"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<a href="javascript:;" class="weui-btn weui-btn_primary close-full">确定(<span id="selectNum"></span>人)</a>
+							</div>
+						</div>
+
+						<!--抄送功能-->
+						<div class="weui-cells weui-cells_form approval">
+							<div class="weui-cell_access">
+								<div class="weui-cell__hd">
+									<p class="send-text">抄送</p>
+									<div class="to__right">
+										<!--<div class="tso__title">抄送（<span id="selectNum"></span>）人</div>-->
+										<div class="to__content" id="rightCont"></div>
+									</div>
+									<div class="full add-icon " data-full="cs">
+										<img src="img/send-add.jpg" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--选择联系人弹出层-->
+						<div class="fullBox " data-full="cs">
+							<div class="mark"></div>
+							<div class="fullModal">
+								<div class="mui-content">
+									<div id='list' class="mui-indexed-list">
+										<div class="mui-table-view mui-table-view-radio">
+											<div class="weui-cells_form to__block">
+												<div class="to__left">
+													<div class="to__content">
+														<div class="weui-search-bar to__search" id="searchBar">
+															<form class="weui-search-bar__form">
+																<div class="weui-search-bar__box">
+																	<i class="weui-icon-search"></i>
+																	<input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+																	<a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+																</div>
+																<label class="weui-search-bar__label" id="searchText">
+										      <i class="weui-icon-search"></i>
+										      <span>搜索</span>
+										    </label>
+															</form>
+															<a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+														</div>
+														<div class="" id="leftCont"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<a href="javascript:;" class="weui-btn weui-btn_primary close-full">确定(<span id="selectNum"></span>人)</a>
+							</div>
+						</div>
+
+						<div class='submit-btn'>
+							<a href="javascript:;" class="weui-btn weui-btn_submit">保存</a>
+						</div>
+					</div>
+				</div>
+
+				<!--记录页面-->
+				<div id="tab2" class="weui-tab__bd-item">
+					<div class="record" id="container">
+						<div id="content" class="weui-cells">
+							<!--列表加载内容-->
+							<div class="weui-cell report-cell">
+								<div class="customer-group">
+									<div class="img">刘</div>
+									<div class="time-info">
+										<div class="info-myAtt">
+											<div class="name-info">
+												<span class="name">刘娜娜</span>的外出申请
+											</div>
+											<div class="report">
+												<div class="describe">
+													开始时间：
+													<p class="timeRecord">2020-3-24 11:12</p>
+												</div>
+												<div class="describe">
+													结束时间：
+													<p class="timeRecord">2020-3-24 11:12</p>
+												</div>
+												<div class="describe">
+													时长：
+													<p class="timeRecord">1小时</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="detail">
+										<div class="date">2019-06-06</div>
+										<div class="state">
+											<div class="record-pass">已通过</div>
+											<div class="record-wait">待审批</div>
+											<div class="record-refuse">已拒绝</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--滚动加载-->
+						<div class="weui-loadmore">
+							<i class="weui-loading"></i>
+							<span class="weui-loadmore__tips">正在加载</span>
+						</div>
+						<!--				<div class="add iconfont icon-add"></div>-->
+					</div>
+				</div>
+
+			</div>
+			<div class="weui-tabbar">
+				<a href="#tab1" class="weui-tabbar__item weui-bar__item--on">
+					<div class="weui-tabbar__icon">
+						<i class="iconfont icon-wyqj"></i>
+					</div>
+					<p class="weui-tabbar__label">我要外出</p>
+				</a>
+				<a href="#tab2" class="weui-tabbar__item">
+					<div class="weui-tabbar__icon">
+						<i class="iconfont icon-wdjl"></i>
+					</div>
+					<p class="weui-tabbar__label">外出记录</p>
+				</a>
+			</div>
+		</div>
+
+	</body>
+	<script src="plugins/weui/js/weui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="plugins/weui/js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+	<script src="plugins/mui/js/mui.js"></script>
+	<script src="plugins/mui/js/mui.picker.min.js"></script>
+	<script src="js/baes.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="js/send-add.js"></script>
+	<script type="text/javascript" src="js/cost-application.js"></script>
+
+	<script type="text/javascript">
+		$(function() {
+			FastClick.attach(document.body);
+		});
+		mui.init();
+		//时间选择组件
+		(function($) {
+			$.init();
+			var btns = $('.datebtn');
+			btns.each(function(i, btn) {
+				btn.addEventListener('tap', function() {
+					var _self = this;
+					if(_self.picker) {
+						_self.picker.show(function(rs) {
+							_self.picker.dispose();
+							_self.picker = null;
+						});
+					} else {
+						var optionsJson = this.getAttribute('data-options') || '{}';
+						var options = JSON.parse(optionsJson);
+						var id = this.getAttribute('id');
+
+						_self.picker = new mui.DtPicker({
+							type: "hour", //设置日历初始视图模式 
+
+							customData: {
+								"h": [
+									{ "text": "上午", "value": "上午" },
+									{ "text": "下午", "value": "下午" }
+								]
+							}
+						})
+						_self.picker.show(function(rs) {
+							_self.style.color = "#333";
+							_self.value = rs.text;
+
+							_self.picker.dispose();
+							_self.picker = null;
+						});
+					}
+
+				}, false);
+			});
+		})(mui);
+
+		/*--------------记录页面 ----------*/
+		var pages = 3;
+		var sizes = 3;
+		var total = 5;
+		var loading = false;
+		$(function() {
+			loadlist();
+			loading = false; //状态标记
+		})
+		//============================滚动加载
+		$("#container").infinite().on("infinite", function() {
+			if(loading) return;
+			loading = true;
+			pages++; //页数
+			$('.weui-loadmore').show();
+			setTimeout(function() {
+				loadlist();
+				loading = false;
+			}, 1000);
+		});
+		// =======加载数据loadlist();
+		function loadlist() {
+			var html = "";
+			$.ajax({
+				type: "get",
+				url: "shuju.json",
+				data: { 'page': pages, 'limit': sizes, },
+				dataType: "json",
+				error: function(request) {
+					$(".weui-loadmore").hide();
+					html += '<div class=" weui-loadmore_line" style="width:65%;margin:1.5em auto;line-height:1.6em;font-size:14px;text-align:center">\n' +
+						'<span class="weui-loadmore__tips">无更多数据</span>\n' +
+						'</div>';
+					$("#content").append(html);
+				},
+				success: function(data) {
+					console.log(data)
+					var data_length = data.length;
+					if(data.length > 0) {
+						for(var i = 0; i < data.length; i++) {
+							var date = data[i].date;
+							var recent = data[i].recent;
+							var time = data[i].time;
+							var address = data[i].address;
+							//暂时的数据
+							html += '<div class="weui-cell report-cell"><div class="customer-group"><div class="img">刘</div><div class="time-info"><div class="info-myAtt"><div class="name-info"><span class="name">刘娜娜</span>的外出申请 </div><div class="report"><div class="describe">开始时间： <p class="timeRecord">2020-3-24 11:12</p></div><div class="describe">结束时间： <p class="timeRecord">2020-3-24 11:12</p></div><div class="describe">时长： <p class="timeRecord">1小时</p></div></div></div></div><div class="detail"><div class="date">2019-06-06</div><div class="state"><div class="record-pass">已通过</div><div class="record-wait">待审批</div><div class="record-refuse">已拒绝</div></div></div></div></div>';
+						}
+						$("#content").append(html);
+					} else {
+						html += '<div class="weui-loadmore_line" style="width:65%;margin:1.5em auto;line-height:1.6em;font-size:14px;text-align:center">\n' +
+							'<span class="weui-loadmore__tips">无更多数据</span>\n' +
+							'</div>';
+						$("#content").append(html);
+						loading = true;
+					}
+					$(".weui-loadmore").hide();
+				}
+			});
+		}
+	</script>
+
+</html>

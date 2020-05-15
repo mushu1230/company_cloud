@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>统计中心</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="plugins/weui/css/weui.css"/>
+    <link rel="stylesheet" href="plugins/weui/css/weuix.css"/>
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+    <link rel="stylesheet" href="css/statistic.css"/>
+	<script src="plugins/weui/js/jquery-2.1.4.js"></script>
+	<script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
+</head>
+
+<body ontouchstart>
+	<div class="container">	
+		<!--回款管理-->
+		<div class="weui-panel__bd">
+            <div class="weui-media-box weui-media-box_small-appmsg">
+                <div class="weui-cells">
+                    <div class="weui-cell weui-cell_access">
+                        <div class="weui-cell__bd">
+                        	<i class="iconfont icon-huikuan yellow"></i>
+                        	<span class="">回款管理</span>
+                        </div>
+                        <a href="javascript:;" class="" id="showDatePicker">
+                        	<i class="iconfont icon-youjiantou gray"></i>
+                        </a> 
+                    </div>
+				</div>	
+				<div class="weui-flex">
+		            <div class="weui-flex__item">
+		            	<p>12600</p>
+		            	<div class="text">合同总金额</div>
+		            </div>
+		            <i class="line"></i>
+		            <div class="weui-flex__item">
+		            	<p>12600</p>
+		            	<div class="text">合同总单数</div>
+		            </div>
+		        </div>
+		        <div class="width-line"></div>
+		        <div class="weui-flex">
+		            <div class="weui-flex__item">
+		            	<p>12600</p>
+		            	<div class="text">计划回款</div>
+		            </div>
+		            <i class="line"></i>
+		            <div class="weui-flex__item">
+		            	<p>12600</p>
+		            	<div class="text">实际回款</div>
+		            </div>
+		        </div>
+            </div>
+        </div>
+		
+		<!--销售目标-->
+		<div class="weui-panel__bd">
+            <div class="weui-media-box weui-media-box_small-appmsg">
+                <div class="weui-cells">
+                    <div class="weui-cell weui-cell_access">
+                        <div class="weui-cell__bd">
+                        	<i class="iconfont icon-xiaoshou green"></i>
+                        	<span class="">销售目标</span>
+                        </div>
+                        <a href="javascript:;" class="" id="showDatePicker">
+                        	<i class="iconfont icon-youjiantou gray"></i>
+                        </a>    
+                    </div>
+                </div>
+            </div>
+            <!--图表-->
+		    <div class="chart-wrapper">
+			    <canvas id="mountNode"></canvas>
+			</div>
+        </div>
+		
+		<!--拜访记录-->
+		<div class="weui-panel__bd">
+            <div class="weui-media-box weui-media-box_small-appmsg">
+                <div class="weui-cells">
+                    <div class="weui-cell weui-cell_access">
+                        <div class="weui-cell__bd">
+                        	<i class="iconfont icon-baifang purple"></i>
+                        	<span class="">拜访记录</span>
+                        </div>
+                        <a href="javascript:;" class="" id="showDatePicker">
+                        	<i class="iconfont icon-youjiantou gray"></i>
+                        </a> 
+                    </div>
+				</div>	
+				<div class="weui-flex">
+		            <div class="weui-flex__item">
+		            	<p>20</p>
+		            	<div class="text">当前客户数量</div>
+		            </div>
+		            <i class="line"></i>
+		            <div class="weui-flex__item">
+		            	<p>20</p>
+		            	<div class="text">本周客户数量</div>
+		            </div>
+		        </div>
+		        <div class="width-line"></div>
+		        <div class="weui-flex single">
+		            <div class="weui-flex__item">
+		            	<p>2</p>
+		            	<div class="text">确定项目需求</div>
+		            </div>
+		        </div>
+            </div>
+        </div>
+	</div>
+	
+	<script>
+	  	$(function() {
+	    	FastClick.attach(document.body);
+	  	});
+	</script>
+	<script src="plugins/weui/js/f2.js"></script>
+	<script src="js/statistic.js"></script>
+	<script src="plugins/weui/js/jquery-weui.js"></script>
+	<script src="plugins/weui/js/fastclick.js"></script>
+</body>
+</html>

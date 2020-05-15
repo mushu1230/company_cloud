@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+	<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="plugins/weui/css/jquery-weui.css" />
+	<!--<link rel="stylesheet" type="text/css" href="css/base.css" />-->
+	
+	<link rel="stylesheet" href="css/send-add.css">
+	<title>费用申请-添加-选择</title>
+</head>
+<body>
+	<div class="weui-cells_form to__block">
+		<div class="to__left">
+			<div class="to__content">
+				<!--<div class="weui-search-bar to__search">
+					<input id="searchInput" type="text" placeholder="请输入需要搜索的名称">
+				</div>-->
+				<div class="weui-search-bar to__search" id="searchBar">
+				  <form class="weui-search-bar__form">
+				    <div class="weui-search-bar__box">
+				      <i class="weui-icon-search"></i>
+				      <input  type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+				      <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+				    </div>
+				    <label class="weui-search-bar__label" id="searchText">
+				      <i class="weui-icon-search"></i>
+				      <span>搜索</span>
+				    </label>
+				  </form>
+				  <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+				</div>
+				<div class="" id="leftCont"></div>
+			</div>
+		</div>
+		<div class="to__right">
+			<div class="to__title">抄送（<span id="selectNum"></span>）人</div>
+			<div class="to__content" id="rightCont"></div>
+		</div>
+	</div>
+<script type="text/javascript" src="js/send-add.js"></script>
+<script type="text/javascript">
+        window.onload = function(){
+            var baseData = [
+                {
+                    name: "全选",
+                    post:"",
+                    active: false,
+                    last: false,
+                    img: "",
+                    children: [
+                    // 模拟数据
+                    {
+                        name: "行政人事中心",
+                        post:"",
+                        active: false,
+                        last: false,
+                        img: "",
+                        children: [
+                        {
+                            value: 1, // 最低一层必须提供 value 键名
+                            name: "刘娜娜",
+                            post:"行政人事中心经理",
+                            active: false, //true 为默认选中
+                            last: true, // last = true 代表最低一层
+                            img: "img/remind.png", // 个性化icon图标，否则采用默认
+                            children: [] // 每一个对象必须提供children键名，如果没有数据也需要一个空数组[]
+                        },
+                        {
+                            value: 2,
+                            name: "程盼盼",
+                            post:"司机",
+                            active: false,
+                            last: true,
+                            img: "img/remind.png",
+                            children: []
+                        },
+                        {
+                            value: 3,
+                            name: "刘文娟",
+                            post:"人事专员",
+                            active: false,
+                            last: true,
+                            img: "img/remind.png",
+                            children: []
+                        },
+                        ]
+                    },
+                    {
+                        name: "运营管理中心",
+                        post:"",
+                        active: false,
+                        last: false,
+                        img: "",
+                        children: [
+                        {
+                            value: 4,
+                            name: "王晓梦",
+                            post:"运营管理中心经理",
+                            children: [],
+                            active: false,
+                            last: true,
+                            img: "img/remind.png",
+                        },
+                        {
+                            value: 5,
+                            name: "aaa",
+                            post:"bbb",
+                            children: [],
+                            active: false,
+                            last: true,
+                            img: "img/remind.png",
+                        }
+                        ]
+                    },
+                    {
+                        name: "总经理",
+                        post:"",
+                        active: false,
+                        last: false,
+                        img: "",
+                        children: [
+                        	{
+		                        value: 6,
+	                            name: "邱新明",
+	                            post:"总经理",
+	                            children: [],
+	                            active: false,
+	                            last: true,
+	                            img: "img/remind.png",
+		                    }
+                        ]
+                    },
+                    ]
+                }
+            ];
+
+            var result = new group(baseData);
+            result.go();         
+        }
+    </script>
+	<script type="text/javascript" src="plugins/weui/js/jquery-2.1.4.js"></script>
+	<script src="plugins/weui/js/jquery-weui.js" type="text/javascript" charset="utf-8"></script>
+    
+</body>
+
+</html>

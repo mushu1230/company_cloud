@@ -1,0 +1,461 @@
+<!doctype html PUBLIC>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>打卡-统计</title>
+		<meta name="viewport" content="width=device-width user-scalable= 'no'">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weuix.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/clockIn.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/calendar_base.css" />
+	</head>
+
+	<body id="clockIn-sta">
+		<div class="weui-tab">
+			<div class="weui-tab__bd">
+				<!--打卡-->
+				<div id="tab1" class="weui-tab__bd-item  weui-tab__bd-item--active">
+					<div class="con" id="realTime">
+						<!--图表-->
+						<div id="main" style="width:240;height:240;"></div>
+						<div class="state-info">
+							<div class="info">
+								<div class="num num-clockIn ">
+									6
+								</div>
+								<div class="des">
+									未打卡
+								</div>
+							</div>
+							<div class="info">
+								<div class="num num-clockIn">
+									1
+								</div>
+								<div class="des">
+									迟到
+								</div>
+							</div>
+							<div class="info">
+								<div class="num num-clockIn">
+									6
+								</div>
+								<div class="des">
+									外勤
+								</div>
+							</div>
+							<div class="info">
+								<div class="num num-clockIn">
+									6
+								</div>
+								<div class="des">
+									早退
+								</div>
+							</div>
+							<div class="info">
+								<div class="num num-clockIn">
+									6
+								</div>
+								<div class="des">
+									地点异常
+								</div>
+							</div>
+							<div class="info">
+								<div class="num num-clockIn">
+									6
+								</div>
+								<div class="des">
+									设备异常
+								</div>
+							</div>
+						</div>
+						<div class="detail">
+							<div class="title">
+								打卡明细
+							</div>
+							<!--列表内容-->
+							<div class="weui-cells report-cell">
+								<div class="customer-group weui-cell">
+									<div class="img">刘</div>
+									<div class="time-info">
+										<div class="info-myAtt">
+											<div class="name-info">
+												<span class="name">刘娜娜</span>
+											</div>
+											<div class="report">
+												<div class="describe">
+													软件研发部
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="detail">
+										<div class="state">
+											<div class="">迟到</div>
+										</div>
+									</div>
+								</div>
+								<div class="customer-group weui-cell">
+									<div class="img">刘</div>
+									<div class="time-info">
+										<div class="info-myAtt">
+											<div class="name-info">
+												<span class="name">刘娜娜</span>
+											</div>
+											<div class="report">
+												<div class="describe">
+													软件研发部
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="detail">
+										<div class="state">
+											<div class="">正常</div>
+										</div>
+									</div>
+								</div>
+								<div class="customer-group weui-cell">
+									<div class="img">刘</div>
+									<div class="time-info">
+										<div class="info-myAtt">
+											<div class="name-info">
+												<span class="name">刘娜娜</span>
+											</div>
+											<div class="report">
+												<div class="describe">
+													软件研发部
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="detail">
+										<div class="state">
+											<div class="">正常</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--滚动加载-->
+							<div class="weui-loadmore" style="margin-top: -20px;padding-bottom: 50px;">
+								<i class="weui-loading"></i>
+								<span class="weui-loadmore__tips">正在加载</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--记录-->
+				<div id="tab2" class="weui-tab__bd-item statistics month-sta">
+					<!-- 容器 -->
+					<div class="main">
+						<div class="context weui-cells">
+							<!-- Tab内容 -->
+							<div class="staWrap" id="monthType">
+								<div class="content">
+									<div class="" id="month">
+										<div class="mui-content monthWrap">
+											<div class="em-journal-title">
+												<div class="em-per-block pre">
+													<span class="mui-icon mui-icon-arrowleft"></span>
+												</div>
+												<div class="em-per-block mid">
+													<span>...</span>
+												</div>
+												<div class="em-per-block next">
+													<span class="mui-icon mui-icon-arrowright"></span>
+												</div>
+											</div>
+											<!--日历容器-->
+											<div id="monthcalendar">
+											</div>
+										</div>
+										<div class="box">
+											<div class="partition">
+											</div>
+											<div class="weui-cells sta-info">
+												<div class="weui-cell sta-list">
+													<div class="list-l">
+														出勤人数
+													</div>
+													<div class="list-r">
+														<span>6</span>人
+													</div>
+												</div>
+												<div class="weui-cell sta-list">
+													<div class="list-l">
+														迟到
+													</div>
+													<div class="list-r">
+														<span>1</span>人
+													</div>
+												</div>
+												<div class="weui-cell sta-list">
+													<div class="list-l">
+														早退
+													</div>
+													<div class="list-r">
+														<span>1</span>人
+													</div>
+												</div>
+												<div class="weui-cell sta-list">
+													<div class="list-l">
+														缺卡
+													</div>
+													<div class="list-r">
+														<span>6</span>人
+													</div>
+												</div>
+												<div class="weui-cell sta-list">
+													<div class="list-l">
+														旷工
+													</div>
+													<div class="list-r">
+														<span>6</span>人
+													</div>
+												</div>
+												<div class="weui-cell sta-list">
+													<div class="list-l">
+														外勤
+													</div>
+													<div class="list-r">
+														<span>6</span>人
+													</div>
+												</div>
+												<div class="weui-cell sta-list">
+													<div class="list-l">
+														加班
+													</div>
+													<div class="list-r">
+														<span>6</span>人
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--底部固定导航-->
+			<div class="weui-tabbar">
+				<a href="#tab1" class="weui-tabbar__item weui-bar__item--on">
+					<div class="weui-tabbar__icon">
+						<i class="iconfont icon-wdjl"></i>
+					</div>
+					<p class="weui-tabbar__label active">实时统计</p>
+				</a>
+				<a href="#tab2" class="weui-tabbar__item  ">
+					<div class="weui-tabbar__icon">
+						<i class="iconfont icon-tongji"></i>
+					</div>
+					<p class="weui-tabbar__label">月统计</p>
+				</a>
+			</div>
+		</div>
+		<script src="plugins/weui/js/jquery-2.1.4.js"></script>
+		<script src="plugins/weui/js/jquery-weui.min.js"></script>
+		<script src="plugins/weui/js/jquery-weui.js"></script>
+
+		<!--图表-->
+		<script src="plugins/weui/js/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--日历-->
+		<script src="plugins/weui/js/swiper.min.js"></script>
+		<script src="plugins/mui/js/mui.min.js"></script>
+		<script src="js/mustache.min.js"></script>
+		<!--<script src="js/calendar_base.js"></script>-->
+		<script src="js/calendar_base_month.js"></script>
+		<script src="js/calendar_showcase.js"></script>
+		<script src="plugins/weui/js/fastclick.js"></script>
+
+		<script type="text/javascript">
+			//点击穿透
+			$(function() {
+				FastClick.attach(document.body);
+			});
+
+			//图表
+			// 基于准备好的dom，初始化echarts实例
+			var myChart = echarts.init(document.getElementById('main'));
+			var placeHolderStyle = {
+				normal: {
+					label: {
+						show: false
+					},
+					labelLine: {
+						show: false
+					},
+					color: "rgba(0,0,0,0)",
+					borderWidth: 0
+				},
+				emphasis: {
+					color: "rgba(0,0,0,0)",
+					borderWidth: 0
+				}
+			};
+
+			var data = 12; //数值大小
+			var max = 44; //满刻度大小
+			option = {
+				//backgroundColor: '#fff',
+				series: [{
+						type: 'pie',
+						zlevel: 2,
+						hoverAnimation: false,
+						radius: ['93%', '94%'],
+						center: ['50%', '50%'],
+						labelLine: {
+							normal: {
+								show: false
+							}
+						},
+						data: [{
+							value: data,
+							label: {
+								normal: {
+									rich: {
+										a: {
+											color: '#fcb058',
+											align: 'center',
+											fontSize: 33,
+										}
+									},
+									formatter: function(params) {
+										//图标中心文字，打卡人数/总人数
+										return "{a|" + data + "} " + "{a|" + "/" + "} " + " {a|" + max + "}\n\n" + "打卡人数/总人数";
+									},
+									position: 'center',
+									show: true,
+									textStyle: {
+										fontSize: '13',
+										fontWeight: 'normal',
+										color: '#666'
+									}
+								}
+							},
+							itemStyle: {
+								normal: {
+									color: 'rgba(0, 0, 0, 0)',
+									borderWidth: 2,
+									borderColor: new echarts.graphic.LinearGradient(0, 0, 1, 1, [{
+										offset: 0,
+										color: '#fcb058'
+									}, {
+										offset: 1,
+										color: '#fcb058'
+									}]),
+								}
+							},
+						}, {
+							value: max - data,
+							itemStyle: placeHolderStyle
+						}, ]
+					},
+					{
+						type: 'pie',
+						zlevel: 1,
+						hoverAnimation: false,
+						radius: ['94%', '95%'],
+						center: ['50%', '50%'],
+						labelLine: {
+							normal: {
+								show: false
+							}
+						},
+						label: {
+							normal: {
+								position: 'center'
+							}
+						},
+						data: [{
+							value: 1,
+							itemStyle: {
+								normal: {
+									color: 'rgba(0, 0, 0, 0)',
+									borderWidth: 2,
+									borderColor: new echarts.graphic.LinearGradient(0, 0, 1, 1, [{
+										offset: 0,
+										color: '#e8e8e8'
+									}, {
+										offset: 1,
+										color: '#e8e8e8'
+									}]),
+								}
+							},
+						}]
+					},
+				]
+			};
+			// 使用刚指定的配置项和数据显示图表。
+			myChart.setOption(option);
+			//  当窗口或者大小发生改变时执行resize，重新绘制图表
+			window.onresize = myChart.resize;
+			
+			//============================滚动加载
+			var pages = 3;
+			var sizes = 3;
+			var total = 2;
+			var loading = false;
+			$(function() {
+				loadlist();
+				loading = false; //状态标记
+			})
+			
+			$("#realTime").infinite().on("infinite", function() {
+				if(loading) return;
+				loading = true;
+				pages++; //页数
+				$('.weui-loadmore').show();
+				setTimeout(function() {
+					loadlist();
+					loading = false;
+				}, 1000);
+			});
+			// =======加载数据loadlist();
+			function loadlist() {
+				var html = "";
+				$.ajax({
+					type: "get",
+					url: "shuju.json",
+					data: { 'page': pages, 'limit': sizes, },
+					dataType: "json",
+					error: function(request) {
+						$(".weui-loadmore").hide();
+						html += '<div class=" weui-loadmore_line" style="width:65%;margin:1.5em auto;line-height:1.6em;font-size:14px;text-align:center">\n' +
+							'<span class="weui-loadmore__tips">无更多数据</span>\n' +
+							'</div>';
+						$("#realTime").append(html);
+					},
+					success: function(data) {
+						console.log(data)
+						var data_length = data.length;
+						if(data.length > 0) {
+							for(var i = 0; i < data.length; i++) {
+								//暂时的数据
+								html += '<div class="customer-group weui-cell"><div class="img">刘</div><div class="time-info"><div class="info-myAtt"><div class="name-info"><span class="name">刘娜娜</span></div><div class="report"><div class="describe">软件研发部</div></div></div></div><div class="detail"><div class="state"><div class="">正常</div></div></div></div>';
+							}
+							$("#realTime .weui-cells").append(html);
+						} else {
+							html += '<div class="weui-loadmore_line" style="width:65%;margin:1.5em auto;line-height:1.6em;font-size:14px;text-align:center">\n' +
+								'<span class="weui-loadmore__tips">无更多数据</span>\n' +
+								'</div>';
+							$("#realTime").append(html);
+							loading = true;
+						}
+						$(".weui-loadmore").hide();
+					}
+				});
+			}
+		</script>
+
+	</body>
+
+</html>

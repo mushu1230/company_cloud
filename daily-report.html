@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/jquery-weui.css" />
+		<link href="plugins/mui/css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="plugins/mui/css/mui.picker.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<!--<link rel="stylesheet" type="text/css" href="css/iconfont.css" />-->
+		<link rel="stylesheet" type="text/css" href="css/send-add.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		
+	</head>
+
+	<body>
+		<div class="weui-cells weui-cells_form">
+			<div class="weui-cell">
+				<div class="weui-cell__hd"><label for="time2" class="weui-label">日期</label></div>
+				<div class="weui-cell__bd">
+					<input data-options='{"value":"2015-10-10 10:10","beginYear":2000,"endYear":2020}' class="weui-input btn" id="time2" type="text" placeholder="请填写拜访时间">
+				</div>
+			</div>
+			<div class="weui-cell input input--juro">
+				<div class="weui-cell__hd">
+					<label class="input__label input__label--juro">
+						<p class="input__label-content input__label-content--juro">工作内容
+							<span class="hint">
+								(请填写今天的工作内容)
+							</span></p>
+					</label>
+				</div>
+				<textarea rows="1" class="input__field input__field--juro" type="text" placeholder="" onpropertychange="extend(this)" oninput="extend(this)" onkeyup= "shorten(this)" overflow:hidden; ></textarea>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>工作内容</p>
+				</div>
+				<div class="weui-cell__bd">
+					<textarea class="weui-textarea" rows="1" placeholder="请填写今天的工作内容"  onpropertychange="extend(this)" oninput="extend(this)" onkeyup= "shorten(this)" overflow:hidden; "></textarea>
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>需协调工作</p>
+				</div>
+				<div class="weui-cell__bd">
+					<textarea class="weui-textarea" rows="1" placeholder="请输入"  onpropertychange="extend(this)" oninput="extend(this)" onkeyup= "shorten(this)" overflow:auto; "></textarea>
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>下周工作计划</p>
+				</div>
+				<div class="weui-cell__bd">
+					<textarea class="weui-textarea" rows="1" placeholder="请每周最后一个工作日提交"  onpropertychange="extend(this)" oninput="extend(this)" onkeyup= "shorten(this)" overflow:hidden; "></textarea>
+				</div>
+			</div>
+			<div class="weui-cell">
+				<div class="weui-cell__hd">
+					<p>备注</p>
+				</div>
+				<div class="weui-cell__bd">
+					<textarea class="weui-textarea" rows="1" placeholder=""  onpropertychange="extend(this)" oninput="extend(this)" onkeyup= "shorten(this)" overflow:hidden; "></textarea>
+				</div>
+			</div>
+		</div>
+			
+		<!--上传-->
+		<div class="weui-cells weui-cells_form">
+		    <div class="weui-gallery" id="gallery">
+		        <span class="weui-gallery__img" id="galleryImg"></span>
+		        <div class="weui-gallery__opr">
+		            <a href="javascript:" class="weui-gallery__del">
+		                <i class="weui-icon-delete weui-icon_gallery-delete"></i>
+		            </a>
+		        </div>
+		    </div>
+		    <div class="weui-cell" id="uploader">
+		        <div class="weui-cell__bd">
+		            <div class="weui-uploader">
+		                <div class="weui-uploader__hd">
+		                <p class="weui-uploader__title">图片上传</p>
+		                <div class="weui-uploader__info"><span id="uploadCount">0</span>/6</div>
+		                </div>
+		                <div class="weui-uploader__bd">
+		                    <ul class="weui-uploader__files" id="uploaderFiles">
+		 
+		                    </ul>
+		                    <div class="weui-uploader__input-box ">
+		                        <!--<input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/jpg,image/jpeg,image/png" />-->
+		                        <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/jpg,image/jpeg,image/png" multiple="multiple"/>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		
+		<!--抄送功能-->
+		<div class="weui-cells weui-cells_form">
+		<div class="weui-cell_access">
+			<div class="weui-cell__hd">
+				<p class="send-text">抄送</p>
+				<div class="to__right">
+					<!--<div class="tso__title">抄送（<span id="selectNum"></span>）人</div>-->
+					<div class="to__content" id="rightCont"></div>
+				</div>
+				<div class="full add-icon " data-full = "cs">
+					<img src="img/send-add.jpg"/>
+				</div>
+			</div>	
+		</div>
+		</div>
+		<!--选择联系人弹出层-->
+		<div class="fullBox " data-full = "cs">
+			<div class="mark"></div>
+			<div class="fullModal">
+				<div class="mui-content">
+					<div id='list' class="mui-indexed-list">
+						<div class="mui-table-view mui-table-view-radio">
+							<div class="weui-cells_form to__block">
+								<div class="to__left">
+									<div class="to__content">
+										<div class="weui-search-bar to__search" id="searchBar">
+										  <form class="weui-search-bar__form">
+										    <div class="weui-search-bar__box">
+										      <i class="weui-icon-search"></i>
+										      <input  type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+										      <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+										    </div>
+										    <label class="weui-search-bar__label" id="searchText">
+										      <i class="weui-icon-search"></i>
+										      <span>搜索</span>
+										    </label>
+										  </form>
+										  <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+										</div>
+										<div class="" id="leftCont"></div>
+									</div>
+								</div>
+							</div>					
+						</div>
+					</div>
+				</div>
+				<a href="javascript:;" class="weui-btn weui-btn_primary close-full">确定(<span id="selectNum"></span>人)</a>
+			</div>
+		</div>
+
+		<div class="report-btn">
+			<div class='demos-content-padded lbtn'>
+				<a href="javascript:;" class="weui-btn weui-btn_report">更多</a>
+			</div>
+			<div class='demos-content-padded rbtn'>
+				<a href="javascript:;" class="weui-btn weui-btn_report">提交</a>
+			</div>
+		</div>
+		
+		
+		<script type="text/javascript" src="js/classie.js"></script>
+		<script>
+			(function() {
+				if (!String.prototype.trim) {
+					(function() {
+						var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+						String.prototype.trim = function() {
+							return this.replace(rtrim, '');
+						};
+					})();
+				}
+	
+				[].slice.call( document.querySelectorAll( 'textarea.input__field' ) ).forEach( function( inputEl ) {
+					if( inputEl.value.trim() !== '' ) {
+						classie.add( inputEl.parentNode, 'input--filled' );
+					}
+	
+					inputEl.addEventListener( 'focus', onInputFocus );
+					inputEl.addEventListener( 'blur', onInputBlur );
+				} );
+	
+				function onInputFocus( ev ) {
+					classie.add( ev.target.parentNode, 'input--filled' );
+				}
+	
+				function onInputBlur( ev ) {
+					if( ev.target.value.trim() === '' ) {
+						classie.remove( ev.target.parentNode, 'input--filled' );
+					}
+				}
+			})();
+		</script>		
+		<script type="text/javascript">
+		    var lastlen = 0;
+			function shorten(o) {
+			    var len = o.value.length;
+			    if (len < lastlen) {
+			        o.style.height = 0 + "px";
+			        o.style.height = o.scrollHeight + "px";
+			    }
+			    lastlen = len;
+			}
+			function extend(o) {
+			   if (o.offsetHeight < o.scrollHeight) {
+			       o.style.height = o.scrollTop + o.scrollHeight + "px";
+			   }
+			}
+		</script>
+		<script type="text/javascript" src="plugins/weui/js/jquery-2.1.4.js"></script>	
+		<script src="plugins/weui/js/weui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="plugins/weui/js/jquery-weui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/uploading.js"></script>	
+		<script type="text/javascript" src="js/send-add.js"></script>	
+		<script src="plugins/weui/js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="plugins/mui/js/mui.js"></script>
+		<script src="plugins/mui/js/mui.picker.min.js"></script>
+		<script src="js/baes.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/cost-application.js"></script>
+	</body>
+</html>

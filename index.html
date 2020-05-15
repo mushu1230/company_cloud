@@ -1,0 +1,577 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>首页</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<link rel="stylesheet" href="plugins/weui/css/weui.css" />
+		<link rel="stylesheet" href="plugins/weui/css/weuix.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="plugins/weui/js/jquery-2.1.4.js"></script>
+		<script src="plugins/weui/js/jquery-weui.js"></script>
+	</head>
+<style type="text/css">
+	.weui-tabbar__item .mask {
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 0, 0, 0.342);
+            position: absolute;
+            animation: bian 0.5s linear both 1;
+        } @keyframes bian {
+            0% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(8)
+            }
+        }
+</style>
+<script type="text/javascript">
+	var main = document.getElementsByClassName('weui-tabbar__item');
+		    main.onmousemove = function (e) {
+		        var x = e.clientX - main.offsetLeft;
+		        var y = e.clientY - main.offsetTop;
+		        console.log(x, y);
+		        main.onclick = function () {
+		            var div = document.createElement('div');
+		            div.className = 'mask';  
+		            div.style.left = x + 'px';
+		            div.style.top = y + 'px';
+		            var r = Math.floor(Math.random() * 256)
+		            var g = Math.floor(Math.random() * 256)
+		            var b = Math.floor(Math.random() * 256)
+		            div.style.background = "rgb(" + r + ',' + g + ',' + b + ")";
+		            main.appendChild(div);
+		            setTimeout(function () {
+		                main.removeChild(div);
+		            }, 600)
+		        }
+		    }
+</script>
+	<body ontouchstart>
+		<div class="weui-tab">
+			<div class="weui-tab__bd">
+				<div id="tab1" class="weui-tab__bd-item "  unselectable="on" onselectstart="return false;">
+					<div class="container">
+						<div class="client content">
+							<div class="title">
+								<i></i>
+								<span class="page-hd-title">
+									行政管理
+						    	</span>
+							</div>
+							<div class="weui-grids grids-small">
+								<a href="clockIn.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-kqdk yellow"></i>
+									</div>
+									<p class="weui-grid__label">
+										考勤打卡
+									</p>
+								</a>
+								<a href="daily-report-ruanjian.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-ribao green"></i>
+									</div>
+									<p class="weui-grid__label">
+										日报
+									</p>
+								</a>
+								<a href="weekly-report-gongcheng.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-zhoubao blue"></i>
+									</div>
+									<p class="weui-grid__label">
+										周报
+									</p>
+								</a>
+								<a href="monthly-report-ruanjian.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-yuebao yellow"></i>
+									</div>
+									<p class="weui-grid__label">
+										月报
+									</p>
+								</a>
+								<a href="signIn.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-qiandao yellow"></i>
+									</div>
+									<p class="weui-grid__label">
+										签到
+									</p>
+								</a>
+								<a href="attendance-leave.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-qj blue"></i>
+									</div>
+									<p class="weui-grid__label">
+										请假
+									</p>
+								</a>
+								<a href="attendance-goOut.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-wc yellow"></i>
+									</div>
+									<p class="weui-grid__label">
+										外出
+									</p>
+								</a>
+								<a href="attendance-trip.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-cc green"></i>
+									</div>
+									<p class="weui-grid__label">
+										出差
+									</p>
+								</a>
+								<a href="attendance-overtime.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-jb yellow"></i>
+									</div>
+									<p class="weui-grid__label">
+										加班
+									</p>
+								</a>
+								<a href="attendance-useCar.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-yc purple"></i>
+									</div>
+									<p class="weui-grid__label">
+										用车申请
+									</p>
+								</a>
+								<a href="attendance-approve.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-sp green"></i>
+									</div>
+									<p class="weui-grid__label">
+										审批
+									</p>
+								</a>
+								<a href="kaoqin-statistic.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-tongji blue"></i>
+									</div>
+									<p class="weui-grid__label">
+										考勤统计
+									</p>
+								</a>
+								<a href="statistic.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-tongji yellow"></i>
+									</div>
+									<p class="weui-grid__label">
+										统计看板
+									</p>
+								</a>
+							</div>
+						</div>
+						<div class="client content">
+							<div class="title">
+								<i></i>
+								<span class="page-hd-title">
+									财务管理
+						    	</span>
+							</div>
+							<div class="weui-grids grids-small">
+								<a href="cost-application.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-feiyongshenqing green"></i>
+									</div>
+									<p class="weui-grid__label">
+										费用申请
+									</p>
+								</a>
+								<a href="cost-gather.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-fybx blue"></i>
+									</div>
+									<p class="weui-grid__label">
+										费用报销
+									</p>
+								</a>
+								<a href="borrow-my.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-wdjk yellow"></i>
+									</div>
+									<p class="weui-grid__label">
+										我的借款
+									</p>
+								</a>
+								<a href="cost.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-tongji blue"></i>
+									</div>
+									<p class="weui-grid__label">
+										费用统计
+									</p>
+								</a>
+								<a href="item-apply.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-fapiao green"></i>
+									</div>
+									<p class="weui-grid__label">
+										发票申请
+									</p>
+								</a>
+								<a href="customer-statistic.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-tongji yellow"></i>
+									</div>
+									<p class="weui-grid__label">
+										客户统计
+									</p>
+								</a>
+							</div>
+						</div>
+						<div class="business content">
+							<div class="title">
+								<i></i>
+								<span class="page-hd-title">
+									业务管理
+								</span>
+							</div>
+							<div class="weui-grids grids-small">
+								<a href="contract-my.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-kehu purple"></i>
+									</div>
+									<p class="weui-grid__label">
+										我的客户
+									</p>
+								</a>
+								<a href="visiting-list.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-baifang blue"></i>
+									</div>
+									<p class="weui-grid__label">
+										拜访记录
+									</p>
+								</a>
+								<a href="javascript:;" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-fangke green"></i>
+									</div>
+									<p class="weui-grid__label">
+										访客提醒
+									</p>
+								</a>
+								<a href="javascript:;" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-zzjh yellow"></i>
+									</div>
+									<p class="weui-grid__label">
+										资质借还
+									</p>
+								</a>
+								<a href="project-list.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-xiangmu blue"></i>
+									</div>
+									<p class="weui-grid__label">
+										我的项目
+									</p>
+								</a>
+								<a href="contract-list.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-hetong green"></i>
+									</div>
+									<p class="weui-grid__label">
+										我的合同
+									</p>
+								</a>
+								<a href="return-list.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-huikuan yellow"></i>
+									</div>
+									<p class="weui-grid__label">
+										我的回款
+									</p>
+								</a>
+								<a href="" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-xietiao yellow"></i>
+									</div>
+									<p class="weui-grid__label">
+										问题协调
+									</p>
+								</a>
+								<a href="contract-details.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-htys purple"></i>
+									</div>
+									<p class="weui-grid__label">
+										合同预审
+									</p>
+								</a>
+								<a href="" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-toubiao blue"></i>
+									</div>
+									<p class="weui-grid__label">
+										投标支持
+									</p>
+								</a>
+								<a href="statistic.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-tongji  purple"></i>
+									</div>
+									<p class="weui-grid__label">
+										业务统计
+									</p>
+								</a>
+								
+							</div>
+						</div>
+					
+						<div class="synergy content">
+							<div class="title">
+								<i></i>
+								<span class="page-hd-title">
+									项目管理
+						    	</span>
+							</div>
+							<div class="weui-grids grids-small">
+								<a href="item-implement.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-xmss  blue"></i>
+									</div>
+									<p class="weui-grid__label">
+										项目实施
+									</p>
+								</a>
+								<a href="item-progress.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-xmjd  green"></i>
+									</div>
+									<p class="weui-grid__label">
+										项目进度
+									</p>
+								</a>
+								<a href="quality-control.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-zlgl yellow"></i>
+									</div>
+									<p class="weui-grid__label">
+										质量管理
+									</p>
+								</a>
+								<a href="sales-performance.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-baozhang green"></i>
+									</div>
+									<p class="weui-grid__label">
+										售前售后
+									</p>
+								</a>
+								
+								<a href="order-approval.html" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-dinghuo purple"></i>
+									</div>
+									<p class="weui-grid__label">
+										采购订货
+									</p>
+								</a>
+								<a href="javascript:;" class="grid">
+									<div class="weui-grid__icon">
+										<i class="iconfont icon-tongji green"></i>
+									</div>
+									<p class="weui-grid__label">
+										协同统计
+									</p>
+								</a>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+
+				<!--待定事项-->
+				<div id="tab2" class="weui-tab__bd-item">
+					<div class="weui-panel weui-panel_access">
+						<!--新添加------全部已读start-->
+						<div class="tab2-head">
+							<div class="left">
+								共<span class="total">20</span>条，未读<span class="unraedCount">10</span>条
+							</div>
+							<div class="right">
+								全部已读
+							</div>
+						</div>
+						<!--<!--新添加------全部已读end-->
+						<!--访客计划提醒-->
+						<div class="weui-panel__bd">
+							<a href="" class="weui-media-box weui-media-box_appmsg">
+								<div class="weui-cell__hd weui-media-box__hd">
+									<i class="iconfont icon-tixing yellow"></i>
+									<!--消息红点-->
+									<span class="weui-badge"></span> 
+								</div>
+								<div class="weui-media-box__bd">
+									<div class="weui-media-box__time">11:28</div>
+									<h4 class="weui-media-box__title">访客计划提醒</h4>
+									<p class="weui-media-box__desc">明天上午十点半约见客户</p>
+								</div>
+							</a>
+							<!--日报-->
+							<a href="" class="weui-media-box weui-media-box_appmsg">
+								<div class="weui-cell__hd weui-media-box__hd">
+									<i class="iconfont icon-tixing yellow"></i>
+								</div>
+								<div class="weui-media-box__bd">
+									<div class="weui-media-box__time">11:28</div>
+									<h4 class="weui-media-box__title">你的日报还没提交，马上去写日报</h4>
+									<p class="weui-media-box__desc">日报：十点之前提交</p>
+								</div>
+							</a>
+							<!--招待费-->
+							<a href="" class="weui-media-box weui-media-box_appmsg">
+								<div class="weui-cell__hd weui-media-box__hd">
+									<i class="iconfont icon-shenpi green"></i>
+								</div>
+								<div class="weui-media-box__bd">
+									<div class="weui-media-box__time">11:28</div>
+									<h4 class="weui-media-box__title">招待费待审批</h4>
+									<p class="weui-media-box__desc">商丘智慧银行项目</p>
+								</div>
+							</a>
+							<!--项目审批-->
+							<a href="" class="weui-media-box weui-media-box_appmsg">
+								<div class="weui-cell__hd weui-media-box__hd">
+									<i class="iconfont icon-xiangmu blue"></i>
+								</div>
+								<div class="weui-media-box__bd">
+									<div class="weui-media-box__time">11:28</div>
+									<h4 class="weui-media-box__title">商丘智慧银行项目待审批</h4>
+									<p class="weui-media-box__desc">商丘智慧银行项目</p>
+								</div>
+							</a>
+						</div>
+						<div class="null" style="display: none;">
+							<img src="../img/null-backlog.png" />
+							<p class="text">暂无待办提醒</p>
+						</div>
+					</div>
+
+				</div>
+				<!--我-->
+				<div id="tab3" class="weui-tab__bd-item">
+					<div class="myHd">
+						<div class="weui-cells">
+							<a class="weui-cell weui-cell_access" href="javascript:;">
+								<div class="myBox">
+									<div class="weui-cell__bd">
+										<div class="img">李</div>
+										<div class="info">
+											<span class="name">李依依</span>
+											<span class="company">广达创远（河南）科技发展有限公司</span>
+										</div>
+									</div>
+									<div class="weui-cell__ft">
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="myBd">
+						<div class="weui-cells">
+							<a class="weui-cell weui-cell_access" href="javascript:;">
+								<div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+								<div class="weui-cell__bd">
+									<p>我的收入</p>
+								</div>
+								<div class="weui-cell__ft">
+								</div>
+							</a>
+							<a class="weui-cell weui-cell_access" href="javascript:;">
+								<div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+								<div class="weui-cell__bd">
+									<p>我的客户</p>
+								</div>
+								<div class="weui-cell__ft"></div>
+							</a>
+							<a class="weui-cell weui-cell_access" href="javascript:;">
+								<div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+								<div class="weui-cell__bd">
+									<p>意见反馈</p>
+								</div>
+								<div class="weui-cell__ft">
+								</div>
+							</a>
+							<a class="weui-cell weui-cell_access" href="javascript:;">
+								<div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+								<div class="weui-cell__bd">
+									<p>帮助中心</p>
+								</div>
+								<div class="weui-cell__ft"></div>
+							</a>
+						</div>
+						<div class="weui-cells">
+							<a class="weui-cell weui-cell_access" href="javascript:;">
+								<div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+								<div class="weui-cell__bd">
+									<p>设置</p>
+								</div>
+								<div class="weui-cell__ft">
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--底部固定导航-->
+			<div class="weui-tabbar">
+				<a href="#tab1" class="weui-tabbar__item">
+					<div class="weui-tabbar__icon">
+						<i class="iconfont icon-gongzuotai"></i>
+					</div>
+					<p class="weui-tabbar__label active">工作台</p>
+				</a>
+				<a href="#tab2" class="weui-tabbar__item ">
+					<div class="weui-tabbar__icon weui-cell__hd">
+						<i class="iconfont icon-daiban"></i>
+					</div>
+					<p class="weui-tabbar__label">待办事项</p>
+				</a>
+				<a href="#tab3" class="weui-tabbar__item ">
+					<div class="weui-tabbar__icon"><i class="iconfont icon-wo"></i> </div>
+					<p class="weui-tabbar__label">我</p>
+				</a>
+			</div>
+		</div>
+		<script src="plugins/weui/js/fastclick.js"></script>
+		<script>
+			
+			$(function() {
+				FastClick.attach(document.body);
+				//添加消息红点
+				var badgeIndex = $("#tab2 .weui-badge").length
+				if(badgeIndex == 0) {
+					$(".weui-tabbar__item[href='#tab2']").find(".weui-badge").remove()
+					//跳转tab
+					$("#tab1").addClass("weui-tab__bd-item--active")
+					$(".weui-tabbar__item[href='#tab1']").addClass("weui-bar__item--on")
+				} else {
+					$(".weui-tabbar__item[href='#tab2']").append(`<span class="weui-badge">${badgeIndex}</span>`)
+					//跳转tab
+					$("#tab2").addClass("weui-tab__bd-item--active")
+					$(".weui-tabbar__item[href='#tab2']").addClass("weui-bar__item--on")
+				}
+
+			});
+			
+		</script>
+	</body>
+
+</html>

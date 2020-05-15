@@ -1,0 +1,2115 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的考勤</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="plugins/mui/css/mui.min.css" rel="stylesheet" />
+		<!--<link rel="stylesheet" href="../../css/base.css" />
+		<link rel="stylesheet" href="../../css/app/home/timeline.css" />
+		<link rel="stylesheet" href="../../css/app/my/punch-card.css" />
+		<link rel="stylesheet" href="../../css/calendar.css" />-->
+		<style type="text/css">
+			html {
+				font-size: 16px;
+				-ms-text-size-adjust: 100%;
+				-webkit-text-size-adjust: 100%;
+				/*不用10px 62.5% 因为chrome只支持12px最小*/
+			}
+			
+			*,
+			*:before,
+			*:after {
+				box-sizing: border-box;
+				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			}
+			
+			[hidden],
+			template {
+				display: none;
+			}
+			
+			a {
+				background-color: transparent;
+				text-decoration: none;
+			}
+			
+			a:active,
+			a:hover {
+				outline: 0;
+			}
+			
+			abbr[title] {
+				border-bottom: 1px dotted;
+			}
+			
+			b,
+			strong {
+				font-weight: bold;
+			}
+			
+			dfn {
+				font-style: italic;
+			}
+			
+			mark {
+				background: #ff0;
+				color: #000;
+			}
+			
+			small {
+				font-size: 80%;
+			}
+			
+			sub,
+			sup {
+				font-size: 75%;
+				line-height: 0;
+				position: relative;
+				vertical-align: baseline;
+			}
+			
+			sup {
+				top: -0.5em;
+			}
+			
+			sub {
+				bottom: -0.25em;
+			}
+			
+			img {
+				border: 0;
+			}
+			
+			svg:not(:root) {
+				overflow: hidden;
+			}
+			
+			figure {
+				margin: 1em 40px;
+			}
+			
+			hr {
+				box-sizing: content-box;
+				height: 0;
+			}
+			
+			pre {
+				overflow: auto;
+			}
+			
+			code,
+			kbd,
+			pre,
+			samp {
+				font-family: monospace, monospace;
+				font-size: 1em;
+			}
+			
+			button,
+			input,
+			optgroup,
+			select,
+			textarea {
+				color: inherit;
+				font: inherit;
+				margin: 0;
+			}
+			
+			a,
+			input,
+			textarea,
+			select,
+			button {
+				outline: 0;
+			}
+			
+			button {
+				overflow: visible;
+			}
+			
+			button,
+			select {
+				text-transform: none;
+			}
+			
+			button,
+			html input[type="button"],
+			input[type="reset"],
+			input[type="submit"] {
+				-webkit-appearance: button;
+				cursor: pointer;
+			}
+			
+			button[disabled],
+			html input[disabled] {
+				cursor: default;
+			}
+			
+			button::-moz-focus-inner,
+			input::-moz-focus-inner {
+				border: 0;
+				padding: 0;
+			}
+			
+			input {
+				line-height: normal;
+			}
+			
+			input[type="checkbox"],
+			input[type="radio"] {
+				box-sizing: border-box;
+				padding: 0;
+			}
+			
+			input[type="number"]::-webkit-inner-spin-button,
+			input[type="number"]::-webkit-outer-spin-button {
+				height: auto;
+			}
+			
+			input[type="search"] {
+				-webkit-appearance: textfield;
+				box-sizing: content-box;
+			}
+			
+			input[type="search"]::-webkit-search-cancel-button,
+			input[type="search"]::-webkit-search-decoration {
+				-webkit-appearance: none;
+			}
+			
+			fieldset {
+				border: 1px solid #c0c0c0;
+				margin: 0 2px;
+				padding: 0.35em 0.625em 0.75em;
+			}
+			
+			legend {
+				border: 0;
+				padding: 0;
+			}
+			
+			textarea {
+				overflow: auto;
+			}
+			
+			optgroup {
+				font-weight: bold;
+			}
+			
+			.button:active {
+				color: #0a8ddf;
+				border-color: #0a8ddf;
+			}
+			/*p {margin: 1em 0;}*/
+			
+			body {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				overflow: hidden;
+			}
+			
+			@font-face {
+				font-family: "icon-yuan";
+				src: url("../fonts/icomoon.ttf");
+			}
+			
+			.icon {
+				font-family: icon-yuan !important;
+				font-style: normal;
+				display: inline-block;
+				vertical-align: -2px;
+			}
+			
+			.icon-left:after {
+				content: '\f053';
+			}
+			
+			.icon-right:after {
+				content: '\f054';
+			}
+			
+			html {
+				height: 100%;
+			}
+			
+			.container {
+				width: 100%;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-flex-wrap: wrap;
+				-ms-flex-wrap: wrap;
+				flex-wrap: wrap;
+				height: 100%;
+			}
+			
+			.container>div {
+				height: 100%;
+			}
+			
+			.container .aside {
+				color: #ffffff;
+				width: 35%;
+				padding: 15px 20px;
+			}
+			
+			.container .main {
+				width: 65%;
+				padding-left: 15px;
+				padding-right: 15px;
+			}
+			
+			.timeNow {
+				text-align: center;
+				font-size: 0.85rem;
+			}
+			
+			.timeNow span:first-child {
+				margin-right: 10px;
+			}
+			
+			.operator {
+				position: relative;
+			}
+			
+			.operator .goPrev {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+			
+			.operator .goNext {
+				position: absolute;
+				top: 0px;
+				right: 0px;
+			}
+			
+			.operator i {
+				color: #e02d2d;
+				line-height: 2.2rem;
+				cursor: pointer;
+			}
+			
+			.operator i:hover {
+				color: #fb0;
+			}
+			
+			.dateContain {
+				position: relative;
+			}
+			
+			.dateContain .bigTime {
+				text-align: center;
+				font-family: arial;
+				font-size: 10rem;
+			}
+			
+			.dateContain .bigTime span {
+				text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+			}
+			
+			.dateContain .noliDate>p {
+				font-size: 0.85rem;
+				text-align: center;
+			}
+			
+			.dateContain .goodBad {
+				border-top: 2px solid #94c9ff;
+				padding: 10px 7px;
+			}
+			
+			.dateContain .goodBad>div i {
+				font-style: normal;
+				text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+				text-align: center;
+				color: #fff;
+				font-size: 1.1rem;
+			}
+			
+			.dateContain .goodBad>div span {
+				font-size: 0.7rem;
+				margin-left: 8px;
+			}
+			
+			.aside {
+				background: #D2456A;
+				background: -webkit-gradient(linear, 0 0, 0 100%, from(#D2456A), to(#e42355));
+			}
+			
+			.operator {
+				height: 2.2rem;
+				border-bottom: 2px solid #D2456A;
+			}
+			
+			.datePicker {
+				height: calc(100% - 4.4rem);
+				overflow: hidden;
+			}
+			
+			.dateUl {
+				height: 100%;
+				position: relative;
+			}
+			
+			.dateUl .dateLi {
+				height: 100%;
+				position: absolute;
+				width: 100%;
+			}
+			
+			.dayThead,
+			.dayTbody,
+			.dayTr {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-flex-wrap: wrap;
+				-ms-flex-wrap: wrap;
+				flex-wrap: wrap;
+			}
+			
+			.dayTbody {
+				height: calc(100% - 40px);
+			}
+			
+			.dayTbody .dayTr {
+				width: 100%;
+				border-top: 1px solid #c8cacc;
+				height: calc(100% / 5);
+			}
+			
+			.dayTbody .dayTr .dayTd {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-orient: vertical;
+				-webkit-box-direction: normal;
+				-webkit-flex-direction: column;
+				-ms-flex-direction: column;
+				flex-direction: column;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+				width: calc(14.28571429%);
+			}
+			
+			.dayTbody .dayTr .dayTd .almanac {
+				width: 100%;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			
+			.dayTbody .dayTr .dayTd span.dayNumber {
+				font-family: arial;
+				color: #000;
+				font-size: 1.2rem;
+				line-height: 21px;
+				height: 18px;
+			}
+			
+			.dayTbody .dayTr .dayTd span.almanac {
+				color: #616161;
+				font-size: 0.7rem;
+				line-height: 25px;
+				height: 21px;
+			}
+			
+			.dayTbody .dayTr .dayTd.date-reset span:first-child {
+				color: #7FAEF5;
+			}
+			
+			.dayTbody .dayTr .dayTd.date-holiday span:last-child {
+				color: #7FAEF5;
+			}
+			
+			.dayTbody .dayTr .dayTd.date-prev span:first-child,
+			.dayTbody .dayTr .dayTd.date-next span:first-child,
+			.dayTbody .dayTr .dayTd.date-prev span:last-child,
+			.dayTbody .dayTr .dayTd.date-next span:last-child {
+				color: #bfbfbf;
+			}
+			
+			.dayTbody .dayTr .dayTd.date-selected {
+				background-color: #47D5FF;
+			}
+			
+			.dayTbody .dayTr .dayTd.date-selected span:first-child,
+			.dayTbody .dayTr .dayTd.date-selected span:last-child {
+				color: #fff;
+			}
+			
+			.dayTbody .dayTr .dayTd.date-current {
+				background-color: #fb0;
+			}
+			
+			.dayTbody .dayTr .dayTd.date-current span:first-child,
+			.dayTbody .dayTr .dayTd.date-current span:last-child {
+				color: #ffffff !important;
+			}
+			
+			.prev-month-html {
+				-webkit-transform: translate3d(-100%, 0, 0);
+				transform: translate3d(-100%, 0, 0);
+			}
+			
+			.current-month-html {
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+			
+			.next-month-html {
+				-webkit-transform: translate3d(100%, 0, 0);
+				transform: translate3d(100%, 0, 0);
+			}
+			
+			.dayThead {
+				height: 40px;
+			}
+			
+			.dayThead .dayTd {
+				line-height: 40px;
+				border: none;
+				color: #2c9bb3;
+			}
+			
+			.dayThead .dayTd.active {
+				color: #e02d2d;
+			}
+			
+			.dayTbody .dayTd:hover {
+				box-shadow: inset 0px 0px 4px #47D5FF;
+			}
+			
+			.dayTd {
+				height: 100%;
+				-webkit-box-flex: 1;
+				-webkit-flex: 1;
+				-ms-flex: 1;
+				flex: 1;
+				text-align: center;
+				cursor: pointer;
+			}
+			
+			.dayTd .currentDay {
+				background-color: #fb0;
+			}
+			
+			.dayTd .restDay {
+				background-color: #fff0f0;
+			}
+			
+			.pannel {
+				position: fixed;
+				width: 100%;
+				top: 30%;
+				left: 0px;
+				text-align: center;
+				line-height: 40px;
+				height: 40px;
+				background-color: rgba(227, 36, 85, 0.86);
+				color: #ffffff;
+				opacity: 0;
+				display: none;
+				-webkit-transition: opacity 300ms;
+				transition: opacity 300ms;
+			}
+			
+			@media only screen and (min-width: 701px) {
+				.container {
+					height: 500px;
+				}
+			}
+			
+			@media only screen and (max-width: 700px) {
+				.container {
+					-webkit-box-orient: vertical;
+					-webkit-box-direction: normal;
+					-webkit-flex-direction: column;
+					-ms-flex-direction: column;
+					flex-direction: column;
+					height: 305px;
+				}
+				.container .aside {
+					width: 100%;
+					height: 30%;
+					padding: 5px;
+				}
+				.container .main {
+					width: 100%;
+					height: 100%;
+				}
+				.bigTime {
+					line-height: 1;
+					font-size: 5.3rem !important;
+				}
+				.operator {
+					display: none;
+				}
+				.datePicker {
+					height: calc(100% - 10px);
+				}
+				.noliDate {
+					display: -webkit-box;
+					display: -webkit-flex;
+					display: -ms-flexbox;
+					display: flex;
+					-webkit-box-pack: center;
+					-webkit-justify-content: center;
+					-ms-flex-pack: center;
+					justify-content: center;
+				}
+				.noliDate p {
+					margin: 0 10px;
+				}
+				.goodBad {
+					display: none;
+				}
+			}
+			
+			.dateUlContainer {
+				height: 100%;
+				width: 100%;
+				overflow: hidden;
+			}
+			
+			.yearChoose,
+			.monthChoose,
+			.returnToday {
+				display: inline-block;
+				font-size: 0.7rem;
+				margin-right: 10%;
+			}
+			
+			.returnToday {
+				background-color: #f2f2f2;
+				border: 1px solid #999;
+				padding: 2px 10px;
+				cursor: default;
+			}
+			
+			.timeChoose {
+				width: 100%;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+				padding: 0.5rem 20px;
+			}
+			
+			.chooseContainer {
+				position: relative;
+				font-size: 0.7rem;
+				color: #333;
+			}
+			
+			.chooseContainer .buttonGroup {
+				border: 1px solid #999;
+				border-bottom-color: #d8d8d8;
+				border-right-color: #d8d8d8;
+				padding-left: 5px;
+				line-height: 1;
+			}
+			
+			.chooseContainer .buttonGroup span {
+				display: inline-block;
+			}
+			
+			.chooseContainer .buttonGroup span.yearTime,
+			.chooseContainer .buttonGroup span.monthTime {
+				margin: 0px 8px;
+			}
+			
+			.chooseContainer .buttonGroup span.pullDown {
+				width: 1.2rem;
+				line-height: 1.2rem;
+				cursor: default;
+				text-align: center;
+				border-left: 1px solid #d8d8d8;
+				background-color: #f2f2f2;
+			}
+			
+			.chooseContainer .pullSelect {
+				display: none;
+				width: 100%;
+				position: absolute;
+				z-index: 20;
+				height: 432px;
+				border: 1px solid #bbb;
+				background: #fff;
+				overflow-y: scroll;
+			}
+			
+			.chooseContainer .pullSelect.open {
+				display: block;
+			}
+			
+			.chooseContainer .pullSelect ul {
+				background-color: #fff;
+				list-style: none;
+			}
+			
+			.chooseContainer .pullSelect ul li {
+				padding: 5px 10px;
+			}
+			
+			.chooseContainer .pullSelect ul li:hover {
+				cursor: default;
+				background-color: #f2f2f2;
+			}
+			
+			.buttonGroup.open~.pullSelect {
+				display: block;
+			}
+			
+			@media only screen and (min-width: 700px) {
+				html {
+					font-size: 21.33333333px !important;
+				}
+				.dateContain .bigTime {
+					font-size: 9rem;
+				}
+			}
+			
+			@media only screen and (min-width: 800px) {
+				html {
+					font-size: 21.6px !important;
+				}
+				.dateContain .bigTime {
+					font-size: 9rem;
+				}
+			}
+			
+			@media only screen and (min-width: 998px) {
+				html {
+					font-size: 25.6px !important;
+				}
+			}
+			/*page css*/
+			
+			.div-yearmonth,
+			.div-operate,
+			.ul-operate {
+				background-color: #449DED;
+				text-align: center;
+				color: #FFFFFF;
+			}
+			
+			.div-yearmonth {
+				height: 42px;
+				line-height: 42px;
+				font-size: 16px;
+			}
+			
+			.div-yearmonth .mui-icon {
+				font-size: 20px;
+			}
+			
+			.spn-today {
+				margin: 0 10px;
+			}
+			
+			#timeNow {
+				margin-left: 5px;
+			}
+			
+			.div-operate {
+				height: 56px;
+				line-height: 56px;
+			}
+			
+			.ul-operate {
+				height: 56px;
+				width: 100%;
+			}
+			
+			.ul-operate a {
+				height: 56px;
+				width: 25%;
+			}
+			
+			.ul-operate a p {
+				height: 28px;
+				color: #ffffff;
+				line-height: 22px;
+			}
+			
+			.ul-operate a p:first-child {
+				line-height: 36px;
+			}
+			
+			#container {
+				margin-top: 8px;
+			}
+			
+			.mui-segmented-control .mui-control-item.mui-active:after {
+				/*display: block;content: '';width: 70%;border-width: 1px;border-style: solid;
+    border-color: #ffffff;position: relative;bottom: 1px;margin: 0 auto;left: 0%;*/
+				/*细下划线*/
+				content: '';
+				width: 0;
+				display: block;
+				height: 0;
+				bottom: 1px;
+				margin: 0 auto;
+				border-right: 8px solid transparent;
+				border-bottom: 8px solid #FFFFFF;
+				border-left: 8px solid transparent;
+				/*三角形*/
+			}
+			
+			.dayTbody .dayTr .dayTd.attendance {
+				background-color: #F2F9FF;
+			}
+			
+			.dayTbody .dayTr .dayTd.actualAttendance {
+				background-color: #F2F9FF;
+			}
+			
+			.dayTbody .dayTr .dayTd.beLate {
+				background-color: #FFE1E1;
+			}
+			
+			.dayTbody .dayTr .dayTd.leaveEarly {
+				background-color: #FFF1D4;
+			}
+			
+			.dayTbody .dayTr .dayTd.attendance.date-selected,
+			.dayTbody .dayTr .dayTd.actualAttendance.date-selected,
+			.dayTbody .dayTr .dayTd.beLate.date-selected,
+			.dayTbody .dayTr .dayTd.leaveEarly.date-selected {
+				background-color: #47D5FF;
+			}
+			
+			.dayTbody .dayTr .dayTd.attendance.date-current,
+			.dayTbody .dayTr .dayTd.actualAttendance.date-current,
+			.dayTbody .dayTr .dayTd.beLate.date-current,
+			.dayTbody .dayTr .dayTd.leaveEarly.date-current {
+				background-color: #fb0;
+			}
+			
+			.dayTbody .dayTr .dayTd.date-next,
+			.dayTbody .dayTr .dayTd.date-prev
+			/*.dayTbody .dayTr .dayTd.date-next.date-selected,
+.dayTbody .dayTr .dayTd.date-prev.date-selected*/
+			
+			{
+				background-color: #fff;
+				color: #bfbfbf;
+			}
+			
+			.dayTbody .dayTr .dayTd.date-next.date-selected,
+			.dayTbody .dayTr .dayTd.date-prev.date-selected {
+				background-color: #47D5FF;
+				color: #fff;
+			}
+			/*.dayTbody .dayTr .dayTd.date-next.date-selected span:first-child,.dayTbody .dayTr .dayTd.date-prev.date-selected span:last-child{
+    color:#bfbfbf !important;
+}*/
+			
+			.date-next .dayNumber i.fl,
+			.date-prev .dayNumber i.fl {
+				display: none;
+			}
+			
+			.dayNumber i.fl {
+				font-size: 12px;
+				margin-top: -5px;
+				margin-right: 10px;
+				line-height: 0.8;
+				position: absolute;
+				display: block;
+			}
+			
+			.font-warning {
+				color: #FBD06B;
+			}
+			
+			.font-danger {
+				color: #FA6768;
+			}
+			
+			.mui-scroll-wrapper.timeline {
+				top: 505px;
+			}
+			
+			.emptyinfo {
+				margin-top: 10px;
+			}
+			
+			.emptyinfo span.mui-icon {
+				margin-bottom: 15px;
+			}
+			
+			@media only screen and (max-height: 568px) {
+				.emptyinfo {
+					margin-top: 0px;
+				}
+				.emptyinfo span.mui-icon {
+					font-size: 36px;
+					margin-bottom: 5px;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">我的考勤</h1><span id="bigTime" class="bigTime" style="visibility:hidden;"></span>
+		</header>
+		<div id="app" class="mui-content">
+			<div class="div-yearmonth">
+				<i id="prePage" class="mui-icon iconfont icon-shangyiye"></i>
+				<span class="spn-today"><i class="mui-icon iconfont icon-rili"></i><span id="timeNow"></span></span>
+				<i id="nextPage" class="mui-icon iconfont icon-xiayiye"></i>
+			</div>
+			<div class="div-operate">
+				<div class="mui-segmented-control ul-operate">
+					<a class="mui-control-item mui-active" v-on:tap="getDataByType(1)">
+						<p><span v-text="obj.attendance"></span>天</p>
+						<p>应出勤</p>
+					</a>
+					<a class="mui-control-item" v-on:tap="getDataByType(2)">
+						<p><span v-text="obj.actualAttendance"></span>天</p>
+						<p>实际出勤</p>
+					</a>
+					<a class="mui-control-item" v-on:tap="getDataByType(3)">
+						<p><span v-text="obj.beLate"></span>次</p>
+						<p>迟到</p>
+					</a>
+					<a class="mui-control-item" v-on:tap="getDataByType(4)">
+						<p><span v-text="obj.leaveEarly"></span>次</p>
+						<p>早退</p>
+					</a>
+				</div>
+			</div>
+			<div id="container"></div>
+			<div class="div-list">
+				<div class="line"></div>
+				<div class="date"><span class="spn-date"><i v-text="monthDay" class="monthDay"></i><i v-text="week">星期一</i></span></div>
+				<!--<div id="mui-scroll-wrapper" class="mui-scroll-wrapper timeline">
+                <div class="mui-scroll">-->
+				<!--这里放置真实显示的DOM内容-->
+				<section v-if="list.length>0" id="cd-timeline" class="cd-container">
+					<div v-for="(item,index) in list" class="cd-timeline-block">
+						<div class="cd-timeline-img cd-picture" v-bind:class="{first:!index}"><span class="worktag">早班上班</span></div>
+						<div class="cd-timeline-content">
+							<div class="timeline-head">
+								<span class="fl" v-text="item.name"></span>
+								<span class="fl">打卡时间</span><span class="fl" v-text="item.time"></span>
+								<span v-if="item.errorType!=''" class="mui-badge fl" v-bind:class="g.getTimeCardTypeBcByVal(item.errorType)" v-text="g.getTimeCardTypeByVal(item.errorType)"></span>
+							</div>
+							<div class="div-address"><i class="mui-icon mui-icon-location"></i><span v-text="item.address"></span></div>
+						</div>
+					</div>
+				</section>
+				<div v-else>
+					<div class="emptyinfo">
+						<span class="mui-icon mui-icon-location"></span>
+						<p>您今天未打卡哦~</p>
+					</div>
+				</div>
+				<!--</div>
+            </div>-->
+			</div>
+		</div>
+		<script src="plugins/mui/js/mui.min.js"></script>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<!--<script type="text/javascript" src="../../js/common/config.js"></script>-->
+		<!--<script type="text/javascript" src="../../js/common/global.js"></script>-->
+		<!--<script type="text/javascript" src="../../js/libs/calendar.js"></script>-->
+		<script type="text/javascript">
+			var canlendar = null;
+			mui.init();
+			mui.ready(function() {
+				//g.initScroll({ h: '300px' });//区域滚动
+			});
+			var app = new Vue({
+				el: "#app",
+				data: {
+					obj: {
+						attendance: '',
+						actualAttendance: '',
+						beLate: '',
+						leaveEarly: ''
+					},
+					appData: {
+						attendance: [],
+						actualAttendance: [],
+						beLate: [],
+						leaveEarly: []
+					}, //不同考勤类型数据
+					monthDay: g.getDatePart('month') + '/' + g.getDatePart('day'), //月/日
+					week: g.getDatePart('week'), //星期几
+					list: []
+				},
+				mounted: function() {
+					var _self = this;
+					eventListener();
+					initHandleData(_self); //1
+					canlendar = new Calendar({
+						parentNode: document.getElementById("container"),
+						appData: _self.appData,
+						sltDateFuc: _self.sltDateFuc
+					}); //2注意顺序
+					mui.plusReady(function() {
+						var wv = plus.webview.currentWebview();
+						_self.userName = wv.userName;
+						_self.roleName = wv.roleName;
+						_self.imgUrl = wv.imgUrl;
+					})
+				},
+				methods: {
+					//回调函数，根据日期获取考勤记录
+					sltDateFuc: function(date) {
+						//test
+						console.log(date);
+						var sltDate = g.convertDateFromString(date);
+						this.monthDay = g.getDatePart('month', sltDate) + '/' + g.getDatePart('day', sltDate); //月/日
+						this.week = g.getDatePart('week', sltDate); //星期几
+						if(date == '2017-11-11') {
+							this.list = [{
+									name: '早班上班',
+									address: '广东省深圳市南山区学苑大道1001号南山智园C3栋5楼',
+									time: '08:20',
+									tag: 1,
+									errorType: '1'
+								},
+								{
+									name: '早班上班',
+									address: '广东省深圳市南山区学苑大道1001号南山智园C3栋5楼',
+									time: '09:20',
+									tag: 1,
+									errorType: '2'
+								},
+								{
+									name: '中班上班',
+									address: '广东省深圳市南山区学苑大道1001号南山智园C3栋5楼',
+									time: '12:20',
+									tag: 1,
+									errorType: ''
+								}
+							];
+						} else if(date == '2017-11-10') {
+							this.list = [{
+									name: '晚班上班',
+									address: '广东省深圳市南山区学苑大道1001号南山智园C3栋5楼',
+									time: '21:20',
+									tag: 1,
+									errorType: '1'
+								},
+								{
+									name: '晚班上班',
+									address: '广东省深圳市南山区学苑大道1001号南山智园C3栋5楼',
+									time: '22:20',
+									tag: 1,
+									errorType: '2'
+								},
+								{
+									name: '晚班上班',
+									address: '广东省深圳市南山区学苑大道1001号南山智园C3栋5楼',
+									time: '23:20',
+									tag: 1,
+									errorType: ''
+								}
+							];
+						} else {
+							this.list = [];
+						}
+					},
+					//切换考勤类型
+					getDataByType: function(t) {
+						var result = [];
+						switch(t) {
+							case 1: //应出勤
+								app.appData.attendance = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 25, 27];
+								app.appData.beLate = [];
+								app.appData.leaveEarly = [];
+								app.appData.actualAttendance = [];
+								break;
+							case 2: //实际出勤
+								app.appData.actualAttendance = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 25, 27];
+								app.appData.attendance = [];
+								app.appData.leaveEarly = [];
+								app.appData.beLate = [];
+								break;
+							case 3: //迟到
+								app.appData.beLate = [3, 5];
+								app.appData.actualAttendance = [];
+								app.appData.attendance = [];
+								app.appData.leaveEarly = [];
+								break;
+							default: //早退
+								app.appData.leaveEarly = [11, 7, 21];
+								app.appData.attendance = [];
+								app.appData.actualAttendance = [];
+								app.appData.beLate = [];
+								break;
+						}
+						app.list = result;
+						canlendar = new Calendar({
+							parentNode: document.getElementById("container"),
+							appData: app.appData,
+							sltDateFuc: app.sltDateFuc
+						});
+					}
+				}
+			});
+
+			function eventListener() {
+				//上月
+				document.getElementById('prePage').addEventListener('tap', function() {
+					console.log('prePage')
+					canlendar.turnPre();
+					var str = canlendar.getPreMonth(g.id("bigTime").innerHTML);
+					updateMonth(str);
+				})
+				//下月
+				document.getElementById('nextPage').addEventListener('tap', function() {
+					canlendar.turnNext();
+					var str = canlendar.getNextMonth(g.id("bigTime").innerHTML);
+					updateMonth(str);
+				})
+			}
+
+			function updateMonth(str) {
+				var year = str.substring(0, 4);
+				var month = str.substr(5, 2);
+				var r = year + '年' + month + '月';
+				g.id("bigTime").innerHTML = str;
+				g.id("timeNow").innerHTML = r;
+			}
+
+			function initHandleData(app) {
+				app.obj.attendance = 27;
+				app.obj.actualAttendance = 26;
+				app.obj.beLate = 2;
+				app.obj.leaveEarly = 3;
+			}
+		</script>
+		<script type="text/javascript">
+			/**
+			 * Created by zouqj on 17/11/10
+			 */
+			var doc = window.document;
+			var Calendar = function(options) {
+				"use strict";
+				//默认参数
+				var defaults = {
+					//中文格式内容
+					appData: { attendance: [], actualAttendance: [], beLate: [], leaveEarly: [] }, //界面传过来的数据
+					sltDateFuc: function(sltDate) {}, //选中日期回调函数
+					monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+					dayNames: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+					dayLongNames: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+					holiday: {
+						"1-1": "元旦",
+						"2-2": "湿地日",
+						"2-14": "情人节",
+						"3-8": "妇女节",
+						"3-12": "植树节",
+						"3-15": "消费者权益日",
+						"4-1": "愚人节",
+						"4-22": "地球日",
+						"5-1": "劳动节",
+						"5-4": "青年节",
+						"5-12": "护士节",
+						"5-18": "博物馆日",
+						"6-1": "儿童节",
+						"6-5": "环境日",
+						"6-23": "奥林匹克日",
+						"6-24": "骨质疏松日",
+						"7-1": "建党节",
+						"8-1": "建军节",
+						"9-3": "抗战胜利日",
+						"9-10": "教师节",
+						"10-1": "国庆节",
+						"11-17": "学生日",
+						"12-1": "艾滋病日",
+						"12-24": "平安夜",
+						"12-25": "圣诞节"
+					},
+
+					firstDay: 1, // 从周一开始,计算
+					weekendDays: [0, 6], // 休息日为：周六, 周日
+					dateFormat: 'yyyy-mm-dd', // 打印格式, formatDate 对应
+					limitDis: 80, // 拖拽限制距离，当大于该距离时，触发页面切换
+					weekHandler: "dayThead", // 星期title内容所在类
+					monthContainer: "dateUl", // 日期内容所在容器类
+					toolBar: "timeChoose", // 工具条所在类
+					parentNode: document.body, // 组件插入容器，默认body
+					template: // '<div class="pannel" id="timePannel"></div>'                 
+						//+    '<div class="aside">'
+						//+        '<header class="timeNow"></header>'
+						//+        '<div class="dateContain">'
+						//+            '<div class="bigTime"></div>'
+						//+            '<div class="noliDate"></div>'
+						//+            '<div class="goodBad">'
+						//+                '<div class="gooList"></div>'
+						//+                '<div class="badList"></div>'       
+						//+            '</div>'
+						//+        '</div>'
+						//+    '</div>'
+						'<div class="container">' +
+						'<div class="main">' +
+						'<div class="operator">' +
+						'<div class="goPrev">' +
+						'<i class="icon icon-left"></i>' +
+						'</div>' +
+						'<div class="goNext">' +
+						'<i class="icon icon-right"></i>' +
+						'</div>' +
+						'<div class="timeChoose"></div>' +
+						'</div>' +
+						'<div class="datePicker">' +
+						'<div class="dayThead"></div>' +
+						'<div class="dateUlContainer">' +
+						'<div class="dateUl">' +
+						'<div class="dateLi">'
+						//+ '<div class="dayTbody"></div>'
+						+
+						'</div>' +
+						'</div>' +
+						'</div>' +
+						'</div>' +
+						'</div>' +
+						'</div>'
+				};
+				//参数调整
+				options = options || {};
+				for(var prop in defaults) {
+					if(typeof options[prop] === 'undefined') {
+						options[prop] = defaults[prop];
+					}
+				}
+				this.attrs = options;
+				//触摸起始点记录
+				this.touchesStart = {};
+				//初始化内容
+				this.init();
+			};
+			Calendar.prototype = {
+				constructor: Calendar,
+				init: function(id) {
+					//初始化界面
+					this.render(id);
+					//初始化事件
+					this.initEvents();
+					//初始布局页面
+					this.layout();
+					/**
+					 * 初始化参数
+					 * this.index     切换页面索引
+					 * this._initEd   是否初始化完成
+					 * this._interval 动画切换锁，防止动画重复触发
+					 * this.offsetValue 切换容器宽度，页面resize时，需要更新该值
+					 */
+					this.index = 0;
+					this._initEd = true;
+					this._interval = true;
+					this.offsetValue = this.monthEle.offsetWidth;
+					//节点操作
+					this.timeNowEle = doc.querySelector("#timeNow");
+					this.bigTimeEle = doc.querySelector(".bigTime");
+					//this.noliDateEle = doc.querySelector(".noliDate");
+					//this.gooList = doc.querySelector(".gooList");
+					this.badList = doc.querySelector(".badList");
+					//this.timePannel = doc.getElementById("timePannel");
+					this.prevMonthEle = doc.querySelector(".prev-month-html");
+					this.currMonthEle = doc.querySelector(".current-month-html");
+					this.nextMonthEle = doc.querySelector(".next-month-html");
+
+					//初始化 aside页面
+					this.setAside();
+					//默认加载当天的考勤记录
+					var strDate = g.formatDate(new Date(), 'YMD');
+					this.attrs.sltDateFuc(strDate);
+				},
+				render: function() {
+					this.attrs.parentNode.innerHTML = this.attrs.template;
+				},
+				pad2: function(n) {
+					return n < 10 ? '0' + n : n
+				},
+				/**
+				 * 设置aside侧边栏内容
+				 * @param date 指定日期
+				 */
+				setAside: function(date) {
+					date = date || new Date();
+					var year = date.getFullYear(),
+						month = date.getMonth(),
+						day = date.getDate();
+					var noli = Util.getLunarCalendar(year, month + 1, day);
+					var suitTaboo = Util.getSuitAndTaboo(year, month + 1, day);
+					//var gooStr = "<i>宜</i>";
+					//var badStr = "<i>忌</i>";
+					this.timeNowEle.innerHTML = year + "年" + this.pad2(month + 1) + "月";
+					//+ "<span>" + this.attrs.dayLongNames[date.getDay()] + "</span>";
+					this.bigTimeEle.innerHTML = year + '-' + (month + 1) + '-' + day;
+					//this.noliDateEle.innerHTML =   "<p>" + noli["month"] + noli["date"] +"</p>"
+					//                             + "<p>" + Util.getSexagenaryCycle(year) + "【" +Util.getZodiac(year) + "】" +"</p>";
+
+					//for(var i = 0, len = suitTaboo["suit"].length; i < len; i++) {
+					//    gooStr += "<span>" +  suitTaboo["suit"][i] +"</span>";
+					//}
+					//for(var i = 0, len = suitTaboo["taboo"].length; i < len; i++) {
+					//    badStr += "<span>" + suitTaboo["taboo"][i] + "</span>";
+					//}
+
+					//this.gooList.innerHTML = gooStr;
+					//this.badList.innerHTML = badStr;
+				},
+				/**
+				 * 初始化事件
+				 */
+				initEvents: function() {
+					var self = this;
+					var monthEle = this.monthEle = doc.querySelector("." + this.attrs.monthContainer);
+					this.timeChooseEle = doc.querySelector(".timeChoose");
+
+					this.goPrev = doc.querySelector(".goPrev");
+					this.goNext = doc.querySelector(".goNext");
+
+					monthEle.addEventListener("mousedown", this._handleTouchStart.bind(this), false);
+					monthEle.addEventListener("mousemove", this._handleTouchMove.bind(this), false);
+					monthEle.addEventListener("mouseup", this._handleTouchEnd.bind(this), false);
+
+					monthEle.addEventListener("touchstart", this._handleTouchStart.bind(this), false);
+					monthEle.addEventListener("touchmove", this._handleTouchMove.bind(this), false);
+					monthEle.addEventListener("touchend", this._handleTouchEnd.bind(this), false);
+
+					monthEle.addEventListener("tap", this._handleClick.bind(this), false); //click change to tap
+					monthEle.addEventListener("touchstart", this._handleClick.bind(this), false);
+
+					this.goPrev.addEventListener("tap", function(event) {
+						self.turnPre();
+					}, false);
+					this.goNext.addEventListener("tap", function(event) {
+						self.turnNext();
+					}, false);
+					/**
+					 * BUG： 问题, bind(this)的事件函数, 无法removeEventListener
+					 * 监听动画完成事件
+					 */
+					monthEle.addEventListener("transitionend", this._transformEnd.bind(this), false);
+					monthEle.addEventListener("webkitTransitionEnd", this._transformEnd.bind(this), false);
+
+					//操作表操作，事件委托处理
+					this.timeChooseEle.addEventListener("tap", this._handleTimeChoose.bind(this), false);
+					document.addEventListener("tap", this._handleDocument.bind(this), false);
+					//页面resize监听，函数节流，调整布局
+					window.addEventListener("resize", this._handleResize.bind(this), false);
+				},
+				/**
+				 * 关闭下拉菜单
+				 * @param event
+				 * @private
+				 */
+				_handleDocument: function(event) {
+					var target = event.target,
+						cls = target.className;
+					if(cls !== "pullDown") {
+						var btns = document.querySelectorAll(".buttonGroup");
+						for(var i = 0, len = btns.length; i < len; i++) {
+							btns[i].classList.remove("open");
+						}
+					}
+				},
+				/**
+				 * 工具栏事件绑定， 提供日期变更(年+月 )， 返回今天等功能
+				 * @param event
+				 * @private
+				 */
+				_handleTimeChoose: function(event) {
+					event.preventDefault();
+					var target = event.target,
+						parentNode = target.parentNode,
+						cls = target.className;
+					//排除非元素节点
+					if(target.nodeType !== 1) {
+						return;
+					}
+					if(cls === "pullDown") {
+						var pCls = parentNode.className.split(" ");
+						if(pCls.indexOf("open") === -1) {
+							parentNode.classList.add("open");
+						} else {
+							parentNode.classList.remove("open");
+						}
+					}
+					//返回今天
+					if(cls === "returnToday" || parentNode.className === "returnToday") {
+						this.resetDate(new Date());
+					}
+					//年份更新
+					if(cls === "list-year") {
+						var year = parseInt(target.getAttribute("data-year")),
+							month = parseInt(doc.getElementById("op-month-time").textContent) - 1;
+						doc.getElementById("op-year-time").textContent = year + "年";
+						this.resetDate(new Date(year, month));
+					}
+					//月份更新
+					if(cls === "list-month") {
+						var year = parseInt(doc.getElementById("op-year-time").textContent),
+							month = parseInt(target.getAttribute("data-month"));
+						doc.getElementById("op-month-time").textContent = month + "月";
+						this.resetDate(new Date(year, month));
+					}
+				},
+				_handleResize: function(event) {
+					var self = this;
+					//函数节流, 重新调整宽度
+					self.resizeInterval = setTimeout(function() {
+						self.offsetValue = self.monthEle.offsetWidth;
+					}, 300)
+				},
+				_handleClick: function(event) {
+					event.preventDefault();
+					var target = event.target,
+						eleName = target.nodeName;
+					if(eleName === "SPAN" || target.className === "dayTd") {
+						var aim = eleName === "SPAN" ? target.parentNode : target;
+						var year = parseInt(aim.getAttribute("data-year")),
+							month = parseInt(aim.getAttribute("data-month")),
+							day = parseInt(aim.getAttribute("data-day"));
+						if(this._oldEle) {
+							this._oldEle.classList.remove("date-selected");
+						}
+						aim.classList.add("date-selected");
+						this._oldEle = aim;
+						this.setAside(new Date(year, month, day))
+						if(event.type == 'tap') {
+							//根据日期加载打卡记录列表
+							var sltDate = year + '-' + this.pad2(month + 1) + '-' + day;
+							this.attrs.sltDateFuc(sltDate); //执行回调
+						}
+					}
+				},
+				_handleTouchStart: function(event) {
+					event.preventDefault();
+					//屏蔽多次触发
+					if(!this._interval) {
+						return;
+					}
+					this.isTouched = true;
+					if(event.type === "touchstart") {
+						this.touchesStart.x = event.targetTouches[0].pageX;
+					} else {
+						this.touchesStart.x = event.pageX;
+					}
+				},
+				_handleTouchMove: function(event) {
+					event.preventDefault();
+					if(!this.isTouched) {
+						return;
+					}
+					this.isMoved = true;
+					if(event.type === "touchmove") {
+						var pageX = event.targetTouches[0].pageX;
+					} else {
+						var pageX = event.pageX;
+					}
+					//横向移动距离
+					this.touchesDiff = pageX - this.touchesStart.x;
+					this.endPos = pageX;
+					//设置样式
+					this.monthEle.style[Util.prefix + "transition"] = "all 0ms";
+					this.monthEle.style[Util.prefix + "transform"] = "translate3d(" + (this.index * this.offsetValue + this.touchesDiff) + "px, 0px, 0px)";
+
+				},
+				_handleTouchEnd: function(event) {
+					event.preventDefault();
+					if(!this.isTouched || !this.isMoved) {
+						this.isTouched = false;
+						this.isMoved = false;
+						return;
+					}
+					var comPos = this.endPos - this.touchesStart.x;
+					//移动距离对比
+					if(Math.abs(comPos) < this.attrs.limitDis) {
+						this._transformPage();
+					} else {
+						if(comPos < 0) {
+							this.turnNext(); //下一页
+						} else {
+							this.turnPre(); //上一页
+						}
+					}
+					this.isTouched = false;
+					this.isMoved = false;
+				},
+				turnPre: function() {
+					if(!this._interval) {
+						return;
+					}
+					this.index++;
+					this._isTurnPage = true;
+					this._offset = "prev";
+					//锁上操作, 防止多次触发
+					this._interval = false;
+					this._transformPage();
+				},
+				turnNext: function() {
+					if(!this._interval) {
+						return;
+					}
+					this.index--;
+					this._isTurnPage = true;
+					this._offset = "next";
+					//锁上操作, 防止多次触发
+					this._interval = false;
+					this._transformPage();
+				},
+				_transformPage: function() {
+					this.monthEle.style[Util.prefix + "transition"] = "300ms";
+					this.monthEle.style[Util.prefix + "transform"] = "translate3d(" + (this.index * 100) + "%, 0, 0)";
+				},
+				/**
+				 * 提示日期tip，仅在移动端有效(宽度 < 425px 触发)
+				 * @private
+				 */
+				_tipPannel: function() {
+					var self = this;
+					if(this.offsetValue > 425) {
+						return;
+					}
+					var year = this.value.getFullYear(),
+						month = this.value.getMonth() + 1;
+					this.timePannel.textContent = year + "年" + month + "月";
+					clearTimeout(this.tipInterval);
+					this.timePannel.style["display"] = "block";
+					//强制relayout，否则动画无效果
+					self.timePannel.offsetWidth;
+					this.timePannel.style["opacity"] = 1;
+					this.tipInterval = setTimeout(function() {
+						self.timePannel.style["opacity"] = 0;
+						self.timePannel.style["display"] = "none";
+					}, 800);
+				},
+				/**
+				 * 翻页结束后触发回调事件
+				 * @private
+				 */
+				_transformEnd: function() {
+					//不是翻页不行
+					var offset = this._offset;
+					if(!this._isTurnPage) {
+						return;
+					}
+					var date = new Date(this.value);
+					var year = date.getFullYear(),
+						month = date.getMonth();
+
+					//下个月
+					if(offset === 'next') {
+						if(month === 11) {
+							date = new Date(year + 1, 0);
+						} else {
+							date = new Date(year, month + 1, 1);
+						}
+					}
+					//上个月
+					if(offset === 'prev') {
+						if(month === 0) {
+							date = new Date(year - 1, 11);
+						} else {
+							date = new Date(year, month - 1, 1);
+						}
+					}
+					this.value = date;
+					//this._tipPannel();
+
+					this.layout();
+					// 重定位
+					var index = this.index * -1;
+
+					//重新获取 时间容器节点
+					this.prevMonthEle = doc.querySelector(".prev-month-html");
+					this.currMonthEle = doc.querySelector(".current-month-html");
+					this.nextMonthEle = doc.querySelector(".next-month-html");
+
+					this.prevMonthEle.style[Util.prefix + "transform"] = "translate3d(" + (index - 1) * 100 + "%, 0px, 0px)";
+					this.currMonthEle.style[Util.prefix + "transform"] = "translate3d(" + (index) * 100 + "%, 0px, 0px)";
+					this.nextMonthEle.style[Util.prefix + "transform"] = "translate3d(" + (index + 1) * 100 + "%, 0px, 0px)";
+
+					doc.getElementById("op-year-time").textContent = this.value.getFullYear() + "年";
+					doc.getElementById("op-month-time").textContent = (this.value.getMonth() + 1) + "月";
+
+					//恢复锁,可以继续触发
+					this._interval = true;
+					this._isTurnPage = false;
+				},
+				/**
+				 * 指定时间，重置日期内容
+				 * @param date 时间
+				 */
+				resetDate: function(date) {
+					this.value = date;
+					this.index = 0;
+					this.monthEle.style[Util.prefix + "transition"] = "all 0ms";
+					this.monthEle.style[Util.prefix + "transform"] = "translate3d(0 ,0 ,0)";
+					this.prevMonthEle.style[Util.prefix + "transform"] = "translate3d(-100%, 0px, 0px)";
+					this.currMonthEle.style[Util.prefix + "transform"] = "translate3d(0%, 0px, 0px)";
+					this.nextMonthEle.style[Util.prefix + "transform"] = "translate3d(100%, 0px, 0px)";
+
+					doc.getElementById("op-year-time").textContent = this.value.getFullYear() + "年";
+					doc.getElementById("op-month-time").textContent = (this.value.getMonth() + 1) + "月";
+
+					this.layout();
+				},
+				/**
+				 * 布局函数
+				 */
+				layout: function() {
+					var layoutDate = this.value ? this.value : new Date().setHours(0, 0, 0, 0);
+					this.value = layoutDate;
+
+					//三个月的 HTML信息
+					var prevMonthHTML = this.monthHTML(layoutDate, 'prev');
+					var currentMonthHTML = this.monthHTML(layoutDate);
+					var nextMonthHTML = this.monthHTML(layoutDate, 'next');
+					var monthHTML = '<div class="dateLi prev-month-html"><div class="dayTbody">' + prevMonthHTML + "</div></div>" +
+						'<div class="dateLi current-month-html"><div class="dayTbody">' + currentMonthHTML + "</div></div>" +
+						'<div class="dateLi next-month-html"><div class="dayTbody">' + nextMonthHTML + "</div></div>"
+
+					if(!this._initEd) {
+						//初次渲染的时候使用, 否则不使用
+						//渲染 星期头部
+						var weekHeaderHTML = [];
+						for(var i = 0; i < 7; i++) {
+							var weekDayIndex = (i + this.attrs.firstDay > 6) ? (i - 7 + this.attrs.firstDay) : (i + this.attrs.firstDay);
+							var dayName = this.attrs.dayNames[weekDayIndex];
+							if(this.attrs.weekendDays.indexOf(weekDayIndex) !== -1) {
+								//休息日样式
+								weekHeaderHTML.push('<div class="dayTd active">' + dayName + '</div>');
+							} else {
+								weekHeaderHTML.push('<div class="dayTd">' + dayName + '</div>');
+							}
+						}
+
+						var yearSelectHTML = [],
+							monthSelectHTML = [];
+						for(var i = 1900; i <= 2050; i++) {
+							var str = "<li class='list-year' data-year='" + i + "'>" + i + "年</li>";
+							yearSelectHTML.push(str);
+						}
+						for(var i = 1; i <= 12; i++) {
+							var str = "<li class='list-month' data-month='" + (i - 1) + "'>" + i + "月</li>";
+							monthSelectHTML.push(str);
+						}
+
+						doc.querySelector("." + this.attrs.weekHandler).innerHTML = weekHeaderHTML.join("");
+						doc.querySelector("." + this.attrs.toolBar).innerHTML = '<div class="yearChoose">' +
+							'<div class="chooseContainer">' +
+							'<div class="buttonGroup">' +
+							'<span class="yearTime" id="op-year-time">' + new Date().getFullYear() + '年</span>' +
+							'<span class="pullDown">+</span>' +
+							'</div>' +
+							'<div class="pullSelect">' +
+							'<ul>' + yearSelectHTML.join('') + '</ul>' +
+							'</div>' +
+							'</div>' +
+							'</div>' +
+							'<div class="monthChoose">' +
+							'<div class="chooseContainer">' +
+							'<div class="buttonGroup">' +
+							'<span class="monthTime" id="op-month-time">' + (new Date().getMonth() + 1) + '月</span>' +
+							'<span class="pullDown">+</span>' +
+							'</div>' +
+							'<div class="pullSelect">' +
+							'<ul>' + monthSelectHTML.join('') + '</ul>' +
+							'</div>' +
+							'</div>' +
+							'</div>' +
+							'<div class="returnToday"><span>返回今天</span></div>'
+					}
+					doc.querySelector("." + this.attrs.monthContainer).innerHTML = monthHTML;
+				},
+				/**
+				 * 获取当月总天数
+				 * @param date 日期
+				 */
+				totalDaysInMonth: function(date) {
+					var d = new Date(date);
+					return new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
+				},
+				/**
+				 * 日期HTML设置
+				 * @param date   设置时间
+				 * @param offset 设置偏移 ["next" -> "下个月"  "prev" -> "上个月"]
+				 * @returns {string} 返回拼接好的HTML字符串
+				 */
+				monthHTML: function(date, offset) {
+					var date = new Date(date);
+					var year = date.getFullYear(),
+						month = date.getMonth(),
+						day = date.getDate();
+
+					//下个月
+					if(offset === 'next') {
+						if(month === 11) {
+							date = new Date(year + 1, 0);
+						} else {
+							date = new Date(year, month + 1, 1);
+						}
+					}
+					//上个月
+					if(offset === 'prev') {
+						if(month === 0) {
+							date = new Date(year - 1, 11);
+						} else {
+							date = new Date(year, month - 1, 1);
+						}
+					}
+					//调整时间
+					if(offset === 'next' || offset === 'prev') {
+						month = date.getMonth();
+						year = date.getFullYear();
+					}
+
+					//上月 | 本月 总天数, 本月第一天索引
+					var daysInPrevMonth = this.totalDaysInMonth(new Date(date.getFullYear(), date.getMonth()).getTime() - 10 * 24 * 60 * 60 * 1000),
+						daysInMonth = this.totalDaysInMonth(date),
+						firstDayOfMonthIndex = new Date(date.getFullYear(), date.getMonth()).getDay();
+
+					if(firstDayOfMonthIndex === 0) {
+						firstDayOfMonthIndex = 7;
+					}
+
+					var dayDate,
+						rows = 5, //日历行数
+						cols = 7,
+						monthHTML = [],
+						dayIndex = 0 + (this.attrs.firstDay - 1),
+						today = new Date().setHours(0, 0, 0, 0);
+
+					for(var i = 1; i <= rows; i++) {
+						var row = i;
+						var tdList = [];
+						for(var j = 1; j <= cols; j++) {
+							var col = j;
+							dayIndex++;
+
+							var dayNumber = dayIndex - firstDayOfMonthIndex;
+							//要添加的类名, 默认dayTd
+							var classNames = ["dayTd"];
+							if(dayNumber < 0) {
+								//上个月日期
+								classNames.push("date-prev");
+								dayNumber = daysInPrevMonth + dayNumber + 1;
+								dayDate = new Date(month - 1 < 0 ? year - 1 : year, month - 1 < 0 ? 11 : month - 1, dayNumber).getTime();
+							} else {
+								dayNumber = dayNumber + 1;
+								if(dayNumber > daysInMonth) {
+									//下个月日期
+									classNames.push("date-next");
+									dayNumber = dayNumber - daysInMonth;
+									dayDate = new Date(month + 1 > 11 ? year + 1 : year, month + 1 > 11 ? 0 : month + 1, dayNumber).getTime();
+								} else {
+									dayDate = new Date(year, month, dayNumber).getTime();
+								}
+							}
+							//今天 date-current
+							if(dayDate === today) {
+								classNames.push("date-current");
+							}
+							//周六日 date-reset
+							if(dayIndex % 7 === this.attrs.weekendDays[0] || dayIndex % 7 === this.attrs.weekendDays[1]) {
+								classNames.push("date-reset");
+							}
+							dayDate = new Date(dayDate);
+
+							var dayYear = dayDate.getFullYear();
+							var dayMonth = dayDate.getMonth();
+
+							//农历日期
+							var ccalendar = Util.getLunarCalendar(dayYear, dayMonth + 1, dayNumber);
+							var holiday = this.attrs.holiday[(dayMonth + 1) + "-" + dayNumber];
+							//节日显示，优先级别：公历节日 > 农历节日 > 节气 > 农历 date-holiday
+							if(holiday) {
+								var alamanac = holiday;
+								classNames.push("date-holiday");
+							} else {
+								if(ccalendar["festival"]) {
+									var alamanac = ccalendar["festival"];
+									classNames.push("date-holiday");
+								} else {
+									if(ccalendar["solarTerm"]) {
+										var alamanac = ccalendar["solarTerm"];
+										classNames.push("date-holiday");
+									} else {
+										var alamanac = ccalendar["date"];
+									}
+								}
+							}
+							//集合包含dayNumber
+							var _appData = this.attrs.appData;
+							var _tagHtml = '';
+							if(_appData.attendance.contains(dayNumber)) //应出勤
+							{
+								classNames.push("attendance");
+							}
+							if(_appData.actualAttendance.contains(dayNumber)) { //实际出勤
+								classNames.push("actualAttendance");
+							}
+							if(_appData.beLate.contains(dayNumber)) { //迟到
+								classNames.push("beLate");
+								_tagHtml = '<i class="fl font-danger">迟</i>';
+							}
+							if(_appData.leaveEarly.contains(dayNumber)) { //早退
+								_tagHtml = '<i class="fl font-warning">退</i>';
+								classNames.push("leaveEarly");
+							}
+							tdList.push(
+								'<div class="' + classNames.join(" ") + '" data-year=' + dayYear + ' data-month=' + dayMonth + ' data-day=' + dayNumber + '>' +
+								'<span class="dayNumber">' + _tagHtml + dayNumber + "</span>" +
+								'<span class="almanac">' + alamanac + "</span>" +
+								'</div>'
+							)
+						}
+						monthHTML.push(
+							'<div class="dayTr">' + tdList.join("") + '</div>'
+						)
+					}
+					return monthHTML.join("");
+				},
+				/**
+				 * 格式化日期内容
+				 * @param date
+				 * @returns {string|XML}
+				 */
+				formatDate: function(date) {
+					date = new Date(date);
+					var year = date.getFullYear();
+					var month = date.getMonth();
+					var month1 = month + 1;
+					var day = date.getDate();
+					var weekDay = date.getDay();
+					return this.attrs.dateFormat
+						.replace(/yyyy/g, year)
+						.replace(/yy/g, (year + '').substring(2))
+						.replace(/mm/g, month1 < 10 ? '0' + month1 : month1)
+						.replace(/m/g, month1)
+						.replace(/MM/g, this.attrs.monthNames[month])
+						.replace(/dd/g, day < 10 ? '0' + day : day)
+						.replace(/d/g, day)
+						.replace(/DD/g, this.attrs.dayNames[weekDay])
+				},
+				/**
+				 * 获取上一个月
+				 * @date 格式为yyyy-mm-dd的日期，如：2014-01-25
+				 */
+				getPreMonth: function(date) {
+					var arr = date.split('-');
+					var year = arr[0]; //获取当前日期的年份
+					var month = arr[1]; //获取当前日期的月份
+					var day = arr[2]; //获取当前日期的日
+					var days = new Date(year, month, 0);
+					days = days.getDate(); //获取当前日期中月的天数
+					var year2 = year;
+					var month2 = parseInt(month) - 1;
+					if(month2 == 0) {
+						year2 = parseInt(year2) - 1;
+						month2 = 12;
+					}
+					var day2 = day;
+					var days2 = new Date(year2, month2, 0);
+					days2 = days2.getDate();
+					if(day2 > days2) {
+						day2 = days2;
+					}
+					if(month2 < 10) {
+						month2 = '0' + month2;
+					}
+					var t2 = year2 + '-' + month2 + '-' + day2;
+					return t2;
+				},
+
+				/**
+				 * 获取下一个月
+				 * @date 格式为yyyy-mm-dd的日期，如：2014-01-25
+				 */
+				getNextMonth: function(date) {
+					var arr = date.split('-');
+					var year = arr[0]; //获取当前日期的年份
+					var month = arr[1]; //获取当前日期的月份
+					var day = arr[2]; //获取当前日期的日
+					var days = new Date(year, month, 0);
+					days = days.getDate(); //获取当前日期中的月的天数
+					var year2 = year;
+					var month2 = parseInt(month) + 1;
+					if(month2 == 13) {
+						year2 = parseInt(year2) + 1;
+						month2 = 1;
+					}
+					var day2 = day;
+					var days2 = new Date(year2, month2, 0);
+					days2 = days2.getDate();
+					if(day2 > days2) {
+						day2 = days2;
+					}
+					if(month2 < 10) {
+						month2 = '0' + month2;
+					}
+					var t2 = year2 + '-' + month2 + '-' + day2;
+					return t2;
+				}
+			};
+			var Util = {
+				/**
+				 * css前缀判断，仅执行一次
+				 */
+				prefix: (function() {
+					var div = document.createElement('div');
+					var cssText = '-webkit-transition:all .1s; -moz-transition:all .1s; -o-transition:all .1s; -ms-transition:all .1s; transition:all .1s;';
+					div.style.cssText = cssText;
+					var style = div.style;
+					if(style.transition) {
+						return '';
+					}
+					if(style.webkitTransition) {
+						return '-webkit-';
+					}
+					if(style.MozTransition) {
+						return '-moz-';
+					}
+					if(style.oTransition) {
+						return '-o-';
+					}
+					if(style.msTransition) {
+						return '-ms-';
+					}
+				})(),
+				/**
+				 * 公历转化为积日（积日：1900年1月0日到当天的天数
+				 * @param year  年份
+				 * @param month 月份
+				 * @param day   日期
+				 * @returns {number}
+				 * @private
+				 */
+				_gregorianCalendarToAccumulateDate: function(year, month, day) {
+					var accumulateDate = 0;
+					accumulateDate += (year - 1900) * 365; //假设每年365天，计算天数
+					accumulateDate += parseInt((year - 1901) / 4); //将闰年数累加计数
+					for(var eachMonth = month - 1; eachMonth > 0; eachMonth--) {
+						accumulateDate += (new Date(year, eachMonth, 0)).getDate(); //累加当年各月天数
+					}
+					accumulateDate += day; //累加最后一月天数
+					return accumulateDate; //返回公历日期对应积日
+				},
+				/**
+				 * 计算积日的农历日期
+				 * @param accumulateDate
+				 * @returns {number}
+				 * @private
+				 */
+				_getLunarDate: function(accumulateDate) {
+					//逆推估算是第几个朔日
+					var reverseCalends = parseInt((accumulateDate - 1.6) / 29.5306);
+					var calends = reverseCalends - 1;
+					do {
+						calends++;
+						//计算朔日积日
+						var calendsAccumulateDate = parseInt(1.6 + 29.5306 * calends + 0.4 * Math.sin(1 - 0.45058 * calends));
+						var solarTermDate = accumulateDate - calendsAccumulateDate + 1;
+					} while (solarTermDate >= 30);
+					//下一个朔日在当天的次日，当月即为大月，当日为农历三十
+					if(solarTermDate === 0)
+						return 30;
+					else
+						return solarTermDate;
+				},
+				/**
+				 * 计算某年某个节气的积日（公式）
+				 * @param differenceYear
+				 * @param solarTermSerialNumber
+				 * @returns {Number}
+				 * @private
+				 */
+				_getSolarTermAccumulateDate: function(differenceYear, solarTermSerialNumber) {
+					var solarTermAccumulateDate = parseInt(365.242 * differenceYear + 6.2 + 15.22 * solarTermSerialNumber - 1.9 * Math.sin(0.262 * solarTermSerialNumber));
+					return solarTermAccumulateDate;
+				},
+				/**
+				 * 获取农历日期
+				 * @param year
+				 * @param month
+				 * @param day
+				 * @returns {{month: string, date: string, solarTerm: string, festival: *}}
+				 */
+				getLunarCalendar: function(year, month, day) {
+					//常量数组
+					var monthName = ["正月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "腊月"];
+					var dateName = ["十", "一", "二", "三", "四", "五", "六", "七", "八", "九"];
+					var datePrefixName = ["初", "十", "廿", "三"];
+					var solarTermName = ["小寒", "大寒", "立春", "雨水", "惊蛰", "春分", "清明", "谷雨", "立夏", "小满", "芒种", "夏至", "小暑", "大暑", "立秋", "处暑", "露水", "秋分", "寒露", "霜降", "立冬", "小雪", "大雪", "冬至"];
+					var festivalName = {
+						"0101": "春节",
+						"0115": "元宵节",
+						"0202": "龙头节",
+						"0505": "端午",
+						"0707": "七夕",
+						"0715": "中元节",
+						"0815": "中秋",
+						"0909": "重阳节",
+						"1001": "寒衣节",
+						"1015": "下元节",
+						"1208": "腊八节",
+						"1223": "小年",
+						"1230": "除夕"
+					};
+
+					var differenceYear = year - 1900; //年份距1900年差值
+					var solarTermSerialNumber = month * 2 - 1; //节气序号
+					var lunarCalendarMonth = (month - 1 + 12) % 12; //理论农历月份
+					var accumulateDate = Util._gregorianCalendarToAccumulateDate(year, month, day); //计算当前日期积日
+					var lunarDate = Util._getLunarDate(accumulateDate); //计算农历日期
+
+					//计算前一个月、当月、后一个月、前半个月以及后半个月的节气日期(STLD)和节气积日(STAD)
+					var curSTLD = Util._getLunarDate(Util._getSolarTermAccumulateDate(differenceYear, solarTermSerialNumber));
+					var prevSTLD = Util._getLunarDate(Util._getSolarTermAccumulateDate(differenceYear, solarTermSerialNumber - 2));
+					var nextSTLD = Util._getLunarDate(Util._getSolarTermAccumulateDate(differenceYear, solarTermSerialNumber + 2));
+					var halfPrevSTLD = Util._getLunarDate(Util._getSolarTermAccumulateDate(differenceYear, solarTermSerialNumber - 1));
+					var halfNextSTLD = Util._getLunarDate(Util._getSolarTermAccumulateDate(differenceYear, solarTermSerialNumber + 1));
+					var curSTAD = Util._getSolarTermAccumulateDate(differenceYear, solarTermSerialNumber);
+					var prevSTAD = Util._getSolarTermAccumulateDate(differenceYear, solarTermSerialNumber - 2);
+					var nextSTAD = Util._getSolarTermAccumulateDate(differenceYear, solarTermSerialNumber + 2);
+					var halfPrevSTAD = Util._getSolarTermAccumulateDate(differenceYear, solarTermSerialNumber - 1);
+					var halfNextSTAD = Util._getSolarTermAccumulateDate(differenceYear, solarTermSerialNumber + 1);
+
+					//通过节气日期判断闰月情况，调整月份
+					if(accumulateDate < curSTAD && lunarDate + curSTAD - accumulateDate !== curSTLD)
+						lunarCalendarMonth--;
+					else if(accumulateDate > curSTAD && lunarDate - (accumulateDate - curSTAD) !== curSTLD && lunarDate + nextSTLD - accumulateDate === nextSTAD)
+						lunarCalendarMonth++;
+
+					//判断是否是节气
+					if(curSTAD === accumulateDate)
+						var solarTerm = solarTermName[solarTermSerialNumber];
+					else if(halfPrevSTAD === accumulateDate)
+						var solarTerm = solarTermName[solarTermSerialNumber - 1];
+					else if(halfNextSTAD === accumulateDate)
+						var solarTerm = solarTermName[solarTermSerialNumber + 1];
+
+					//计算是否节日
+					var monthNumber = lunarCalendarMonth;
+					if(monthNumber < 10)
+						var festivalNumber = "0" + monthNumber;
+					else
+						var festivalNumber = monthNumber;
+					if(lunarDate < 10)
+						festivalNumber += "0" + lunarDate;
+					else
+						festivalNumber += lunarDate; //拼接字符串
+					var festivalString = festivalName[festivalNumber]; //调用节日
+
+					//计算农历名称
+					var monthString = monthName[(monthNumber + 11) % 12]; //月份名称
+					var prefix = parseInt((lunarDate - 1) / 10);
+					if(lunarDate === 20 || lunarDate === 30)
+						var dateString = datePrefixName[prefix + 1];
+					else
+						var dateString = datePrefixName[prefix];
+					dateString += dateName[lunarDate % 10]; //日期名称
+
+					//返回结果
+					var result = {
+						'month': monthString,
+						'date': dateString,
+						'solarTerm': solarTerm,
+						'festival': festivalString
+					};
+					return result;
+				},
+				/**
+				 * 判断年份干支
+				 * @param year 公历年份
+				 * @returns {string} 返回干支
+				 */
+				getSexagenaryCycle: function(year) {
+
+					//常量数组
+					var heavenlyStems = ["癸", "甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬"];
+					var earthlyBranches = ["亥", "子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌"];
+
+					//计算与1963年的差值(1964年为甲子年)
+					var yearSerialNumber = year - 1863;
+
+					//拼接该年干支
+					var sexagenaryCycle = heavenlyStems[yearSerialNumber % 10];
+					sexagenaryCycle += earthlyBranches[yearSerialNumber % 12];
+					sexagenaryCycle += "年";
+					return sexagenaryCycle;
+				},
+				/**
+				 * 获取生肖年份
+				 * @param year
+				 * @returns {string}
+				 */
+				getZodiac: function(year) {
+					//常量数组
+					var zodiacName = ["猪年", "鼠年", "牛年", "虎年", "兔年", "龙年", "蛇年", "马年", "羊年", "猴年", "鸡年", "狗年"];
+
+					//计算与1963年的差值(1964年为甲子年)
+					var yearSerialNumber = year - 1863;
+
+					return zodiacName[yearSerialNumber % 12];
+				},
+				/**
+				 * 玄学啊,获取禁忌事情
+				 * @param year
+				 * @param month
+				 * @param day
+				 * @returns {{suit: string, taboo: string}}
+				 */
+				getSuitAndTaboo: function(year, month, day) {
+
+					var suit = ["开光", "嫁娶", "入宅", "上梁", "祭祀", "出行", "作灶", "破土", "订盟", "祈福"];
+					var taboo = ["纳采", "冠笄", "竖柱", "掘井", "伐木", "理发", "交易", "探病", "雕刻", "斋醮"];
+
+					var dateString = parseInt((year * month * day) % 1025).toString(2);
+					var len = dateString.length;
+					if(len < 10)
+						for(; len < 10; len++)
+							dateString = "0" + dateString;
+					dateString = dateString.split("").reverse().join("");
+					var dateNum = parseInt(dateString, 2);
+					var suitResult = [];
+					var tabooResult = [];
+
+					for(var i = 0; i < 10; i++) {
+						if(dateNum % 2)
+							suitResult.push(taboo[i]);
+						else
+							tabooResult.push(suit[i]);
+						dateNum = parseInt(dateNum / 2);
+					}
+
+					var suitString = suitResult;
+					var tabooString = tabooResult;
+					var result = {
+						'suit': suitString,
+						'taboo': tabooString
+					}
+					return result;
+				}
+			};
+		</script>
+	</body>
+
+</html>

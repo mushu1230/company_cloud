@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>打卡-记录</title>
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/jquery-weui.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/mui/css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/calendar_base.css" />
+		<link rel="stylesheet" type="text/css" href="css/clockIn.css" />
+	</head>
+
+	<body id="clockIn-record">
+		<div class="bd" id="container">
+			<div id="content" class="weui-cells">
+				<!--头部-->
+				<div class="weui-cell report-cell">
+					<div class="customer-group">
+						<div class="img">刘</div>
+						<div class="time-info">
+							<div class="info-myAtt">
+								<div class="name-info">
+									<div class="">
+										<span class="name">刘垣辰</span>
+									</div>
+									<div class="date">软件研发部</div>
+								</div>
+							</div>
+						</div>
+						<div class="detail">
+							<div class="state">
+								<a class="monthly" href="#">月报</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--日历-->
+				<div class="mui-content">
+					<div class="em-journal-title">
+						<div class="em-per-block pre">
+							<span class="mui-icon mui-icon-arrowleft"></span>
+							<span>上一月</span>
+						</div>
+						<div class="em-per-block mid">
+							<span>...</span>
+						</div>
+						<div class="em-per-block next">
+							<span>下一月</span>
+							<span class="mui-icon mui-icon-arrowright"></span>
+						</div>
+					</div>
+					<!--日历容器-->
+					<div id="monthcalendar">
+
+					</div>
+				</div>
+			</div>
+			<!--上下班打卡状态-->
+			<div id="content" class="weui-cells weui-form workRecord">
+				<div class="weui-cell">
+					<div class="weui-cell__hd">
+						<div class="des">上下班打卡</div>
+						<div class="workTime">工作时长:<span>8小时</span></div>
+					</div>
+				</div>
+				<!--打卡状态    正常打卡normal，打卡成功success，未打卡failed-->
+				<div class="weui-cell report-cell">
+					<div class="record-info onDuty">
+						<div class="timeBox">
+							09:30
+						</div>
+						<div class="record-state success">
+							<p class="des">上班</p>
+							<p class="text">上班打卡<span class="time">(09:28)</span></p>
+						</div>
+						<div class="record-state failed">
+							<p class="des ">上班</p>
+							<p class="text">未打卡</p>
+						</div>
+					</div>
+					<div class="record-info">
+						<div class="timeBox">
+							09:30
+						</div>
+						<div class="record-state normal">
+							<p class="des">下班</p>
+							<p class="text" style="display: none;">下班打卡<span class="time">(09:28)</span></p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<script src="plugins/weui/js/jquery-2.1.4.js"></script>
+		<script src="plugins/weui/js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+		<script src="plugins/weui/js/swiper.min.js"></script>
+		<script src="js/mustache.min.js"></script>
+		<script src="js/calendar_base.js"></script>
+		<script src="js/calendar_showcase.js"></script>
+
+		<script type="text/javascript">
+			$(function() {
+				FastClick.attach(document.body);
+			});
+			var lis = document.getElementsByClassName(".em-calendar-item");
+			var data = [{
+				"date": "2020-04-18", name: "事件" 
+			}, {
+				"date": "2020-04-17", name: "事件" 
+			}, {
+				"date": "2020-04-16", name: "事件" 
+			}];
+			console.log(data)
+			for(var i = 0; i <= lis.length; i++) {
+				if(name="事件"){
+				 	$(lis).find(".reddot").css("display","block");
+				 	console.log($(lis))
+			 	}
+			}
+		</script>
+	</body>
+
+</html>

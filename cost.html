@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>费用统计</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="https://gw.alipayobjects.com/os/rmsportal/YmDAMEQVbLJpVbKiRQVX.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weuix.css" />
+		<link href="plugins/mui/css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="plugins/mui/css/mui.picker.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/cost.css" />
+		<script src="plugins/weui/js/jquery-2.1.4.js"></script>
+		<!--在 PC 上模拟 touch 事件-->
+		<script src="https://gw.alipayobjects.com/os/rmsportal/NjNldKHIVQRozfbAOJUW.js"></script>
+	</head>
+
+	<body ontouchstart>
+		<div class="container">
+			<div class="weui-panel__bd">
+				<div class="weui-media-box weui-media-box_small-appmsg">
+					<div class="weui-cells">
+						<div class="weui-cell weui-cell_access" href="javascript:;" id="project">
+							<div class="weui-cell__hd">
+								项目
+							</div>
+							<div class="weui-cell__ft" id="project-info">全部</div>
+						</div>
+						<div class="weui-cell" href="javascript:;">
+							<div class="weui-cell__hd">
+								时间
+							</div>
+							<div class="weui-cell__ft">
+								<div class="screen">
+									<div class="screen-box">
+										<input data-options='{}' class="screen-date" id="timeStart" type="text" placeholder="开始时间">
+										<span>-</span>
+										<input data-options='{}' class="screen-date" id="timeEnd" type="text" placeholder="结束时间">
+										<input data-options='{}' class="screen-date" id="time1" type="text" placeholder="结束时间">
+										
+									</div>
+									<div class="screen-btn">确定</div>
+									<div class="screen-add">
+										加
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="addbox">
+
+			</div>
+			<div class="result">
+				<div class="resultBox">
+					<span class="resultTitle">筛选条件:</span>
+					<span class="resultContent"></span>
+				</div>
+				<div class="resultBtn iconfont icon-close"></div>
+			</div>
+			<!--图表-->
+			<div class="chart-wrapper" style="border-top: 10px solid #fafafa;">
+				<canvas id="mountNode"></canvas>
+			</div>
+		</div>
+		<script src="plugins/weui/js/f2.js"></script>
+		<script src="plugins/mui/js/mui.js"></script>
+		<script src="plugins/mui/js/mui.picker.min.js"></script>
+		<!--<script src="plugins/mui/js/mui.picker.js"></script>-->
+		<script src="plugins/mui/js/mui.poppicker.js"></script>
+		<script src="js/cost.js"></script>
+		<script src="plugins/weui/js/fastclick.js"></script>
+		<script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
+		<script>
+			$(function() {
+				FastClick.attach(document.body);
+			});
+			//项目选择组件
+			(function($, doc) {
+				$.init();
+				$.ready(function() {
+					/**
+					 * 获取对象属性的值
+					 * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
+					 * @param {Object} obj 对象
+					 * @param {String} param 属性名
+					 */
+					var _getParam = function(obj, param) {
+						return obj[param] || '';
+					};
+					//项目配置
+					var userPicker = new $.PopPicker();
+					userPicker.setData([{
+						value: 'ywj',
+						text: '互动营销'
+					}, {
+						value: 'aaa',
+						text: '贵金属'
+					}, {
+						value: 'lj',
+						text: '二维码墙'
+					}, {
+						value: 'ymt',
+						text: '排队叫号'
+					}, {
+						value: 'shq',
+						text: '拼接屏'
+					}]);
+					var showUserPickerButton = doc.getElementById('project');
+					var userResult = doc.getElementById('project-info');
+					showUserPickerButton.addEventListener('tap', function(event) {
+						userPicker.show(function(items) {
+							userResult.innerText = items[0].text;
+							console.log(JSON.stringify(items[0]))
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+					//-----------------------------------------
+
+				});
+			})(mui, document);
+			mui.init();
+			//时间选择组件
+			//			(function($) {
+			//				$.init();
+			var btns = $('.screen-date');
+			btns.each(function(i, btn) {
+				$(btn).click(function() {
+					var _self = this;
+					if(_self.picker) {
+						console.log(123456)
+						_self.picker.show(function(rs) {
+							_self.picker.dispose();
+							_self.picker = null;
+						});
+					} else {
+						var optionsJson = this.getAttribute('data-options') || '{}';
+						var options = JSON.parse(optionsJson);
+						var id = this.getAttribute('id');
+
+						_self.picker = new mui.DtPicker({
+							type: "date", //设置日历初始视图模式 
+							beginDate: new Date(2015, 04, 25), //设置开始日期 
+							endDate: new Date(2016, 04, 25), //设置结束日期 
+						})
+
+						_self.picker.show(function(rs) {
+							_self.style.color = "#333";
+							_self.value = rs.text;
+							_self.picker.dispose();
+							_self.picker = null;
+						});
+					}
+				})
+			});
+
+			//点击确定获取起始时间
+			$('.screen-btn')[0].addEventListener('tap', function() {
+				console.log(btns[0].value) //开始时间
+				console.log(btns[1].value) //结束时间
+			})
+
+			//			})(mui);
+			//搜索和清除切换
+			$('.screen-btn').click(function() {
+				//点击搜索
+				if(true) {
+					//true 满足搜索条件
+					$(".result").addClass("active")
+					var screenDate1 = $('.screen-date')[0].value
+					var screenDate2 = $('.screen-date')[1].value
+					$(".resultContent").text(screenDate1 + "-" + screenDate2)
+
+				}
+			})
+			$('.resultBtn').click(function() {
+				//点击清除搜索
+				$(".result").removeClass("active")
+			})
+			$(".screen-add").click(function() {
+				$(".addbox").append("<input data-options='{}' class='screen-date' id='timeStart2' type='text' placeholder='开始时间'>")
+				var btns = $('.screen-date');
+				btns.each(function(i, btn) {
+					$(btn).unbind("click");
+					$(btn).click(function() {
+						var _self = this;
+						if(_self.picker) {
+							console.log(123)
+							_self.picker.show(function(rs) {
+								_self.picker.dispose();
+								_self.picker = null;
+							});
+						} else {
+							console.log(456)
+							var optionsJson = this.getAttribute('data-options') || '{}';
+							var options = JSON.parse(optionsJson);
+							var id = this.getAttribute('id');
+
+							_self.picker = new mui.DtPicker({
+								type: "date", //设置日历初始视图模式 
+								beginDate: new Date(2015, 04, 25), //设置开始日期 
+								endDate: new Date(2016, 04, 25), //设置结束日期 
+							})
+
+							_self.picker.show(function(rs) {
+								_self.style.color = "#333";
+								_self.value = rs.text;
+								_self.picker.dispose();
+								_self.picker = null;
+							});
+						}
+					})
+				});
+
+			})
+		</script>
+	</body>
+
+</html>

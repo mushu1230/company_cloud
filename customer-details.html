@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>客户详情</title>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/jquery-weui.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/customer-details.css" />
+	</head>
+
+	<body>
+		<div class="weui-panel weui-panel_access">
+			<div class="weui-panel__bd">
+				<a class="weui-media-box weui-media-box_text" href="#">
+					<div class="weui-media-box__title name">
+						<div class="name">张兰兰</div>
+						<i class="iconfont icon-youjiantou "></i>
+					</div>
+					<div class="weui-media-box__desc">
+						<span class="label">最后跟进时间</span>
+						<span class="cell">2019-04-10  14:01</span>
+					</div>
+					<div class="weui-media-box__desc">
+						<span class="label">联系电话</span>
+						<span class="cell">13685856633</span>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="weui-panel weui-panel_access">
+			<div class="weui-panel__hd">拜访记录</div>
+			<div class="weui-panel__bd">
+				<div class="weui-media-box weui-media-box_text">
+					<div class="weui-media-box-item">
+						<div class="weui-media-box_img">李</div>
+						<div class="weui-media-box_content">
+							<div class="head">
+								<div class="">
+									<span class="name">李三</span>
+									<span class="date">6分钟前</span>
+								</div>
+							</div>
+							<div class="details">
+								<div class="details-info">
+									1321今天上门拜访客户，跟张总等解释了产品、讲解了功能；与客户要求基本相符。1321今天上门拜访客户，跟张总等解释了产品、讲解了功能；与客户要求基本相符。1321今天上门拜访客户，跟张总等解释了产品、讲解了功能；与客户要求基本相符。
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="weui-media-box weui-media-box_text">
+					<div class="weui-media-box-item">
+						<div class="weui-media-box_img">李</div>
+						<div class="weui-media-box_content">
+							<div class="head">
+								<div class="">
+									<span class="name">李三</span>
+									<span class="date">6分钟前</span>
+								</div>
+							</div>
+							<div class="details">
+								<div class="details-info">
+									今天上门拜访客户，跟张总等解释了产品、讲解了功能；与客户要求基本相符
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="plugins/weui/js/jquery-2.1.4.js"></script>
+	<script src="plugins/weui/js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+	<script src="plugins/weui/js/jquery-weui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/baes.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		$(function() {
+			FastClick.attach(document.body);
+		});
+		
+		$(".details").each(function() {
+			if($(this).find(".details-info").height() > 54) {
+				$(this).siblings(".head").append("<div class='more'>展示全部 </div>")
+			}
+		})
+		$(".more").click(function(){
+			$(this).toggleClass("active")
+			$(this).parent().siblings().toggleClass("active")
+			if($(this).hasClass("active")){
+				$(this).text("收起全部")
+			}
+			else{
+				$(this).text("展示全部")
+			}
+		})
+	</script>
+
+</html>

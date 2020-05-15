@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>客户列表</title>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link href="plugins/mui/css/mui.min.css" rel="stylesheet" />
+		<link href="plugins/mui/css/mui.indexedlist.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/customer-list.css" />
+		<style>
+			html,
+			body {
+				height: 100%;
+				overflow: hidden;
+			}
+			.mui-content,#list{
+				height: 100%;
+			}
+			.mui-control-content {
+				height: 100%;
+			}
+			
+			.mui-indexed-list {
+				display: flex;
+				flex-direction: column;
+			}
+			
+			.mui-indexed-list-group {
+				font-size: 13px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content mult">
+			<div class="add iconfont icon-add"></div>
+			<div id='list' class="mui-indexed-list">
+				<div class="">
+					<div style="padding: 10px 10px;">
+						<div id="segmentedControl" class="mui-segmented-control mui-segmented-control-inverted">
+							<a class="mui-control-item mui-active" href="#item1">单位排序</a>
+							<a class="mui-control-item" href="#item2">地市排序</a>
+							<a class="mui-control-item" href="#item3">姓名排序</a>
+						</div>
+					</div>
+					<div class="search-box">
+						<div class="mui-indexed-list-search mui-input-row mui-search iconfont">
+
+							<div class="selectBox">
+								<select>
+									<option>全部客户</option>
+									<option>1</option>
+									<option>1</option>
+								</select>
+								<i class="iconfont icon-xiala"></i>
+							</div>
+							<input type="search" class="mui-input-clear mui-indexed-list-search-input" placeholder="请输入搜索内容">
+						</div>
+					</div>
+				</div>
+				<div style="height: 100%;">
+					<div id="item1" class="mui-control-content mui-active">
+						<div id="scroll" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									<li class="mui-table-view-divider mui-indexed-list-group">中国移动</li>
+									<li class="mui-table-view-cell mui-indexed-list-item">
+										<div class="mui-slider-right mui-disabled">
+											<a class="mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
+											<a class="mui-btn mui-btn-yellow mui-icon mui-icon-phone" href="tel:18888888888"></a>
+										</div>
+										<div class="mui-slider-handle">
+											<div class="customer-group">
+												<div class="img">阿</div>
+												<div class="content">
+													<div class="">
+														<span class="name">阿大</span>
+														<span class="post">董事长</span>
+													</div>
+													<div class="inline"> <i class="iconfont icon-address"></i>河南省开封市禹王台区</div>
+													<div class="inline"> <i class="iconfont icon-phone"></i>18888888888</div>
+												</div>
+											</div>
+											<div class="info-group">
+												<div class="customer-tip potential">意向用户</div>
+												<div class="customer-follow">
+													跟进人：张三三
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="mui-table-view-cell mui-indexed-list-item">
+										<div class="mui-slider-right mui-disabled">
+											<a class="mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
+											<a class="mui-btn mui-btn-yellow mui-icon mui-icon-phone" href="tel:15596965656"></a>
+										</div>
+										<div class="mui-slider-handle">
+											<div class="customer-group">
+												<div class="img">保</div>
+												<div class="content">
+													<div class="">
+														<span class="name">保安</span>
+														<span class="post">局长</span>
+													</div>
+													<div class="inline"> <i class="iconfont icon-address"></i>河南省开封市禹王台区</div>
+													<div class="inline"> <i class="iconfont icon-phone"></i>15596965656</div>
+												</div>
+											</div>
+											<div class="info-group">
+												<div class="customer-tip potential">意向用户</div>
+											</div>
+										</div>
+									</li>
+									<li class="mui-table-view-divider mui-indexed-list-group">中国联通</li>
+									<li class="mui-table-view-cell mui-indexed-list-item">
+										<div class="mui-slider-right mui-disabled">
+											<a class="mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
+											<a class="mui-btn mui-btn-yellow mui-icon mui-icon-phone" href="tel:15596965656"></a>
+										</div>
+										<div class="mui-slider-handle">
+											<div class="customer-group">
+												<div class="img">保</div>
+												<div class="content">
+													<div class="">
+														<span class="name">保安</span>
+														<span class="post">局长</span>
+													</div>
+													<div class="inline"> <i class="iconfont icon-address"></i>河南省开封市禹王台区</div>
+													<div class="inline"> <i class="iconfont icon-phone"></i>15596965656</div>
+												</div>
+											</div>
+											<div class="info-group">
+												<div class="customer-tip potential">意向用户</div>
+											</div>
+										</div>
+									</li>
+									<li class="mui-table-view-cell mui-indexed-list-item">
+										<div class="mui-slider-right mui-disabled">
+											<a class="mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
+											<a class="mui-btn mui-btn-yellow mui-icon mui-icon-phone" href="tel:15596965656"></a>
+										</div>
+										<div class="mui-slider-handle">
+											<div class="customer-group">
+												<div class="img">保</div>
+												<div class="content">
+													<div class="">
+														<span class="name">保安</span>
+														<span class="post">局长</span>
+													</div>
+													<div class="inline"> <i class="iconfont icon-address"></i>河南省开封市禹王台区</div>
+													<div class="inline"> <i class="iconfont icon-phone"></i>15596965656</div>
+												</div>
+											</div>
+											<div class="info-group">
+												<div class="customer-tip potential">意向用户</div>
+											</div>
+										</div>
+									</li>
+									<li class="mui-table-view-cell mui-indexed-list-item">
+										<div class="mui-slider-right mui-disabled">
+											<a class="mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
+											<a class="mui-btn mui-btn-yellow mui-icon mui-icon-phone" href="tel:15596965656"></a>
+										</div>
+										<div class="mui-slider-handle">
+											<div class="customer-group">
+												<div class="img">保</div>
+												<div class="content">
+													<div class="">
+														<span class="name">保安</span>
+														<span class="post">局长</span>
+													</div>
+													<div class="inline"> <i class="iconfont icon-address"></i>河南省开封市禹王台区</div>
+													<div class="inline"> <i class="iconfont icon-phone"></i>15596965656</div>
+												</div>
+											</div>
+											<div class="info-group">
+												<div class="customer-tip potential">意向用户</div>
+											</div>
+										</div>
+									</li>
+									<li class="mui-table-view-cell mui-indexed-list-item">
+										<div class="mui-slider-right mui-disabled">
+											<a class="mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
+											<a class="mui-btn mui-btn-yellow mui-icon mui-icon-phone" href="tel:15596965656"></a>
+										</div>
+										<div class="mui-slider-handle">
+											<div class="customer-group">
+												<div class="img">保</div>
+												<div class="content">
+													<div class="">
+														<span class="name">保安</span>
+														<span class="post">局长</span>
+													</div>
+													<div class="inline"> <i class="iconfont icon-address"></i>河南省开封市禹王台区</div>
+													<div class="inline"> <i class="iconfont icon-phone"></i>15596965656</div>
+												</div>
+											</div>
+											<div class="info-group">
+												<div class="customer-tip potential">意向用户</div>
+											</div>
+										</div>
+									</li>
+									<li class="mui-table-view-divider mui-indexed-list-group">河南农商银行</li>
+									<li class="mui-table-view-cell mui-indexed-list-item">
+										<div class="mui-slider-right mui-disabled">
+											<a class="mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
+											<a class="mui-btn mui-btn-yellow mui-icon mui-icon-phone" href="tel:15596965656"></a>
+										</div>
+										<div class="mui-slider-handle">
+											<div class="customer-group">
+												<div class="img">保</div>
+												<div class="content">
+													<div class="">
+														<span class="name">保安</span>
+														<span class="post">局长</span>
+													</div>
+													<div class="inline"> <i class="iconfont icon-address"></i>河南省开封市禹王台区</div>
+													<div class="inline"> <i class="iconfont icon-phone"></i>15596965656</div>
+												</div>
+											</div>
+											<div class="info-group">
+												<div class="customer-tip potential">意向用户</div>
+											</div>
+										</div>
+									</li>
+									<li class="mui-table-view-cell mui-indexed-list-item">
+										<div class="mui-slider-right mui-disabled">
+											<a class="mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
+											<a class="mui-btn mui-btn-yellow mui-icon mui-icon-phone" href="tel:15596965656"></a>
+										</div>
+										<div class="mui-slider-handle">
+											<div class="customer-group">
+												<div class="img">保</div>
+												<div class="content">
+													<div class="">
+														<span class="name">保安</span>
+														<span class="post">局长</span>
+													</div>
+													<div class="inline"> <i class="iconfont icon-address"></i>河南省开封市禹王台区</div>
+													<div class="inline"> <i class="iconfont icon-phone"></i>15596965656</div>
+												</div>
+											</div>
+											<div class="info-group">
+												<div class="customer-tip potential">意向用户</div>
+											</div>
+										</div>
+									</li>
+									<li class="mui-table-view-cell mui-indexed-list-item">
+										<div class="mui-slider-right mui-disabled">
+											<a class="mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
+											<a class="mui-btn mui-btn-yellow mui-icon mui-icon-phone" href="tel:15596965656"></a>
+										</div>
+										<div class="mui-slider-handle">
+											<div class="customer-group">
+												<div class="img">保</div>
+												<div class="content">
+													<div class="">
+														<span class="name">保安</span>
+														<span class="post">局长</span>
+													</div>
+													<div class="inline"> <i class="iconfont icon-address"></i>河南省开封市禹王台区</div>
+													<div class="inline"> <i class="iconfont icon-phone"></i>15596965656</div>
+												</div>
+											</div>
+											<div class="info-group">
+												<div class="customer-tip potential">意向用户</div>
+											</div>
+										</div>
+									</li>
+									<li class="mui-table-view-cell mui-indexed-list-item">
+										<div class="mui-slider-right mui-disabled">
+											<a class="mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
+											<a class="mui-btn mui-btn-yellow mui-icon mui-icon-phone" href="tel:15596965656"></a>
+										</div>
+										<div class="mui-slider-handle">
+											<div class="customer-group">
+												<div class="img">保</div>
+												<div class="content">
+													<div class="">
+														<span class="name">保安</span>
+														<span class="post">局长</span>
+													</div>
+													<div class="inline"> <i class="iconfont icon-address"></i>河南省开封市禹王台区</div>
+													<div class="inline"> <i class="iconfont icon-phone"></i>15596965656</div>
+												</div>
+											</div>
+											<div class="info-group">
+												<div class="customer-tip potential">意向用户</div>
+											</div>
+										</div>
+									</li>
+									<li class="mui-table-view-cell mui-indexed-list-item">
+										<div class="mui-slider-right mui-disabled">
+											<a class="mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
+											<a class="mui-btn mui-btn-yellow mui-icon mui-icon-phone" href="tel:15596965656"></a>
+										</div>
+										<div class="mui-slider-handle">
+											<div class="customer-group">
+												<div class="img">保</div>
+												<div class="content">
+													<div class="">
+														<span class="name">保安</span>
+														<span class="post">局长</span>
+													</div>
+													<div class="inline"> <i class="iconfont icon-address"></i>河南省开封市禹王台区</div>
+													<div class="inline"> <i class="iconfont icon-phone"></i>15596965656</div>
+												</div>
+											</div>
+											<div class="info-group">
+												<div class="customer-tip potential">意向用户</div>
+											</div>
+										</div>
+									</li>
+									<li class="mui-table-view-cell mui-indexed-list-item">
+										<div class="mui-slider-right mui-disabled">
+											<a class="mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
+											<a class="mui-btn mui-btn-yellow mui-icon mui-icon-phone" href="tel:15596965656"></a>
+										</div>
+										<div class="mui-slider-handle">
+											<div class="customer-group">
+												<div class="img">保</div>
+												<div class="content">
+													<div class="">
+														<span class="name">保安</span>
+														<span class="post">局长</span>
+													</div>
+													<div class="inline"> <i class="iconfont icon-address"></i>河南省开封市禹王台区</div>
+													<div class="inline"> <i class="iconfont icon-phone"></i>15596965656</div>
+												</div>
+											</div>
+											<div class="info-group">
+												<div class="customer-tip potential">意向用户</div>
+											</div>
+										</div>
+									</li>
+									<li class="mui-table-view-cell mui-indexed-list-item">
+										<div class="mui-slider-right mui-disabled">
+											<a class="mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
+											<a class="mui-btn mui-btn-yellow mui-icon mui-icon-phone" href="tel:15596965656"></a>
+										</div>
+										<div class="mui-slider-handle">
+											<div class="customer-group">
+												<div class="img">保</div>
+												<div class="content">
+													<div class="">
+														<span class="name">保安</span>
+														<span class="post">局长</span>
+													</div>
+													<div class="inline"> <i class="iconfont icon-address"></i>河南省开封市禹王台区</div>
+													<div class="inline"> <i class="iconfont icon-phone"></i>15596965656</div>
+												</div>
+											</div>
+											<div class="info-group">
+												<div class="customer-tip potential">意向用户</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="item2" class="mui-control-content">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-divider mui-indexed-list-group">郑州</li>
+							<li class="mui-table-view-cell mui-indexed-list-item">
+								<div class="mui-slider-right mui-disabled">
+									<a class="mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
+									<a class="mui-btn mui-btn-yellow mui-icon mui-icon-phone" href="tel:18888888888"></a>
+								</div>
+								<div class="mui-slider-handle">
+									<div class="customer-group">
+										<div class="img">阿</div>
+										<div class="content">
+											<div class="">
+												<span class="name">阿大</span>
+												<span class="post">董事长</span>
+											</div>
+											<div class="inline"> <i class="iconfont icon-address"></i>河南省开封市禹王台区</div>
+											<div class="inline"> <i class="iconfont icon-phone"></i>18888888888</div>
+										</div>
+									</div>
+									<div class="info-group">
+										<div class="customer-tip potential">意向用户</div>
+										<div class="customer-follow">
+											跟进人：张三三
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="mui-table-view-divider mui-indexed-list-group">洛阳</li>
+							<li class="mui-table-view-cell mui-indexed-list-item">
+								<div class="mui-slider-right mui-disabled">
+									<a class="mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
+									<a class="mui-btn mui-btn-yellow mui-icon mui-icon-phone" href="tel:18888888888"></a>
+								</div>
+								<div class="mui-slider-handle">
+									<div class="customer-group">
+										<div class="img">阿</div>
+										<div class="content">
+											<div class="">
+												<span class="name">阿大</span>
+												<span class="post">董事长</span>
+											</div>
+											<div class="inline"> <i class="iconfont icon-address"></i>河南省开封市禹王台区</div>
+											<div class="inline"> <i class="iconfont icon-phone"></i>18888888888</div>
+										</div>
+									</div>
+									<div class="info-group">
+										<div class="customer-tip potential">意向用户</div>
+										<div class="customer-follow">
+											跟进人：张三三
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="mui-table-view-cell mui-indexed-list-item">
+								<div class="mui-slider-right mui-disabled">
+									<a class="mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
+									<a class="mui-btn mui-btn-yellow mui-icon mui-icon-phone" href="tel:18888888888"></a>
+								</div>
+								<div class="mui-slider-handle">
+									<div class="customer-group">
+										<div class="img">阿</div>
+										<div class="content">
+											<div class="">
+												<span class="name">阿大</span>
+												<span class="post">董事长</span>
+											</div>
+											<div class="inline"> <i class="iconfont icon-address"></i>河南省开封市禹王台区</div>
+											<div class="inline"> <i class="iconfont icon-phone"></i>18888888888</div>
+										</div>
+									</div>
+									<div class="info-group">
+										<div class="customer-tip potential">意向用户</div>
+										<div class="customer-follow">
+											跟进人：张三三
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div id="item3" class="mui-control-content">
+						<ul class="mui-table-view">
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script src="plugins/weui/js/jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="plugins/mui/js/mui.js"></script>
+		<script src="plugins/mui/js/mui.indexedlist.js"></script>
+		<script src="js/baes.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+//			mui.ready(function() {
+//				var list = document.getElementById('list');
+//				//calc hieght
+//				list.style.height = (document.body.offsetHeight) + 'px';
+//				//create
+//				window.indexedList = new mui.IndexedList(list);
+//				//暂无更多数据
+//			});
+
+			(function($) {
+				//允许滚动
+				$('.mui-scroll-wrapper').scroll({
+					indicators: true //是否显示滚动条
+				});
+				//删除联系人
+				$('.mui-table-view').on('tap', '.mui-icon-trash', function(event) {
+					var elem = this;
+					var li = elem.parentNode.parentNode;
+					mui.confirm('确认删除该用户吗？', '提示', btnArray, function(e) {
+						if(e.index == 0) {
+							li.parentNode.removeChild(li);
+						} else {
+							setTimeout(function() {
+								$.swipeoutClose(li);
+							}, 0);
+						}
+					});
+				});
+				var btnArray = ['确认', '取消'];
+			})(mui);
+			//标签居中
+			$(".info-group").each(function() {
+				var follow = $(this).children().hasClass("customer-follow")
+				if(follow == false) {
+					$(this).css("justify-content", "center")
+				}
+			})
+		</script>
+
+	</body>
+
+</html>

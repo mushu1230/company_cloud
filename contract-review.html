@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>合同审核</title>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/contract-review.css" />
+	</head>
+
+	<body id="contract-review">
+		<div class="content">
+			<div class="bd" id="container">
+				<div id="content">
+					<div class="weui-cells">
+						<div class="weui-cell">
+							<div class="contractL">
+								<div class="item">
+									<div class="itemName">
+										商丘智慧银行项目
+									</div>
+									<div class="item-content">
+										<div class="item-list">
+											合同编号:
+											<span>
+												1232356895656
+											</span>
+										</div>
+										<div class="item-list">
+											签约时间:
+											<span>
+												2019:10:25
+											</span>
+										</div>
+										<div class="item-list">
+											提交人:
+											<span>
+												张三
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<a href="" class="contractR">
+								下载预览
+							</a>
+						</div>
+						<div class="review-btn">
+							<!--审核按钮三种状态，正常、通过、驳回-->
+							<div class="normal">
+								<a href="" class="reviewL">通过审核</a>
+								<i></i>
+								<a href="" class="reviewR">驳回申请</a>
+							</div>
+							<div class="succeed">
+								已通过
+							</div>
+							<div class="fail">
+								已驳回
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--滚动加载-->
+				<div class="weui-loadmore">
+					<i class="weui-loading"></i>
+					<span class="weui-loadmore__tips">正在加载</span>
+				</div>
+				<div class="add iconfont icon-add"></div>
+			</div>
+		</div>
+		<script src="plugins/weui/js/jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="plugins/weui/js/jquery-weui.min.js" type="text/javascript" charset="utf-8"></script>
+			
+		<!--滚动加载-->
+		<script src="js/contract-review.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>收款列表</title>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/jquery-weui.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/return-list.css" />
+	</head>
+
+	<body>
+		<div class="hd">
+			<div class="hd-bar">
+				<div class="slide-btn">
+					筛选<i class="iconfont icon-shaixuan"></i>
+				</div>
+				<div class="page-box">
+					<div class="page-btn active">
+						未收款
+					</div>
+					<div class="page-btn">
+						已收款
+					</div>
+				</div>
+				<div class="slide-btn">
+					排序<i class="iconfont icon-paixu"></i>
+				</div>
+			</div>
+
+			<div class="hd-slide">
+				<ul>
+					<li>
+						<a href="#">综合排序</a>
+					</li>
+					<li>
+						<a href="#">从高到低</a>
+					</li>
+					<li>
+						<a href="#">从低到高</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="bd">
+			<div class="weui-media-box">
+				<div class="left">
+					<div class="title">
+						<span>YN20190326-0001</span>
+					</div>
+					<div class="cell">
+						项目名称：商水农商行档案管理
+					</div>
+					<div class="cell" style="display: flex;justify-content: space-between;">
+						<span class="time">回款时间：2019-04-11</span>
+						<span class="time">跟进人:李依依</span>
+					</div>
+				</div>
+				<div class="right">
+					<div class="title">
+						回款金额（元）
+					</div>
+					<div class="money">
+						1000
+					</div>
+				</div>
+			</div>
+			<div class="weui-media-box">
+				<div class="left">
+					<div class="title">
+						<span>YN20190326-0001</span>
+					</div>
+					<div class="cell">
+						项目名称：商水农商行档案管理
+					</div>
+					<div class="cell">
+						<span class="time">回款时间：2019-04-11</span>
+					</div>
+				</div>
+				<div class="right">
+					<div class="title">
+						回款金额（元）
+					</div>
+					<div class="money">
+						1000
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mark"></div>
+	</body>
+	<script type="text/javascript" src="plugins/weui/js/jquery-2.1.4.js"></script>
+	<script src="plugins/weui/js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		$(function() {
+			FastClick.attach(document.body);
+		});
+	</script>
+	<script src="plugins/weui/js/jquery-weui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/baes.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(".page-btn").click(function() {
+			$(this).addClass("active").siblings().removeClass("active")
+		})
+		$(".slide-btn").click(function() {
+			$(".hd-slide").addClass("active")
+			$(".mark ").addClass("active")
+			$("body ").addClass("active")
+		})
+
+		$("body").click(function() {
+			$(".hd-slide").removeClass("active")
+			$(".mark").removeClass("active");
+			$("body ").removeClass("active")
+		})
+
+		$(".slide-btn").on("click", function(e) {
+			e.stopPropagation();
+		})
+		//$(".hd-slide").on("click",function(e){
+		//  e.stopPropagation();
+		//})
+	</script>
+
+</html>

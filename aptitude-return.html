@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<title>资质归还</title>
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/jquery-weui.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<!--<link rel="stylesheet" type="text/css" href="css/send-add.css" />-->
+		<link rel="stylesheet" type="text/css" href="css/aptitude.css" />
+		<script type="text/javascript" src="plugins/weui/js/jquery-2.1.4.js"></script>
+		<script src="plugins/weui/js/jquery-weui.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body id="aptitude-return">
+		<div class="main">
+			<div class="weui-cells weui-cells_form">
+				<div class="weui-cell  weui-cell_access">
+					<div class="weui-cell__hd">
+						<label for="" class="weui-label">资质</label>
+					</div>
+					<div class="weui-cell__ft">
+						<select class="weui-select" name="select2" id="select">
+							<option value="" style="display: none" class="option-title">资质名称</option>
+							<option value="1">软件项目</option>
+							<option value="2">工程项目</option>
+							<option value="3">333333</option>
+						</select>
+					</div>
+				</div>
+				<a class="weui-cell weui-cell_access" href="javascript:;">
+					<div class="weui-cell__hd">
+						<label for="time1" class="weui-label">申请时间</label>
+					</div>
+					<div class="weui-cell__ft">
+						<input data-options='{"value":"2015-10-10 10:10","beginYear":2000,"endYear":2020}' class="weui-input btn" id="time1" type="text" placeholder="请选择">
+					</div>
+				</a>
+				<a class="weui-cell weui-cell_access" href="javascript:;">
+					<div class="weui-cell__hd">
+						<label for="time2" class="weui-label">归还时间</label>
+					</div>
+					<div class="weui-cell__ft">
+						<input data-options='{"value":"2015-10-10 10:10","beginYear":2000,"endYear":2020}' class="weui-input btn" id="time2" type="text" placeholder="请选择">
+					</div>
+				</a>
+			</div>
+		</div>
+
+		<div class="submit-btn">
+			<div class="btn lbtn">
+				<a href="javascript:;" class="weui-btn weui-btn_submit">取消申请</a>
+			</div>
+			<div class="btn rbtn">
+				<a href="javascript:;" class="weui-btn weui-btn_submit">确认归还</a>
+			</div>
+		</div>
+
+	</body>
+	<script src="plugins/weui/js/weui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="plugins/weui/js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+	<script src="plugins/mui/js/mui.js"></script>
+	<script src="js/baes.js" type="text/javascript" charset="utf-8"></script>
+
+	<script type="text/javascript">
+		$(function() {
+			FastClick.attach(document.body);
+		});
+
+		$("#time1").datetimePicker({
+			times: function() {
+				return [];
+			}
+		});
+		$("#time2").datetimePicker({
+			times: function() {
+				return [];
+			}
+		});
+	</script>
+
+</html>

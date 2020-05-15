@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>拜访记录-列表</title>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="plugins/weui/css/weui.css" />
+		<link href="plugins/mui/css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="plugins/mui/css/mui.picker.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/visiting-list.css" />
+		<style>
+			html,
+			body {
+				height: 100%;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content">
+			<div class="hd">
+				<div class="hd-bar">
+					<div class="slide-btn">
+						排序<i class="iconfont icon-shaixuan"></i>
+					</div>
+					<div class="slide-btn full">
+						筛选<i class="iconfont icon-paixu"></i>
+					</div>
+
+				</div>
+
+				<div class="hd-slide">
+					<ul>
+						<li>
+							<a href="#">综合排序</a>
+						</li>
+						<li>
+							<a href="#">从高到低</a>
+						</li>
+						<li>
+							<a href="#">从低到高</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="fullBox fullScreen">
+				<div class="fullModal">
+					<div class="fullScreen-content">
+						<div class="item-list">
+							<div class="item-title">
+								<div class="">
+									销售人员
+								</div>
+							</div>
+							<div class="item-box">
+								<div class="item-content clearfix">
+									<div class="item personnel" id="a1">
+										李依依
+									</div>
+									<div class="item personnel" id="a2">
+										李依依
+									</div>
+									<div class="item personnel" id="a3">
+										李依依
+									</div>
+									<div class="item personnel" id="a4">
+										李依依
+									</div>
+									<div class="item personnel" id="a5">
+										李依依
+									</div>
+									<div class="item personnel" id="a6">
+										李依依
+									</div>
+									<div class="item personnel" id="a7">
+										李依依
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item-list">
+							<div class="item-title">
+								<div class="">
+									按时间筛选
+								</div>
+							</div>
+							<div class="item-box">
+								<div class="item-content clearfix">
+									<div class="item personnel" id="b1">
+										本周
+									</div>
+									<div class="item personnel" id="b2">
+										本月
+									</div>
+									<div class="item personnel" id="b3">
+										本年
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item-list">
+							<div class="item-title">
+								<div class="">
+									按时间段筛选
+								</div>
+							</div>
+							<div class="item-box">
+								<div class="item-content clearfix">
+									<input data-options='{}' class="screen-date" id="timeStart" type="text" placeholder="输入开始时间">
+									<span class="cut">-</span>
+									<input data-options='{}' class="screen-date" id="timeEnd" type="text" placeholder="输入结束时间">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="btnBox-full">
+						<div class="reset-full">
+							重置
+						</div>
+						<div class="close-full define-full">
+							确定
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bd" id="container">
+				<div id="content" class="weui-cells">
+					<!--列表加载内容-->
+				</div>
+				<!--滚动加载-->
+				<div class="weui-loadmore">
+					<i class="weui-loading"></i>
+					<span class="weui-loadmore__tips">正在加载</span>
+				</div>
+				<div class="add iconfont icon-add"></div>
+			</div>
+		</div>
+		<script src="plugins/weui/js/jquery-2.1.4.js"></script>
+		<script src="plugins/weui/js/jquery-weui.min.js"></script>
+		<script src="plugins/mui/js/mui.js"></script>
+		<script src="plugins/mui/js/mui.picker.min.js"></script>
+		<script src="js/baes.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/visiting-list.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			slide()
+			//筛选弹窗组件
+			var fullBtn = ".full";
+			var fullBox = ".fullBox";
+			var closeBtn = ".close-full";
+			screenFull()
+
+			mui.init();
+			//时间选择组件
+			(function($) {
+				$.init();
+				var btns = $('.screen-date');
+				btns.each(function(i, btn) {
+					btn.addEventListener('tap', function() {
+						var _self = this;
+						if(_self.picker) {
+							_self.picker.show(function(rs) {
+								_self.picker.dispose();
+								_self.picker = null;
+							});
+						} else {
+							var optionsJson = this.getAttribute('data-options') || '{}';
+							var options = JSON.parse(optionsJson);
+							var id = this.getAttribute('id');
+
+							_self.picker = new mui.DtPicker({
+								type: "date", //设置日历初始视图模式 
+								beginDate: new Date(2015, 04, 25), //设置开始日期 
+								endDate: new Date(2016, 04, 25), //设置结束日期 
+							})
+
+							_self.picker.show(function(rs) {
+								_self.style.color = "#333";
+								_self.value = rs.text;
+								_self.picker.dispose();
+								_self.picker = null;
+							});
+						}
+					}, false);
+				});
+			})(mui);
+
+			//点击确定
+			$(".define-full").click(function() {
+				if($('.screen-date')[0].value!==""||$('.item').hasClass("active")) {
+					$(".slide-btn.full").addClass("selected")
+				}
+				else{
+					$(".slide-btn.full").removeClass("selected")
+				}
+				var startDate = $('.screen-date')[0].value
+				var endDate = $('.screen-date')[1].value
+				var item = $('.item.active');
+				for(var i = 0; i < item.length; i++) {
+					alert($(item[i]).attr("id")) //选中元素id
+				}
+				alert(startDate) //开始时间
+				alert(endDate) //结束时间
+			})
+			//点击重置
+			$(".reset-full").click(function() {
+				$(".item").removeClass("active")
+				var startDate = $('.screen-date')[0].value = '';
+				var endDate = $('.screen-date')[1].value = '';
+			})
+		</script>
+
+	</body>
+
+</html>
