@@ -1,0 +1,96 @@
+.weui-panel__hd {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #333;
+}
+.weui-panel__hd:before {
+  content: " ";
+  display: inline-block;
+  height: 12px;
+  width: 2px;
+  margin-right: 8px;
+  background-color: #63a2e4;
+}
+
+.weui-media-box {
+  display: block;
+}
+.weui-media-box .weui-media-box-item {
+  display: flex;
+}
+.weui-media-box .weui-media-box-item .weui-media-box_img {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  margin: 0 10px;
+  background-color: #63a2e4;
+  color: #FFFFFF;
+  text-align: center;
+}
+.weui-media-box .weui-media-box-item .weui-media-box_content {
+  flex: 1;
+}
+.weui-media-box .weui-media-box-item .weui-media-box_content .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.weui-media-box .weui-media-box-item .weui-media-box_content .head .name {
+  font-size: 13px;
+  color: #666;
+  margin-right: 10px;
+}
+.weui-media-box .weui-media-box-item .weui-media-box_content .head .date {
+  font-size: 12px;
+  color: #999;
+}
+.weui-media-box .weui-media-box-item .weui-media-box_content .head .more {
+  font-size: 12px;
+  color: #999;
+  padding: 3px 0px 3px 5px;
+}
+.weui-media-box .weui-media-box-item .weui-media-box_content .details {
+  max-height: 54px;
+  font-size: 13px;
+  margin-top: 6px;
+  line-height: 18px;
+  text-align: justify;
+  overflow: hidden;
+  transition: all 1s;
+}
+.weui-media-box .weui-media-box-item .weui-media-box_content .details.active {
+  max-height: initial;
+}
+
+.weui-media-box__title {
+  position: relative;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.weui-media-box__title .name:before {
+  content: " ";
+  display: inline-block;
+  height: 12px;
+  width: 2px;
+  margin-right: 8px;
+  background-color: #63a2e4;
+}
+.weui-media-box__title .icon-youjiantou {
+  color: #c7c7d1;
+  margin-left: 5px;
+}
+
+.weui-media-box__desc {
+  padding: 5px 10px;
+}
+.weui-media-box__desc .label {
+  color: #999;
+  margin-right: 10px;
+}
+.weui-media-box__desc .cell {
+  color: #666;
+}

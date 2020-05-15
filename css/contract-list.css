@@ -1,0 +1,180 @@
+html,
+body {
+  height: 100%;
+  background-color: #fafafa;
+  overflow: hidden;
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.content .hd {
+  position: relative;
+  height: 50px;
+  z-index: 99;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #fff;
+  box-sizing: border-box;
+  z-index: 99;
+}
+.content .hd .screen-box {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.content .hd .screen-box .screen-date {
+  width: 45%;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 16px;
+  font-size: 12px;
+  background-color: #fafafa;
+  color: #999999;
+  text-align: center;
+}
+.content .hd .screen-btn {
+  width: 24%;
+  height: 32px;
+  line-height: 32px;
+  font-size: 13px;
+  border-radius: 16px;
+  background-color: #fcb058;
+  color: #fff;
+  text-align: center;
+}
+.content .hd span {
+  color: #999;
+}
+.content .bd {
+  flex: 1;
+  overflow-y: scroll;
+}
+.content .bd .weui-cells {
+  background-color: #FAFAFA;
+}
+.content .bd .weui-cells:first-of-type:before {
+  border: none;
+}
+.content .bd .weui-cells:before {
+  border-color: #ededed;
+}
+.content .bd .weui-cell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 12px 15px;
+}
+.content .bd .weui-cell:before {
+  right: 15px;
+}
+.content .bd .weui-cell .project {
+  width: 100%;
+}
+.content .bd .weui-cell .project .project-header {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+.content .bd .weui-cell .project .project-header .name {
+  font-size: 15px;
+  width: 84%;
+}
+.content .bd .weui-cell .project .project-header .tip {
+  height: 12px;
+  line-height: 12px;
+  font-size: 12px;
+  border-radius: 2px;
+  box-sizing: content-box;
+  width: 16%;
+  text-align: right;
+}
+.content .bd .weui-cell .project .project-header .tip.before {
+  color: #fcb058;
+}
+.content .bd .weui-cell .project .project-header .tip.being {
+  color: #88be77;
+}
+.content .bd .weui-cell .project .project-header .tip.after {
+  color: #63a2e4;
+}
+.content .bd .weui-cell .project .project-header .tip.overdue {
+  color: #f27474;
+}
+.content .bd .weui-cell .project .project-date {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+.content .bd .weui-cell .amount {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.content .bd .weui-cell .amount .item .amount-top {
+  font-size: 13px;
+  color: #666;
+  text-align: center;
+}
+.content .bd .weui-cell .amount .item .amount-bottom {
+  font-size: 15px;
+  color: #666;
+  text-align: center;
+}
+.content .bd .weui-cell .amount .item .amount-bottom .progressNumber {
+  font-size: 14px;
+  color: #fcb058;
+  text-align: center;
+}
+.content .bd .weui-cell .amount .item .amount-bottom .progressBox {
+  width: 100%;
+  height: 6px;
+  border-radius: 4px;
+  background-color: #ededed;
+}
+.content .bd .weui-cell .amount .item .amount-bottom .progressBox .progressBar {
+  width: 0;
+  height: 6px;
+  border-radius: 4px;
+  background-color: #fcb058;
+  transition: width 0.4s;
+}
+.content .bd .add {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 30px;
+  font-size: 24px;
+  text-align: center;
+  color: #fff;
+  background-color: #fcb058;
+  z-index: 99;
+}
+
+.mark {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 97;
+  transition: .3s;
+}
+.mark.active {
+  display: block;
+}

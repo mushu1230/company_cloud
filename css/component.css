@@ -1,0 +1,148 @@
+﻿*, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; }
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+.clearfix:after { clear: both; }
+* { touch-action: pan-y; } 
+.weui-picker-container, .weui-picker-overlay{
+	bottom: 0;
+}
+.mark.active{
+	display: none;
+}
+.toolbar .picker-button{
+	color:#fcb058;
+	font-size: 14px;
+}
+.toolbar .title{
+	line-height: 36px;
+	font-size: 14px;
+}
+.weui-cell{
+	display: block;
+}
+.weui-label{
+	font-size: 12px;
+}
+.report-cell {
+	height: 0px;
+}
+.weui-picker-modal .picker-items{
+	    -webkit-mask-box-image: none;
+	    background: #fff;
+}
+
+.input {
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+	width: 100%;
+	min-height: 60px;
+	vertical-align: top;
+}
+
+.input__field {
+	position: relative;
+	display: block;
+	float: right;
+	padding: 0;
+	width: 60%;
+	border: none;
+	border-radius: 0;
+	color: #aaa;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	-webkit-appearance: none;  for box shadows to show on iOS 
+}
+
+
+.input__field:focus {
+	outline: none;
+}
+
+
+.input__label-content {
+	line-height: 20px;
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 14px;
+	/*padding: 1.6em 0;*/
+	width: 100%;
+}
+.no-hint{
+	line-height: 0px;
+}
+.input__label-content .hint{
+	color: #999;
+	font-size: 14px;
+}
+
+/* Juro */
+.input--juro {
+	overflow: hidden;
+}
+
+.input__field--juro {
+	width: 100%;
+	background: transparent;
+	color: #333;
+	font-size: 14px;
+	padding-top: 18px;
+	line-height: 18px;
+	text-align: justify;
+}
+
+.input__label--juro {
+	padding: 0;
+	width: 100%;
+	line-height: 33px;
+}
+
+.input__label-content--juro {
+	-webkit-transform-origin: 0% 50%;
+	transform-origin: 0% 50%;
+	-webkit-transition: -webkit-transform 0.3s, color 0.3s;
+	transition: transform 0.3s, color 0.3s;
+	text-rendering: geometricPrecision;
+}
+
+.input__label--juro::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0px solid transparent;
+	-webkit-transition: border-width 0.3s, border-color 0.3s;
+	transition: border-width 0.3s, border-color 0.3s;
+}
+
+.input__field--juro:focus + .input__label--juro::before,
+.input--filled .input__label--juro::before {
+	border-width: 8px;
+	/*border-color: #1784cd;*/
+	border-top-width: 2em;
+}
+
+.input__field--juro:focus + .input__label--juro .input__label-content--juro,
+.input--filled .input__label--juro .input__label-content--juro {
+	color: #ff9922;
+	font-size: 12px;
+	width: 150%;
+	-webkit-transform: translate3d(0, -10px, 0) scale3d(0.8, 0.8, 1);
+	transform: translate3d(0, -10px, 0) scale3d(0.8, 0.8, 1) translateZ(1px);
+}
+
+/*周历*/
+/*.week-close{
+	font-size: 16px;
+    line-height: 44px;
+    height: 44px;
+    text-align: right;
+    color: #ffa74c;
+    border-bottom: 1px solid #ccc;
+    background: #eee;
+    padding-right: 15px;
+}*/
+/*.weui-popup__modal{
+	background: #fff;
+}*/

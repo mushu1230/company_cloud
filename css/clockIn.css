@@ -1,0 +1,1132 @@
+@charset "UTF-8";
+html,
+body {
+  height: 100%;
+  font-family: mfont;
+}
+
+#tab1 {
+  text-align: center;
+}
+
+.weui-tabbar:before {
+  border: none;
+}
+
+.weui-tabbar {
+  background: rgba(255, 255, 255, 0.9);
+  border-top: 1px solid #ededed;
+}
+
+.weui-tabbar .weui-tabbar__item {
+  padding: 10px 0 0 0;
+}
+
+.weui-tabbar .weui-tabbar__item .weui-cell__hd {
+  min-width: auto;
+  margin-right: auto;
+}
+
+.weui-tabbar .weui-tabbar__item .weui-badge {
+  position: absolute;
+  top: 0.3em;
+  left: 50%;
+}
+
+.weui-tabbar .weui-tabbar__item .weui-tabbar__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.weui-tabbar .weui-tabbar__item .weui-tabbar__icon i {
+  color: #C7C7D1;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.weui-tabbar .weui-tabbar__item .weui-tabbar__label {
+  font-size: 10px;
+  color: #333;
+}
+
+.weui-tabbar .weui-bar__item--on .weui-tabbar__icon i {
+  color: #fcb058;
+}
+
+.weui-tabbar .weui-bar__item--on .weui-tabbar__label {
+  color: #fcb058;
+}
+
+.daka-info {
+  width: 26rem;
+  position: absolute;
+  top: 50px;
+}
+
+#container {
+  height: 48%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#distance {
+  margin: 10px;
+  font-size: 12px;
+}
+
+#place {
+  margin: 5px auto;
+  height: 24px;
+  line-height: 24px;
+  color: #ffffff;
+  width: 80px;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
+.isdiy {
+  background-color: #5fb878;
+}
+
+.nodiy {
+  background-color: #ff5722;
+}
+
+.layui-form-switch {
+  width: -5%;
+  height: 20%;
+  background-color: #ff5722;
+  margin: 5px 0;
+}
+
+.layui-form-onswitch {
+  background-color: #009688;
+}
+
+.layui-form-switch em {
+  color: #ffffff !important;
+}
+
+#box {
+  /*position: fixed;
+          bottom: 0;*/
+  padding-top: 50px;
+  width: 100%;
+  margin-bottom: 60px;
+  position: absolute;
+  top: 48%;
+  z-index: 2;
+  background: #fafafa;
+}
+
+#history {
+  text-align: left;
+  margin: 10px auto;
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layui-timeline-item {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.layui-text {
+  line-height: 15px;
+  font-size: 14px;
+  color: #666;
+}
+
+#weizhi {
+  margin-top: -8px;
+  display: block;
+  color: #009f95;
+  font-size: 11px;
+}
+
+.signtype {
+  color: orange;
+  font-style: normal;
+}
+
+#location {
+  font-size: 12px;
+}
+
+.daka-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(#ffb957, #ffac38);
+  box-shadow: 0px 5px 10px #ffbb5c;
+  margin: auto;
+}
+.daka-btn .text {
+  color: #fff;
+  font-size: 18px;
+}
+.daka-btn #time {
+  font-size: 13px;
+}
+
+.daka-btn.active {
+  background: linear-gradient(#70c4f4, #63a2e4);
+  box-shadow: 0px 5px 10px rgba(99, 162, 228, 0.75);
+}
+
+.hint {
+  margin: 0 auto;
+  font-size: 12px;
+  margin-top: 20px;
+  color: #666;
+}
+
+.weui-tabbar__item.weui-bar__item--on .weui-tabbar__label {
+  color: #FCB058;
+}
+
+#location {
+  display: none;
+}
+
+.statistics .weui-navbar + .weui-tab__bd {
+  padding-top: 100px;
+}
+
+.statistics .weui-bar__item--on {
+  background: #fafafa;
+}
+
+.statistics .weui-bar__item--on span {
+  border-bottom: 2px solid #FCB058;
+  width: 20px;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 43%;
+}
+
+.statistics .weui-navbar:after {
+  border-bottom: 1px solid #ededed;
+}
+
+#tab2 .context {
+  width: 100%;
+  background-color: #fff;
+}
+#tab2 .main {
+  width: 100%;
+}
+#tab2 .main .weui-cells {
+  margin: 0 0 15px 0;
+}
+#tab2 .main .btn {
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  z-index: 500;
+  top: 0;
+  width: 100%;
+}
+#tab2 .main .btn .spanList {
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+  line-height: 50px;
+  display: inline-block;
+  position: relative;
+  letter-spacing: 0.005rem;
+}
+#tab2 .main .btn .spanList::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  right: -40px;
+  bottom: 0px;
+  left: -40px;
+}
+#tab2 .main .btn .tab2-active::after {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  content: "";
+  width: 18px;
+  height: 2px;
+  background-color: #fcb058;
+  border-radius: 0.04rem;
+}
+#tab2 #realTime {
+  width: 100%;
+  display: none;
+}
+#tab2 #realTime #main {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  margin-top: 30px;
+}
+#tab2 #realTime .state-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 6% 8% 4% 8%;
+  text-align: center;
+}
+#tab2 #realTime .state-info .info {
+  width: 33.3%;
+  margin-bottom: 20px;
+}
+#tab2 #realTime .state-info .info .num {
+  font-size: 20px;
+  color: #333;
+}
+#tab2 #realTime .state-info .info .des {
+  font-size: 13px;
+  color: #666;
+}
+#tab2 #realTime .detail .title {
+  height: 26px;
+  background-color: #fafafa;
+  color: #666;
+  font-size: 12px;
+  line-height: 26px;
+  text-align: left;
+  padding: 0 15px;
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+}
+#tab2 #realTime .detail .report-cell {
+  flex-direction: column;
+  align-items: normal;
+  margin-bottom: 40px;
+}
+#tab2 #realTime .detail .report-cell .report {
+  margin-top: 8px;
+  color: #666;
+}
+#tab2 #realTime .detail .report-cell .weui-cell {
+  display: flex;
+  overflow: hidden;
+}
+#tab2 #realTime .detail .customer-group {
+  display: flex;
+  justify-content: space-between;
+}
+#tab2 #realTime .detail .customer-group:last-child {
+  margin-bottom: 15px;
+}
+#tab2 #realTime .detail .customer-group .img {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  margin-right: 10px;
+  background-color: #63a2e4;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 5px;
+}
+#tab2 #realTime .detail .customer-group .time-info {
+  width: 60%;
+  flex: 1;
+}
+#tab2 #realTime .detail .customer-group .time-info .describe {
+  line-height: 16px;
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #666;
+  text-align: justify;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+#tab2 #realTime .detail .customer-group .time-info .describe p {
+  display: inline;
+  line-height: 20px;
+}
+#tab2 #realTime .detail .customer-group .time-info .info-myAtt {
+  font-size: 16px;
+  color: #333;
+}
+#tab2 #realTime .detail .customer-group .detail {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  justify-content: space-between;
+}
+#tab2 #realTime .detail .customer-group .detail .date {
+  line-height: 20px;
+  font-size: 12px;
+  color: #999;
+}
+#tab2 #realTime .detail .customer-group .detail .state {
+  margin-top: 6px;
+  text-align: right;
+  font-size: 14px;
+  line-height: 42px;
+  color: #999;
+}
+#tab2 #realTime .detail .customer-group .detail .state .record-pass {
+  color: #8ac48d;
+}
+#tab2 #realTime .detail .customer-group .detail .state .record-wait {
+  color: #fcb058;
+}
+#tab2 #realTime .detail .customer-group .detail .state .record-refuse {
+  color: #f27474;
+}
+#tab2 #realTime .detail .displayNone::before {
+  border: none;
+}
+#tab2 #realTime .detail .displayNone {
+  padding: 0;
+}
+#tab2 .con {
+  width: 100%;
+  display: none;
+  margin-top: 40px;
+}
+#tab2 .staWrap {
+  margin: 0;
+  width: auto;
+}
+#tab2 .staWrap .content {
+  margin: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+}
+#tab2 .staWrap .content #weekcalendar,
+#tab2 .staWrap .content #monthcalendar,
+#tab2 .staWrap .content #myweekcalendar,
+#tab2 .staWrap .content #mymonthcalendar {
+  display: none;
+}
+#tab2 .staWrap .content .monthWrap {
+  width: 180px;
+  margin-right: -30px;
+}
+#tab2 .staWrap .content .weekWrap {
+  width: 180px;
+  margin-right: -30px;
+}
+#tab2 .staWrap .btn-group {
+  width: 94px;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #fcb058;
+}
+#tab2 .staWrap .btn-group.weui-cells::before,
+#tab2 .staWrap .btn-group.weui-cells::after {
+  border: none;
+}
+#tab2 .staWrap .timeBtn {
+  display: flex;
+  justify-content: space-around;
+}
+#tab2 .staWrap .btn-default {
+  font-size: 14px;
+  width: 50%;
+  text-align: center;
+}
+#tab2 .staWrap .btn-default.active {
+  color: #fff;
+  background: #fcb058;
+  border-color: #fcb058;
+}
+#tab2 .staWrap .em-journal-title {
+  display: block;
+  height: 28px;
+}
+#tab2 .staWrap .em-per-block {
+  font-size: 14px;
+}
+#tab2 .staWrap #calendar {
+  display: none;
+}
+#tab2 .staWrap .em-per-block {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: space-around;
+}
+#tab2 .staWrap .em-per-block::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  left: -10px;
+}
+#tab2 .staWrap .em-per-block.next:active,
+#tab2 .staWrap .em-per-block.pre:active {
+  background: none;
+}
+#tab2 .staWrap .weekmid,
+#tab2 .staWrap .mid,
+#tab2 .staWrap .myweekmid,
+#tab2 .staWrap .mymid {
+  width: 45%;
+}
+#tab2 .staWrap .mui-icon-arrowleft {
+  background: url(../img/icon-right.png) no-repeat;
+  transform: rotateY(180deg);
+  display: inline-block;
+  height: 14px;
+  width: 12px;
+}
+#tab2 .staWrap .mui-icon-arrowright {
+  background: url(../img/icon-right.png) no-repeat;
+  height: 14px;
+  width: 12px;
+  display: inline-block;
+}
+#tab2 .staWrap .partition {
+  height: 15px;
+  background: #fafafa;
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+}
+#tab2 .staWrap .sta-info {
+  margin: 0;
+}
+#tab2 .staWrap .sta-info .sta-list {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #333;
+}
+#tab2 .staWrap .sta-info .sta-list .list-r {
+  color: #999;
+}
+#tab2 .staWrap .sta-info.weui-cells:before {
+  border: none;
+}
+#tab2 .staWrap .weui-cell {
+  display: flex;
+  overflow: hidden;
+}
+#tab2 .staWrap .weui-cell .customer-group {
+  display: flex;
+  justify-content: space-between;
+}
+#tab2 .staWrap .weui-cell .customer-group .img {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  margin-right: 10px;
+  background-color: #63a2e4;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 3px;
+}
+#tab2 .staWrap .weui-cell .customer-group .time-info {
+  width: 60%;
+  flex: 1;
+}
+#tab2 .staWrap .weui-cell .customer-group .time-info .describe {
+  line-height: 16px;
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #666;
+  text-align: justify;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+#tab2 .staWrap .weui-cell .customer-group .time-info .describe p {
+  display: inline;
+  line-height: 20px;
+}
+#tab2 .staWrap .weui-cell .customer-group .time-info .info-myAtt {
+  font-size: 16px;
+  color: #333;
+}
+#tab2 .staWrap .weui-cell .customer-group .time-info .info-myAtt .post {
+  line-height: 20px;
+  font-size: 12px;
+  color: #999;
+}
+#tab2 .staWrap .weui-cell .customer-group .detail {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  justify-content: space-between;
+}
+#tab2 .staWrap .weui-cell .customer-group .detail .state {
+  text-align: right;
+  font-size: 14px;
+  color: #999;
+}
+#tab2 .staWrap .weui-cell .customer-group .detail .state .monthly {
+  font-size: 13px;
+  line-height: 43px;
+  height: 43px;
+}
+#tab2 .staWrap .weui-cell .customer-group .detail .state .monthly img {
+  width: 13px;
+  height: 13px;
+  margin-bottom: -1px;
+}
+#tab2 .staWrap .weui-cell.report-cell {
+  flex-direction: column;
+  align-items: normal;
+}
+#tab2 .staWrap .displayNone::before {
+  border: none;
+}
+
+/*******打卡记录页面*********/
+/* 头部 */
+#clockIn-record .bd .weui-cells {
+  margin: 0 0 15px 0;
+}
+#clockIn-record .bd .weui-cells .report-cell {
+  flex-direction: column;
+  align-items: normal;
+}
+#clockIn-record .bd .weui-cells .report-cell .customer-group {
+  display: flex;
+  justify-content: space-between;
+}
+#clockIn-record .bd .weui-cells .report-cell .customer-group .img {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  margin-right: 10px;
+  background-color: #63a2e4;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 3px;
+}
+#clockIn-record .bd .weui-cells .report-cell .customer-group .time-info {
+  width: 60%;
+  flex: 1;
+}
+#clockIn-record .bd .weui-cells .report-cell .customer-group .time-info .name-info {
+  text-align: left;
+}
+#clockIn-record .bd .weui-cells .report-cell .customer-group .time-info .info-myAtt .date {
+  line-height: 20px;
+  font-size: 12px;
+  color: #999;
+}
+#clockIn-record .bd .weui-cells .report-cell .customer-group .detail {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  justify-content: space-between;
+}
+#clockIn-record .bd .weui-cells .report-cell .customer-group .detail .state {
+  /* margin-bottom: 8px; */
+  text-align: right;
+  font-size: 14px;
+  margin-top: 10px;
+}
+#clockIn-record .bd .weui-cells .report-cell .customer-group .detail .state .monthly {
+  color: #FCB058;
+  cursor: pointer;
+}
+#clockIn-record .workRecord .des {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 4px;
+  text-align: left;
+}
+#clockIn-record .workRecord .workTime {
+  font-size: 13px;
+  color: #666;
+}
+#clockIn-record .workRecord .record-info {
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+}
+#clockIn-record .workRecord .record-info.onDuty::after {
+  content: '';
+  height: 20px;
+  width: 1px;
+  background: #999;
+  position: absolute;
+  top: 53px;
+  left: 38px;
+}
+#clockIn-record .workRecord .record-info .timeBox {
+  margin-right: 13px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+}
+#clockIn-record .workRecord .record-info .record-state {
+  text-align: left;
+  color: #999;
+}
+#clockIn-record .workRecord .record-info .record-state p {
+  margin: 0;
+}
+#clockIn-record .workRecord .record-info .record-state .des {
+  font-size: 14px;
+}
+#clockIn-record .workRecord .record-info .record-state .text {
+  font-size: 12px;
+}
+#clockIn-record .workRecord .record-info .success p {
+  color: #333;
+}
+#clockIn-record .workRecord .record-info .failed .des {
+  color: #f27474;
+}
+#clockIn-record .workRecord .record-info .failed .text {
+  color: #f27474;
+}
+#clockIn-record .workRecord .record-info .normal p {
+  color: #999;
+}
+#clockIn-record .swiper-slide {
+  width: 100% !important;
+}
+
+.workRecord {
+  margin: 0 0 30px 0 !important;
+}
+
+.mui-content {
+  height: max-content;
+}
+
+.layui-icon {
+  font-style: inherit;
+}
+
+#clockIn-sta {
+  background-color: #fff;
+}
+#clockIn-sta #realTime {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+#clockIn-sta #realTime #main {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  margin-top: 30px;
+}
+#clockIn-sta #realTime .state-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 6% 8% 4% 8%;
+  text-align: center;
+}
+#clockIn-sta #realTime .state-info .info {
+  width: 33.3%;
+  margin-bottom: 20px;
+}
+#clockIn-sta #realTime .state-info .info .num {
+  font-size: 20px;
+  color: #333;
+}
+#clockIn-sta #realTime .state-info .info .des {
+  font-size: 13px;
+  color: #666;
+}
+#clockIn-sta #realTime .detail .title {
+  height: 26px;
+  background-color: #fafafa;
+  color: #666;
+  font-size: 12px;
+  line-height: 26px;
+  text-align: left;
+  padding: 0 15px;
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+}
+#clockIn-sta #realTime .detail .report-cell {
+  flex-direction: column;
+  align-items: normal;
+  margin-bottom: 40px;
+  margin-top: 0;
+}
+#clockIn-sta #realTime .detail .report-cell .report {
+  margin-top: 8px;
+  color: #666;
+}
+#clockIn-sta #realTime .detail .report-cell .weui-cell {
+  display: flex;
+  overflow: hidden;
+}
+#clockIn-sta #realTime .detail .report-cell.weui-cells:before {
+  border: none;
+}
+#clockIn-sta #realTime .detail .customer-group {
+  display: flex;
+  justify-content: space-between;
+}
+#clockIn-sta #realTime .detail .customer-group:last-child {
+  margin-bottom: 0px;
+}
+#clockIn-sta #realTime .detail .customer-group .img {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  margin-right: 10px;
+  background-color: #63a2e4;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 5px;
+}
+#clockIn-sta #realTime .detail .customer-group .time-info {
+  width: 60%;
+  flex: 1;
+}
+#clockIn-sta #realTime .detail .customer-group .time-info .describe {
+  line-height: 16px;
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #666;
+  text-align: justify;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+#clockIn-sta #realTime .detail .customer-group .time-info .describe p {
+  display: inline;
+  line-height: 20px;
+}
+#clockIn-sta #realTime .detail .customer-group .time-info .info-myAtt {
+  font-size: 16px;
+  color: #333;
+}
+#clockIn-sta #realTime .detail .customer-group .time-info .info-myAtt .name-info {
+  text-align: left;
+}
+#clockIn-sta #realTime .detail .customer-group .detail {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  justify-content: space-between;
+}
+#clockIn-sta #realTime .detail .customer-group .detail .date {
+  line-height: 20px;
+  font-size: 12px;
+  color: #999;
+}
+#clockIn-sta #realTime .detail .customer-group .detail .state {
+  margin-top: 6px;
+  text-align: right;
+  font-size: 14px;
+  line-height: 42px;
+  color: #999;
+}
+#clockIn-sta #realTime .detail .customer-group .detail .state .record-pass {
+  color: #8ac48d;
+}
+#clockIn-sta #realTime .detail .customer-group .detail .state .record-wait {
+  color: #fcb058;
+}
+#clockIn-sta #realTime .detail .customer-group .detail .state .record-refuse {
+  color: #f27474;
+}
+#clockIn-sta #realTime .detail .displayNone::before {
+  border: none;
+}
+#clockIn-sta #realTime .detail .displayNone {
+  padding: 0;
+}
+#clockIn-sta .month-sta .staWrap {
+  margin: 0;
+  width: auto;
+}
+#clockIn-sta .month-sta .staWrap .content {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+#clockIn-sta .month-sta .staWrap .content .btn-default {
+  font-size: 14px;
+  width: 50%;
+  text-align: center;
+}
+#clockIn-sta .month-sta .staWrap .content .em-journal-title {
+  display: block;
+  height: 50px;
+}
+#clockIn-sta .month-sta .staWrap .content #monthcalendar {
+  display: none;
+}
+#clockIn-sta .month-sta .staWrap .content #month {
+  width: 100%;
+}
+#clockIn-sta .month-sta .staWrap .content #month .monthWrap {
+  width: 100%;
+  margin-right: 0;
+}
+#clockIn-sta .month-sta .staWrap .content #month .monthWrap .em-per-block {
+  width: 33.3%;
+}
+
+#monthRecord {
+  width: 100%;
+}
+#monthRecord #main {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  margin-top: 30px;
+}
+#monthRecord .state-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 6% 8% 4% 8%;
+  text-align: center;
+}
+#monthRecord .state-info .info {
+  width: 33.3%;
+  margin-bottom: 20px;
+}
+#monthRecord .state-info .info .num {
+  font-size: 20px;
+  color: #333;
+}
+#monthRecord .state-info .info .des {
+  font-size: 13px;
+  color: #666;
+}
+#monthRecord .report-cell {
+  flex-direction: column;
+  align-items: normal;
+}
+#monthRecord .report-cell .report {
+  margin-top: 8px;
+  color: #666;
+}
+#monthRecord .report-cell .weui-cell {
+  display: flex;
+  overflow: hidden;
+}
+#monthRecord .customer-group {
+  display: flex;
+  justify-content: space-between;
+}
+#monthRecord .customer-group .img {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  margin-right: 10px;
+  background-color: #63a2e4;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 5px;
+}
+#monthRecord .customer-group .time-info {
+  width: 60%;
+  flex: 1;
+}
+#monthRecord .customer-group .time-info .describe {
+  line-height: 16px;
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #666;
+  text-align: justify;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+#monthRecord .customer-group .time-info .describe p {
+  display: inline;
+  line-height: 20px;
+}
+#monthRecord .customer-group .time-info .info-myAtt {
+  font-size: 16px;
+  color: #333;
+}
+#monthRecord .customer-group .time-info .info-myAtt .name-info {
+  text-align: left;
+}
+#monthRecord .customer-group .detail {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  justify-content: space-between;
+}
+#monthRecord .customer-group .detail .date {
+  line-height: 20px;
+  font-size: 12px;
+  color: #999;
+}
+#monthRecord .customer-group .detail .state {
+  text-align: right;
+  font-size: 14px;
+  color: #999;
+}
+#monthRecord .customer-group .detail .state .monthly {
+  font-size: 13px;
+  line-height: 43px;
+  height: 43px;
+}
+#monthRecord .customer-group .detail .state .monthly img {
+  width: 13px;
+  height: 13px;
+  margin-bottom: -1px;
+}
+#monthRecord .staWrap {
+  margin: 0;
+  width: auto;
+}
+#monthRecord .staWrap .content {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+#monthRecord .staWrap .content .btn-default {
+  font-size: 14px;
+  width: 50%;
+  text-align: center;
+}
+#monthRecord .staWrap .em-per-block {
+  width: 33.3%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: space-around;
+}
+#monthRecord .staWrap .em-per-block.next:active,
+#monthRecord .staWrap .em-per-block.pre:active {
+  background: none;
+}
+#monthRecord .staWrap .mui-icon-arrowleft {
+  background: url(../img/icon-right.png) no-repeat;
+  transform: rotateY(180deg);
+  display: inline-block;
+  height: 14px;
+  width: 12px;
+}
+#monthRecord .staWrap .mui-icon-arrowright {
+  background: url(../img/icon-right.png) no-repeat;
+  height: 14px;
+  width: 12px;
+  display: inline-block;
+}
+#monthRecord .staWrap .partition {
+  height: 15px;
+  background: #fafafa;
+  border-top: 1px solid #ededed;
+}
+#monthRecord .staWrap .sta-info {
+  margin: 0;
+}
+#monthRecord .staWrap .sta-info .sta-list {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #333;
+}
+#monthRecord .staWrap .sta-info .sta-list .list-r {
+  color: #999;
+}
+#monthRecord .em-journal-title {
+  display: block;
+  height: 75px;
+}
+#monthRecord #monthcalendar {
+  display: none;
+}
+#monthRecord #month {
+  width: 40%;
+}
+#monthRecord #month .monthWrap {
+  width: 100%;
+  margin-right: 0;
+}
+#monthRecord #month .monthWrap .em-per-block {
+  width: 33.3%;
+}
+
+.amap-logo,
+.amap-copyright {
+  display: none;
+  visibility: hidden !important;
+}
+
+#signbtn:active {
+  background-color: inherit;
+}
+
+.amap-geolocation-con {
+  z-index: 1 !important;
+}
+
+.weui-tabbar {
+  position: fixed;
+  bottom: 0;
+}
+
+.daka-mark {
+  width: 100%;
+  background: #fafafa;
+  height: 50%;
+  position: absolute;
+  top: 48%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.daka-mark .des {
+  height: 25%;
+}
+.daka-mark .des .iconfont {
+  font-size: 30px;
+  line-height: 50px;
+  color: #FCB058;
+}
+.daka-mark .des p {
+  font-size: 16px;
+  color: #FCB058;
+}
+
+.daka-normal {
+  background: linear-gradient(#88BE77, #79b267);
+  box-shadow: 0px 5px 10px #79b267;
+}
+
+.daka-unusually {
+  background: linear-gradient(#5fd480, #08b12c);
+  box-shadow: 0px 5px 10px #3cd65e;
+}
+
+.daka-success {
+  background: linear-gradient(#70c4f4, #63a2e4);
+  box-shadow: 0px 5px 10px rgba(99, 162, 228, 0.75);
+}

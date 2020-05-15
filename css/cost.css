@@ -1,0 +1,177 @@
+body .container .weui-panel__bd .weui-media-box .weui-cells .weui-cell {
+  background: #fff;
+  align-items: center;
+  padding: 0 15px;
+}
+body .container .weui-panel__bd .weui-media-box .weui-cells .weui-cell__bd {
+  display: flex;
+  align-items: center;
+}
+body .container .weui-panel__bd .weui-media-box .weui-cells .weui-cell__hd {
+  min-width: 40px;
+  line-height: 50px;
+}
+body .container .weui-panel__bd .weui-media-box .weui-cells .weui-cell__ft {
+  color: #333;
+}
+body .container .weui-panel__bd .weui-media-box .weui-cells .date {
+  display: flex;
+  align-items: center;
+}
+body .container .weui-panel__bd .weui-media-box .weui-cells .date p {
+  color: #333;
+}
+body .container .weui-panel__bd .weui-media-box .weui-cells .date .r-icon {
+  width: 22px;
+  height: 22px;
+  margin-left: 5px;
+}
+body .container .weui-panel__bd .weui-media-box .weui-cells .screen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .container .weui-panel__bd .weui-media-box .weui-cells .screen .screen-box {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .container .weui-panel__bd .weui-media-box .weui-cells .screen .screen-box .screen-date {
+  width: 45%;
+  height: 32px;
+  line-height: 32px;
+  font-size: 14px;
+  color: #999999;
+}
+body .container .weui-panel__bd .weui-media-box .weui-cells .screen .screen-box .screen-date:last-of-type {
+  text-align: right;
+}
+body .container .weui-panel__bd .weui-media-box .weui-cells .screen .screen-btn {
+  width: 24%;
+  height: 32px;
+  line-height: 32px;
+  font-size: 13px;
+  border-radius: 16px;
+  background-color: #fcb058;
+  color: #fff;
+  text-align: center;
+}
+body .container .weui-panel__bd .weui-media-box .weui-cells .screen .screen-btn.reset {
+  background-color: #DD524D;
+}
+body .container .weui-panel__bd .weui-media-box .weui-cells .screen span {
+  color: #999;
+}
+body .container .result {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px 0;
+  background-color: #fafafa;
+}
+body .container .result.active {
+  display: flex;
+}
+body .container .result .resultBox {
+  display: flex;
+  align-items: center;
+  color: #999;
+  font-size: 12px;
+}
+body .container .result .resultBox .resultTitle {
+  margin-right: 10px;
+}
+body .container .result .resultBtn {
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  color: #aaa;
+  border-radius: 16px;
+  border: 1px solid #DDDDDD;
+  font-size: 10px;
+}
+
+.iconfont {
+  margin-right: 5px;
+  display: block;
+  color: #70C4F4;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.blue {
+  color: #70C4F4;
+}
+
+.gray {
+  color: #c7c7d1;
+  margin-left: 5px;
+}
+
+.weui-mask {
+  visibility: inherit;
+}
+
+.weui-cells:after {
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
+#shuju {
+  padding: 0 0 15% 0;
+  width: 100%;
+  margin-top: -8%;
+  padding-bottom: 15px;
+}
+#shuju li {
+  width: 50%;
+  display: inline-block;
+}
+#shuju li:nth-child(1) .subtitle .color {
+  background: #1890FF;
+}
+#shuju li:nth-child(2) .subtitle .color {
+  background: #2FC25B;
+}
+#shuju li:nth-child(3) .subtitle .color {
+  background: #FACC14;
+}
+#shuju li:nth-child(4) .subtitle .color {
+  background: #F04864;
+}
+
+.subtitle {
+  display: flex;
+  align-items: center;
+}
+.subtitle .color {
+  display: block;
+  background: #007AFF;
+  width: 12px;
+  height: 12px;
+}
+.subtitle .text {
+  font-size: 14px;
+  color: #666;
+  margin: 0 10px;
+}
+.subtitle .cost {
+  font-size: 14px;
+  color: #333;
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  #shuju {
+    padding: 0 2% 15px 2%;
+  }
+}
+@media (max-width: 320px) {
+  #shuju li {
+    width: 100%;
+  }
+}
