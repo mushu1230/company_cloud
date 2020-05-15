@@ -1,0 +1,92 @@
+/*------图表------*/
+var data = [{
+	assetType: '招待费',
+	cost: 4500,
+	const: 'const'
+}, {
+	assetType: '招标费',
+	cost: 11500,
+	const: 'const'
+}, {
+	assetType: '差旅费',
+	cost: 600,
+	const: 'const'
+}, {
+	assetType: '技术费',
+	cost: 12600,
+	const: 'const'
+}];
+
+var colorMap = {
+	'招待费': '#1890FF',
+	'招标费': '#2FC25B',
+	'差旅费': '#FACC14',
+	'技术费': '#F04864'
+};
+// 设置图例项的内容
+var legendItems = [];
+var sum = 0;
+data.map(function(obj) {
+	sum += obj.cost;
+	var item = {
+		name: obj.assetType,
+		value: '    ' + obj.cost + '元',
+		marker: {
+			symbol: 'square',
+			fill: colorMap[obj.assetType],
+			radius: 5
+		}
+	};
+	legendItems.push(item);
+});
+
+var chart = new F2.Chart({
+	id: 'mountNode',
+	pixelRatio: window.devicePixelRatio,
+//	width: 375,
+  	height: 320,
+});
+
+chart.source(data, {
+	cost: {
+		formatter: function formatter(val) {
+			return val;
+		}
+	}
+});
+chart.coord('polar', {
+	transposed: true,
+	innerRadius: 0.6,
+	radius: 1
+});
+chart.legend({
+	position: 'bottom',
+	align:'center',
+	custom: true,
+	items: legendItems,
+
+	nameStyle: {
+		fill: '#808080',
+		fontSize: 14
+	}, // 图例项 key 值文本样式
+	valueStyle: {
+		fill: '#333',
+		fontWeight: 'bold' // 图例项 value 值文本样式
+	}
+});
+chart.axis(false);
+chart.interval().position('const*cost').color('assetType', function(val) {
+	return colorMap[val];
+}).adjust('stack').style({
+	lineWidth: 1,
+	stroke: '#fff'
+});
+
+chart.guide().text({
+	position: ['50%', '50%'],
+	content: sum.toFixed(2),
+	style: {
+		fontSize: 20
+	}
+});
+chart.render();
